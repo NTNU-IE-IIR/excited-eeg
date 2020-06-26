@@ -1,0 +1,225 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.percent.PercentRelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+        <TableLayout
+            android:id="@+id/adaptiveTable"
+            style="@style/RegularTableStyle">
+
+            <TableRow style="@style/AdaptiveRowStyle">
+
+                <TextView
+                    android:id="@+id/sym_a"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="a" />
+
+                <TextView
+                    android:id="@+id/sym_b"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="b" />
+
+                <TextView
+                    android:id="@+id/sym_c"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="c" />
+
+                <TextView
+                    android:id="@+id/sym_d"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="d" />
+
+                <TextView
+                    android:id="@+id/sym_e"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="e" />
+
+                <TextView
+                    android:id="@+id/sym_f"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="f" />
+            </TableRow>
+
+            <TableRow style="@style/AdaptiveRowStyle">
+
+                <TextView
+                    android:id="@+id/sym_g"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="g" />
+
+                <TextView
+                    android:id="@+id/sym_h"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="h" />
+
+                <TextView
+                    android:id="@+id/sym_i"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="i" />
+
+                <TextView
+                    android:id="@+id/sym_j"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="j" />
+
+                <TextView
+                    android:id="@+id/sym_k"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="k" />
+
+                <TextView
+                    android:id="@+id/sym_l"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="l" />
+            </TableRow>
+
+            <TableRow style="@style/AdaptiveRowStyle">
+
+                <TextView
+                    android:id="@+id/sym_m"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="m" />
+
+                <TextView
+                    android:id="@+id/sym_n"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="n" />
+
+                <TextView
+                    android:id="@+id/sym_o"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="o" />
+
+                <TextView
+                    android:id="@+id/sym_p"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="p" />
+
+                <TextView
+                    android:id="@+id/sym_q"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="q" />
+
+                <TextView
+                    android:id="@+id/sym_r"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="r" />
+            </TableRow>
+
+            <TableRow style="@style/AdaptiveRowStyle">
+
+                <TextView
+                    android:id="@+id/sym_s"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="s" />
+
+                <TextView
+                    android:id="@+id/sym_t"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="t" />
+
+                <TextView
+                    android:id="@+id/sym_u"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="u" />
+
+                <TextView
+                    android:id="@+id/sym_v"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="v" />
+
+                <TextView
+                    android:id="@+id/sym_w"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="w" />
+
+                <TextView
+                    android:id="@+id/sym_question_mark"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="\?" />
+            </TableRow>
+
+            <TableRow style="@style/AdaptiveRowStyle">
+
+                <TextView
+                    android:id="@+id/sym_x"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="x" />
+
+                <TextView
+                    android:id="@+id/sym_y"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="y" />
+
+                <TextView
+                    android:id="@+id/sym_z"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="z" />
+
+                <TextView
+                    android:id="@+id/sym_space"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text=" " />
+
+                <TextView
+                    android:id="@+id/sym_comma"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="," />
+                <TextView
+                    android:id="@+id/sym_exclamation_mark"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="!" />
+            </TableRow>
+
+            <TableRow style="@style/AdaptiveRowStyle">
+
+                <TextView
+                    android:id="@+id/sym_dictionary"
+                    style="@style/RegularTextViewWordStyle"
+                    android:text="Dict" />
+
+                <TextView
+                    android:id="@+id/sym_correct_word"
+                    style="@style/RegularTextViewWordStyle"
+                    android:text="Cor" />
+
+                <TextView
+                    android:id="@+id/sym_delete_word"
+                    style="@style/RegularTextViewWordStyle"
+                    android:text="Del" />
+
+                <TextView
+                    android:id="@+id/sym_period"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="." />
+
+                <TextView
+                    android:id="@+id/sym_setting"
+                    style="@style/RegularTextViewWordStyle"
+                    android:text="Spec" />
+                <TextView
+                    android:id="@+id/sym_send"
+                    style="@style/RegularTextViewLetterStyle"
+                    android:text="Snd" />
+            </TableRow>
+
+        </TableLayout>
+
+
+
+
+    <!--<view class="no.ntnu.stud.avikeyb.gui.utils.GenericSuggestions$View"
+          android:id="@+id/suggestionsList"
+          android:layout_weight="1"
+          android:layout_width="0dp"
+          android:layout_height="match_parent">
+    </view> -->
+    <no.ntnu.stud.avikeyb.gui.utils.AutoScrollListView
+        android:id="@+id/listview"
+        android:layout_toEndOf="@+id/adaptiveTable"
+        style="@style/DictionaryListStyle" />
+    <TextView android:id="@+id/emptySuggestions"
+        android:layout_toEndOf="@+id/adaptiveTable"
+        style="@style/EmptyListTextViewStyle" />
+
+</android.support.percent.PercentRelativeLayout>
