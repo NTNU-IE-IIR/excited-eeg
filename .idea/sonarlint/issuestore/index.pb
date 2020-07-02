@@ -1,3 +1,35 @@
 
 ;
 app/pom.xml,3\9\393b54a143a2f25876bdfcbd2ae6dc1db9c1672e
+9
+	README.md,8\e\8ec9a00bfd09b3190ac6b22251dbb1aa95a0579d
+q
+Aapp/src/main/java/no/ntnu/stud/avikeyb/gui/AdaptiveLayoutGUI.java,6\6\66c3e06e66bd3fbc2c75f204e0af28d8db289cec
+z
+Japp/src/androidTest/java/no/ntnu/stud/avikeyb/ExampleInstrumentedTest.java,7\6\760b9bf1948cb7c10a132002ae398a0ff46ef3af
+t
+Dapp/src/test/java/no/ntnu/stud/avikeyb/gui/core/ChessLayoutTest.java,f\a\faddd9d9301235e9f38f37c184371d1ee5252e6d
+z
+Japp/src/main/java/no/ntnu/stud/avikeyb/iointerface/WebSocketInterface.java,1\5\153d5f2e6a254d1d540f3b074e5fa4ae84946d92
+u
+Eapp/src/main/java/no/ntnu/stud/avikeyb/gui/core/AsyncSuggestions.java,9\c\9c61b2127bd46d0a36192d09b9a9956e901db208
+h
+8app/src/main/java/no/ntnu/stud/avikeyb/MainActivity.java,3\5\35dac26a98fab7bd18d6326333e501f19780911b
+A
+backend/README.md,6\6\6610930c2092e0f10b89932e6e99b7645897ce85
+ç
+]inputdrivers/headset_connection/epocwebconnection/src/com/emotiv/Iedk/PerformanceMetrics.java,4\9\49094a5e55c261c6115b2b97c98ed865f3941441
+É
+Sinputdrivers/headset_connection/epocwebconnection/src/com/emotiv/Iedk/IEegData.java,6\9\69c382ed1acc7137d5ab126138bd13afafced41d
+å
+\inputdrivers/headset_connection/epocwebconnection/src/com/emotiv/Iedk/EmotivCloudClient.java,5\d\5d04537d050e2454733982574e6a97f4642191e7
+~
+Ninputdrivers/headset_connection/epocwebconnection/src/com/emotiv/Iedk/Edk.java,2\f\2fd11ac9bd6a8a238b934c9cfd4151042e1475f4
+á
+Winputdrivers/headset_connection/epocwebconnection/src/com/emotiv/Iedk/EdkErrorCode.java,c\c\cc6d4425c22e8aaa6725c3f8b39957f37c8034c7
+P
+ app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+m
+=inputdrivers/headset_connection/tools/rules.d/70-emotiv.rules,5\6\56b8fcd23be412b5786233d36811738a8b5bd4f8
+©
+yinputdrivers/headset_connection/epocwebconnection/src/no/ntnu/accessiblevirtualkeyboard/epocwebconnection/EpocDriver.java,b\9\b9ae4d9928d3dcf3918938acc3ea88bdf531c694
