@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:layout_marginTop="@dimen/activity_vertical_margin"
+    android:layout_marginBottom="@dimen/activity_vertical_margin"
+    android:layout_marginLeft="@dimen/activity_horizontal_margin"
+    android:layout_marginRight="@dimen/activity_horizontal_margin"
+    android:weightSum="15">
+
+    <android.support.design.widget.TabLayout
+        android:id="@+id/layoutTabs"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1" />
+
+    <EditText
+        android:id="@+id/currentBuffer"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_marginBottom="2dp"
+        android:layout_weight="1"
+        android:background="@color/background"
+        android:imeOptions="actionNone"
+        android:inputType="none"
+        android:paddingLeft="2dp"
+        android:textCursorDrawable="@null"
+        android:textSize="18sp" />
+    <!-- TODO change BG color above? -->
+
+    <FrameLayout
+        android:id="@+id/layoutWrapper"
+        android:layout_width="match_parent"
+        android:fillViewport="true"
+        android:layout_height="0dp"
+        android:layout_weight="11">
+    </FrameLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="2">
+
+        <Button
+            android:id="@+id/buttonInput1"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Input1" />
+
+        <Button
+            android:id="@+id/buttonInput2"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Input2" />
+
+        <Button
+            android:id="@+id/buttonInput3"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Input3" />
+
+        <Button
+            android:id="@+id/buttonInput4"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="Input4" />
+        <Button
+            android:id="@+id/buttonBroadcast"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:text="BroadcastIP" />
+    </LinearLayout>
+
+</LinearLayout>

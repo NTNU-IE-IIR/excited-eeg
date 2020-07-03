@@ -1,0 +1,45 @@
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <LinearLayout
+        style="@style/MobileGroupStyle"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/sym_dictionary"
+            style="@style/DefaultTextViewLetterStyle" />
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        style="@style/MobileGroupStyle"
+        android:weightSum="4">
+
+        <TextView
+            android:id="@+id/sym_period"
+            style="@style/DefaultTextViewLetterStyle" />
+
+        <TextView
+            android:id="@+id/sym_comma"
+            style="@style/DefaultTextViewLetterStyle" />
+
+        <TextView
+            android:id="@+id/sym_question_mark"
+            style="@style/DefaultTextViewLetterStyle" />
+        <TextView
+            android:id="@+id/sym_exclamation_mark"
+            style="@style/DefaultTextViewLetterStyle" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        style="@style/MobileGroupStyle"
+        android:weightSum="1">
+
+        <TextView
+            android:id="@+id/sym_send"
+            style="@style/DefaultTextViewLetterStyle" />
+
+    </LinearLayout>
+
+</merge>

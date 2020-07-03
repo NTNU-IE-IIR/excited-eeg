@@ -1,0 +1,58 @@
+<resources>
+    <!-- Default screen margins, per the Android Design guidelines (16dp, not 8dp). -->
+    <dimen name="activity_horizontal_margin">8dp</dimen>
+    <dimen name="activity_vertical_margin">8dp</dimen>
+
+    <dimen name="binsearch_cell_margin">1dp</dimen>
+    <dimen name="binsearch_cell_padding">4dp</dimen>
+    <dimen name="binsearch_suggestion_margin">1dp</dimen>
+    <dimen name="binsearch_suggestion_padding">4dp</dimen>
+    <dimen name="binsearch_min_width">50dp</dimen>
+
+    <dimen name="simple_example_cell_margin">2dp</dimen>
+    <dimen name="simple_example_cell_padding">4dp</dimen>
+    <dimen name="simple_example_min_width">50dp</dimen>
+
+    <!--<dimen name="etos_cell_margin">2dp</dimen>
+    <dimen name="etos_cell_padding">3dp</dimen>
+    <dimen name="etos_min_width">30dp</dimen>-->
+    <dimen name="default_tile_padding">2dp</dimen>
+
+    <dimen name="mobile_grid_element_padding">4dp</dimen>
+
+    <dimen name="adaptive_cell_margin">2dp</dimen>
+    <dimen name="adaptive_cell_padding">4dp</dimen>
+    <dimen name="adaptive_min_width">50dp</dimen>
+
+    <dimen name="backspaceSize">50sp</dimen>
+    <dimen name="mobileLayoutButtonHeight">50dp</dimen>
+    <dimen name="mobileLayoutButtonWidth">50dp</dimen>
+
+    <dimen name="mobileLayoutTopMargin">3dp</dimen>
+    <dimen name="mobileLayoutBottomMargin">3dp</dimen>
+    <dimen name="mobileLayoutEndMargin">3dp</dimen>
+    <dimen name="mobileLayoutStartMargin">3dp</dimen>
+
+    <item name="mobileRowHeight" type="dimen" format="fraction" >25%</item>
+
+    <item name="mobileHistoryListWidth" type="dimen" format="fraction">10%</item>
+
+    <item name="mobileTableWidth" type="dimen" format="fraction">65%</item>
+
+    <item name="mobileTableWidthNoHistory" type="dimen" format="fraction">75%</item>
+    <item name="mobileDictionaryListWidthNoHistory" type="dimen" format="fraction">25%</item>
+
+    <dimen name="mobileLayoutButtonGroupPadding">2dp</dimen>
+    <dimen name="defaultDictionaryVerticalPadding">3dp</dimen>
+    <dimen name="defaultDictionaryHorizontalPadding">4dp</dimen>
+    <dimen name="defaultTableVerticalPadding">2dp</dimen>
+    <dimen name="defaultTableHorizontalPadding">0dp</dimen>
+
+    <dimen name="paddingCorrection">2dp</dimen>
+
+    <item name="adaptiveRowHeight" type="dimen" format="fraction">20%</item>
+    <item name="etosRowHeight" type="dimen" format="fraction">20%</item>
+
+    <item name="defaultTableWidth" type="dimen" format="fraction">75%</item>
+    <item name="defaultDictionaryListWidth" type="dimen" format="fraction">25%</item>
+</resources>

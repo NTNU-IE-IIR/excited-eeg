@@ -1,0 +1,144 @@
+<resources>
+
+    <!-- Base application theme. -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
+        <!-- Customize your theme here. -->
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="colorAccent">@color/colorAccent</item>
+    </style>
+
+    <style name="DefaultTextFormat">
+        <item name="android:textSize">@dimen/_18sdp</item>
+        <item name="android:textAlignment">center</item>
+        <item name="android:textAllCaps">true</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="DefaultTextViewLetterStyle" parent="DefaultTextFormat">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+        <item name="android:background">@color/mobileLayoutButtonBackground</item>
+        <item name="android:gravity">center</item>
+
+    </style>
+
+    <style name="DefaultTextViewWordStyle" parent="DefaultTextViewLetterStyle">
+        <item name="android:textSize">@dimen/_6sdp</item>
+    </style>
+
+    <style name="RegularTextViewLetterStyle" parent="DefaultTextViewLetterStyle">
+        <item name="android:layout_margin">@dimen/default_tile_padding</item>
+    </style>
+
+    <style name="RegularTextViewWordStyle" parent="DefaultTextViewWordStyle">
+        <item name="android:layout_margin">@dimen/default_tile_padding</item>
+    </style>
+
+    <style name="SemiTransparentTextView" parent="RegularTextViewLetterStyle">
+        <item name="android:alpha">0.3</item>
+    </style>
+
+    <style name="DefaultEmptyListTextView" parent="DefaultTextViewWordStyle">
+        <item name="layout_widthPercent">@dimen/defaultDictionaryListWidth</item>
+        <item name="android:visibility">gone</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingTop">@dimen/defaultDictionaryVerticalPadding</item>
+        <item name="android:paddingBottom">@dimen/defaultDictionaryVerticalPadding</item>
+        <item name="android:paddingLeft">@dimen/defaultDictionaryHorizontalPadding</item>
+        <item name="android:paddingRight">@dimen/defaultDictionaryHorizontalPadding</item>
+        <item name="android:background">@color/default_background_color</item>
+        <item name="android:textColor">@color/black</item>
+    </style>
+
+    <style name="EmptyListTextViewStyle" parent="DefaultEmptyListTextView">
+        <item name="android:text">No suggestions</item>
+    </style>
+
+    <style name="WaitingListTextViewStyle" parent="DefaultEmptyListTextView">
+        <item name="android:text">Suggestions loading</item>
+
+    </style>
+
+    <style name="DefaultListStyle">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:paddingTop">@dimen/defaultDictionaryVerticalPadding</item>
+        <item name="android:paddingBottom">@dimen/defaultDictionaryVerticalPadding</item>
+        <item name="android:paddingLeft">@dimen/defaultDictionaryHorizontalPadding</item>
+        <item name="android:paddingRight">@dimen/defaultDictionaryHorizontalPadding</item>
+        <item name="android:background">@color/default_background_color</item>
+        <item name="android:choiceMode">singleChoice</item>
+    </style>
+
+    <style name="DictionaryListStyle" parent="DefaultListStyle">
+        <item name="layout_widthPercent">@dimen/defaultDictionaryListWidth</item>
+        <item name="android:paddingLeft">@dimen/paddingCorrection</item>
+        <item name="android:gravity">end</item>
+    </style>
+
+    <style name="MobileHistoryList" parent="DefaultListStyle">
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="android:gravity">start</item>
+        <item name="android:paddingRight">@dimen/paddingCorrection</item>
+        <item name="layout_widthPercent">@dimen/mobileHistoryListWidth</item>
+    </style>
+
+    <style name="MobileGroupStyle">
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:background">@color/default_background_color</item>
+        <item name="android:padding">@dimen/mobileLayoutButtonGroupPadding</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="DefaultTableStyle">
+        <item name="android:background">@color/default_background_color</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:stretchColumns">*</item>
+        <item name="android:paddingTop">@dimen/defaultTableVerticalPadding</item>
+        <item name="android:paddingBottom">@dimen/defaultTableVerticalPadding</item>
+        <item name="android:paddingLeft">@dimen/defaultTableHorizontalPadding</item>
+        <item name="android:paddingRight">@dimen/defaultTableHorizontalPadding</item>
+    </style>
+
+    <style name="RegularTableStyle" parent="DefaultTableStyle">
+        <item name="android:layout_alignParentStart">true</item>
+        <item name="layout_widthPercent">@dimen/defaultTableWidth</item>
+        <item name="android:paddingLeft">@dimen/paddingCorrection</item>
+    </style>
+
+    <style name="MobileTableStyle" parent="DefaultTableStyle">
+        <item name="android:layout_toRightOf">@id/historylist</item>
+        <item name="layout_widthPercent">@dimen/mobileTableWidth</item>
+    </style>
+
+
+    <style name="DefaultRowStyle">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
+    <style name="MobileRowStyle" parent="DefaultRowStyle">
+        <item name="layout_heightPercent">@dimen/mobileRowHeight</item>
+    </style>
+
+    <style name="EtosRowStyle" parent="DefaultRowStyle">
+        <item name="layout_heightPercent">@dimen/etosRowHeight</item>
+    </style>
+
+    <style name="AdaptiveRowStyle" parent="DefaultRowStyle">
+        <item name="layout_heightPercent">@dimen/adaptiveRowHeight</item>
+    </style>
+
+    <style name="BinarySearchSymbolView" parent="DefaultTextFormat">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">match_parent</item>
+        <item name="android:layout_margin">@dimen/binsearch_cell_margin</item>
+        <item name="android:padding">@dimen/binsearch_cell_padding</item>
+        <item name="android:gravity">center</item>
+    </style>
+
+    <style name="BinarySearchSymbolViewVisiblePlaceholder" parent="BinarySearchSymbolView">
+        <item name="android:background">@color/binsearch_inactive_bg</item>
+    </style>
+</resources>
