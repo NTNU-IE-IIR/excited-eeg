@@ -19,3 +19,5 @@ A
 backend/README.md,6\6\6610930c2092e0f10b89932e6e99b7645897ce85
 P
  app/src/main/AndroidManifest.xml,8\c\8c55c3ccc257e5907959013f99656e4c8ec3903e
+z
+Japp/src/main/java/no/ntnu/stud/avikeyb/gui/core/AndroidResourceLoader.java,c\8\c83410e11cf354eac469efebadf33f7799fc090c
