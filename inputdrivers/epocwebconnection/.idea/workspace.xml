@@ -2,23 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="eb551795-fd9b-4b29-8df1-40a99b71512f" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../README.md" beforeDir="false" afterPath="$PROJECT_DIR$/../README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/caches/build_file_checksums.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/caches/gradle_models.ser" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/caches/gradle_models.ser" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/1/5/153d5f2e6a254d1d540f3b074e5fa4ae84946d92" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/1/5/153d5f2e6a254d1d540f3b074e5fa4ae84946d92" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/3/5/35dac26a98fab7bd18d6326333e501f19780911b" beforeDir="false" afterPath="$PROJECT_DIR$/../../.idea/sonarlint/issuestore/3/5/35dac26a98fab7bd18d6326333e501f19780911b" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/manifest.mf" beforeDir="false" afterPath="$PROJECT_DIR$/manifest.mf" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/nbproject/project.xml" beforeDir="false" afterPath="$PROJECT_DIR$/nbproject/project.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/emotiv/Iedk/Edk.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/emotiv/Iedk/Edk.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/emotiv/Iedk/EdkErrorCode.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/emotiv/Iedk/EdkErrorCode.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/emotiv/Iedk/EmoState.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/emotiv/Iedk/EmoState.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/emotiv/Iedk/EmotivCloudClient.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/emotiv/Iedk/EmotivCloudClient.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/emotiv/Iedk/IEegData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/emotiv/Iedk/IEegData.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/emotiv/Iedk/PerformanceMetrics.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/emotiv/Iedk/PerformanceMetrics.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../out/production/epocwebconnection/no/ntnu/accessiblevirtualkeyboard/epocwebconnection/EpocDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../out/production/epocwebconnection/no/ntnu/accessiblevirtualkeyboard/epocwebconnection/EpocDriver.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tools/rules.d/70-emotiv.rules" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/rules.d/70-emotiv.rules" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/../tools/windows_adb_connection.txt" beforeDir="false" afterPath="$PROJECT_DIR$/../tools/windows_adb_connection.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/no/ntnu/accessiblevirtualkeyboard/epocwebconnection/EpocDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/no/ntnu/accessiblevirtualkeyboard/epocwebconnection/EpocDriver.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -272,6 +261,7 @@
       <workItem from="1493019281917" duration="698000" />
       <workItem from="1493020189217" duration="1850000" />
       <workItem from="1593777586773" duration="2182000" />
+      <workItem from="1593779783243" duration="1607000" />
     </task>
     <servers />
   </component>
@@ -283,7 +273,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>

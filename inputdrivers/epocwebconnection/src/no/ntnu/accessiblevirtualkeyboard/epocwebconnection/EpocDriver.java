@@ -4,14 +4,15 @@ import com.emotiv.Iedk.Edk;
 import com.emotiv.Iedk.EdkErrorCode;
 import com.emotiv.Iedk.EmoState;
 import com.emotiv.Iedk.EmotivCloudClient;
-import com.sun.jna.ptr.IntByReference;
 import com.sun.jna.Pointer;
+import com.sun.jna.ptr.IntByReference;
+import org.java_websocket.client.WebSocketClient;
+import org.java_websocket.handshake.ServerHandshake;
+
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import org.java_websocket.client.WebSocketClient;
-import org.java_websocket.handshake.ServerHandshake;
 
 /**
  * This driver uses web sockets to connect the Accessible Virtual Keyboard with
@@ -38,7 +39,7 @@ public class EpocDriver implements Runnable {
     private String accountName = "anders.satermoe";          // Name of the Emotiv cloud account.
     private String accountPassword = "5MyOvxy2BNyfXr6hIRdi";  // The cloud accounts password.
     private String profileName = "";          // A specific user profile.
-    private String keyboardServerURL = "ws://localhost:8080/input";
+    private String keyboardServerURL = "ws://localhost:43879/input";
     private URI keyboardURI = null;
     private WebSocketClient webSocketClient = null;
     private boolean isRunning = true;

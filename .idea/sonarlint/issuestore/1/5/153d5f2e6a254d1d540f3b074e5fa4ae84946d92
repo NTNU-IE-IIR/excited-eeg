@@ -1,7 +1,7 @@
 
-asquid:S1192a"JDefine a constant instead of duplicating this literal "WEBSOCKET" 6 times.(õ”şÅ
-]squid:S2142^"FEither re-interrupt this method or rethrow the "InterruptedException".(ò¶È
-?squid:S1148_"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-Msquid:S2696b"6Make the enclosing method "static" or remove this set.(ÌÜş×
 jsquid:ModifiersOrderCheck"EReorder the modifiers to comply with the Java Language Specification.(ºÿ‚
+asquid:S1192a"JDefine a constant instead of duplicating this literal "WEBSOCKET" 6 times.(õ”şÅ
+Msquid:S2696b"6Make the enclosing method "static" or remove this set.(ÌÜş×
+?squid:S1148_"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+]squid:S2142^"FEither re-interrupt this method or rethrow the "InterruptedException".(ò¶È
 Rsquid:S2696i"6Make the enclosing method "static" or remove this set.(—Ê°óşÿÿÿÿ

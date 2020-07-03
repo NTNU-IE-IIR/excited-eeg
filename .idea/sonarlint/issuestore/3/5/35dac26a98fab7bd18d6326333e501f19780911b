@@ -1,22 +1,22 @@
 
-Isquid:S1199{"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ
-Rsquid:S1141š"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+Jsquid:S1199‚"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ
+hsquid:CommentedOutCodeLineû"<This block of commented-out lines of code should be removed.(«ˆôéøÿÿÿÿ
+>squid:S1075ú"&Remove this hard-coded path-delimiter.(©×àÄ
+Esquid:S1199†"-Extract this nested code block into a method.(ÎŞèº
+bsquid:S1192†"JDefine a constant instead of duplicating this literal "BROADCAST" 6 times.(ÇÑ¿÷
+Isquid:S1199w"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ
+@squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
 @squid:S1148…"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
 ^squid:S2142¢"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
-Gsquid:S2093‘"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
-bsquid:CommentedOutCodeLine]"<This block of commented-out lines of code should be removed.(ÙöˆÀ
-hsquid:CommentedOutCodeLineû"<This block of commented-out lines of code should be removed.(«ˆôéøÿÿÿÿ
-asquid:S4201³"IRemove this unnecessary null check; "instanceof" returns false for nulls.(ÁÃò
-@squid:S1148¨"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
-esquid:MaximumInheritanceDepth<"<This class has 8 parents which is greater than 5 authorized.(²Ú±
-Jsquid:S1199‹"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ
->squid:S1075ú"&Remove this hard-coded path-delimiter.(©×àÄ
-Jsquid:S1199‚"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ
-Rsquid:S1141 "5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
 dsquid:S2095’"LUse try-with-resources or close this "DatagramSocket" in a "finally" clause.(¢Ÿ¦
-™squid:S1186—"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦›Í
-Isquid:S1199w"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ
-bsquid:S1192†"JDefine a constant instead of duplicating this literal "BROADCAST" 6 times.(ÇÑ¿÷
-@squid:S1148"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+bsquid:CommentedOutCodeLine]"<This block of commented-out lines of code should be removed.(ÙöˆÀ
 squid:S1186“"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(½Ä³ïşÿÿÿÿ
-Esquid:S1199†"-Extract this nested code block into a method.(ÎŞèº
+@squid:S1148¨"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+Isquid:S1199{"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ
+Rsquid:S1141 "5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+™squid:S1186—"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦›Í
+Jsquid:S1199‹"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ
+asquid:S4201³"IRemove this unnecessary null check; "instanceof" returns false for nulls.(ÁÃò
+esquid:MaximumInheritanceDepth<"<This class has 8 parents which is greater than 5 authorized.(²Ú±
+Gsquid:S2093‘"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+Rsquid:S1141š"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
