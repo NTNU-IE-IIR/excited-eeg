@@ -1,8 +1,0 @@
-
-[squid:UselessImportCheck"7Remove this unused import 'android.widget.AdapterView'.(¶¾éæ
-Xsquid:UselessImportCheck"4Remove this unused import 'android.widget.ListView'.(Œ‰Ö×
-Jsquid:S1135Ã"2Complete the task associated to this TODO comment.(éƒÂ
-isquid:UnusedPrivateMethodÄ">Remove this unused private "checkIfSuggestionIsActive" method.(ø¶æĞøÿÿÿÿ
-Tsquid:S1068!"8Remove this unused "previousViewSelected" private field.(åœÅûÿÿÿÿ
-gsquid:CommentedOutCodeLinef"<This block of commented-out lines of code should be removed.(§ú¾¡üÿÿÿÿ
-bsquid:CommentedOutCodeLinel"<This block of commented-out lines of code should be removed.(ßåù
