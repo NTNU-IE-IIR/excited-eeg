@@ -13,6 +13,7 @@
     <module>input-drivers</module>
     <module>backend</module>
       <module>output-drivers</module>
+      <module>webapp</module>
   </modules>
 
   <name>exited-eeg</name>

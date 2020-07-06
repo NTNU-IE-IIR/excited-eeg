@@ -12,6 +12,7 @@
         <module name="androidapp" />
         <module name="systeminput" />
         <module name="backend" />
+        <module name="webapp" />
         <module name="outputdrivers" />
       </profile>
     </annotationProcessing>
