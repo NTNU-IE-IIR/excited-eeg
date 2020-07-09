@@ -14,13 +14,17 @@ namespace EmotivDrivers {
         private const string ClientSecret =
             "SzXU4drfTJuAshSb9wInyvE3MYx5Z0jAZR1Au0b2ETXp0F8T7wpbTYXzAqezvJxYM7u9UJndXkiKdUDD6hE5h0G5ZbEQdtQcCn43PJXzme9DHsS95alVLQtCDGgql4Ot";
 
-        private string CurrentMessage = string.Empty;
-        private Dictionary<int, string> MethodForRequestID;
+        private string currentMessage = string.Empty;
+        private Dictionary<int, string> methodForRequestID;
 
-        private WebSocket WebSocketClient;
-        private int NextRequestId;
-        private bool IsWebSocketClientConnected;
-        
+        private WebSocket webSocketClient;
+        private int nextRequestId;
+        private bool isWebSocketClientConnected;
+
+        public bool IsWebSocketClientConnected1 {
+            get => isWebSocketClientConnected;
+        }
+
         // Events
         private AutoResetEvent MessageReceivedEvent = new AutoResetEvent(false);
         private AutoResetEvent OpenedEvent = new AutoResetEvent(false);
@@ -29,19 +33,19 @@ namespace EmotivDrivers {
         static CortexClient() {}
 
         private CortexClient() {
-            NextRequestId = 1;
-            WebSocketClient = new WebSocket(CortexURL);
-            MethodForRequestID = new Dictionary<int, string>();
+            nextRequestId = 1;
+            webSocketClient = new WebSocket(CortexURL);
+            methodForRequestID = new Dictionary<int, string>();
             
             SubscribeToEvents();
         }
 
         private void SubscribeToEvents() {
-            WebSocketClient.Opened += new EventHandler(WebSocketClientOpened);
+            webSocketClient.Opened += new EventHandler(WebSocketClientOpened);
             
-            WebSocketClient.Error += new EventHandler<SuperSocket.ClientEngine.ErrorEventArgs>(WebSocketClientError);
+            webSocketClient.Error += new EventHandler<SuperSocket.ClientEngine.ErrorEventArgs>(WebSocketClientError);
             
-            WebSocketClient.Closed += new EventHandler(WebSocketClientClosed);
+            webSocketClient.Closed += new EventHandler(WebSocketClientClosed);
         }
         
         private void WebSocketClientOpened(object sender, EventArgs eventArgs) {
