@@ -16,5 +16,8 @@
         <module name="outputdrivers" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="newinputdrivers" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
