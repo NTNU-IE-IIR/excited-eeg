@@ -20,12 +20,14 @@ namespace EmotivDrivers {
         private WebSocket webSocketClient;
         private int nextRequestId;
         private bool isWebSocketClientConnected;
-
-        public bool IsWebSocketClientConnected1 {
+        
+        public bool IsWebSocketClientConnected {
             get => isWebSocketClientConnected;
         }
 
-        // Events
+        /// <summary>
+        /// Events
+        /// </summary>
         private AutoResetEvent MessageReceivedEvent = new AutoResetEvent(false);
         private AutoResetEvent OpenedEvent = new AutoResetEvent(false);
         private AutoResetEvent CloseEvent = new AutoResetEvent(false);
@@ -39,7 +41,26 @@ namespace EmotivDrivers {
             
             SubscribeToEvents();
         }
+        
+        public static CortexClient Instance { get; } = new CortexClient();
 
+        private void SendWebSocketMessage(JObject param, string method, bool hasParam) {
+            JObject request = new JObject(
+                new JProperty("jsonrpc", "2.0"), 
+                new JProperty("id", nextRequestId), 
+                new JProperty("method", method));
+
+            if (hasParam) {
+                request.Add("params", param);
+            }
+            
+            Console.WriteLine("Send " + method);
+            
+            webSocketClient.Send(request.ToString());
+            methodForRequestID.Add(nextRequestId, method);
+            nextRequestId++;
+        }
+        
         private void SubscribeToEvents() {
             webSocketClient.Opened += new EventHandler(WebSocketClientOpened);
             
