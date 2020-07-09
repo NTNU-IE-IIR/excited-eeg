@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Threading;
 using WebSocket4Net;
 using Newtonsoft.Json.Linq;
+using SuperSocket.ClientEngine;
 
 namespace EmotivDrivers {
     
@@ -28,7 +29,38 @@ namespace EmotivDrivers {
         static CortexClient() {}
 
         private CortexClient() {
+            NextRequestId = 1;
+            WebSocketClient = new WebSocket(CortexURL);
+            MethodForRequestID = new Dictionary<int, string>();
             
+            SubscribeToEvents();
+        }
+
+        private void SubscribeToEvents() {
+            WebSocketClient.Opened += new EventHandler(WebSocketClientOpened);
+            
+            WebSocketClient.Error += new EventHandler<SuperSocket.ClientEngine.ErrorEventArgs>(WebSocketClientError);
+            
+            WebSocketClient.Closed += new EventHandler(WebSocketClientClosed);
+        }
+        
+        private void WebSocketClientOpened(object sender, EventArgs eventArgs) {
+            OpenedEvent.Set();
+        }
+
+        private void WebSocketClientError(object sender, SuperSocket.ClientEngine.ErrorEventArgs eventArgs) {
+            Console.Write(eventArgs.Exception.GetType() + ":" + 
+                          eventArgs.Exception.Message + 
+                          Environment.NewLine + 
+                          eventArgs.Exception.StackTrace);
+
+            if (eventArgs.Exception.InnerException != null) {
+                Console.WriteLine(eventArgs.Exception.InnerException.GetType());
+            }
+        }
+
+        private void WebSocketClientClosed(object sender, EventArgs eventArgs) {
+            CloseEvent.Set();
         }
     }
 }
