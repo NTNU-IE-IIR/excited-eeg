@@ -2,8 +2,8 @@
 <project version="4">
   <component name="ContentModelStore">
     <e p="C:\Users\Emil\.Rider2019.3\system\extResources" t="IncludeRecursive" />
-    <e p="C:\Users\Emil\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_EmotivDrivers.-865800287.00" t="ExcludeRecursive" />
-    <e p="C:\Users\Emil\Desktop\new-input-drivers\EmotivDrivers" t="IncludeFlat">
+    <e p="C:\Users\Emil\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_EmotivDrivers.2077977722.00" t="ExcludeRecursive" />
+    <e p="C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers" t="IncludeFlat">
       <e p="EmotivDrivers" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
         <e p="CortexClient.cs" t="Include" />
