@@ -10,9 +10,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="414b883d-49d6-41d2-9095-cdbdc7df022c" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/../.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../input-drivers/src/no/ntnu/accessiblevirtualkeyboard/epocwebconnection/EpocDriver.java" beforeDir="false" afterPath="$PROJECT_DIR$/../input-drivers/src/no/ntnu/accessiblevirtualkeyboard/epocwebconnection/EpocDriver.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/../input-drivers/target/classes/no/ntnu/accessiblevirtualkeyboard/epocwebconnection/EpocDriver.class" beforeDir="false" afterPath="$PROJECT_DIR$/../input-drivers/target/classes/no/ntnu/accessiblevirtualkeyboard/epocwebconnection/EpocDriver.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new-input-drivers/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new-input-drivers/src/main/java/no/ntnu/emileni/App.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new-input-drivers/src/test/java/no/ntnu/emileni/AppTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/../new-input-drivers/target/classes/no/ntnu/emileni/App.class" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -147,26 +152,30 @@
       <screen x="-2560" y="0" width="2560" height="1400" />
     </state>
     <state x="-1475" y="403" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025549128" />
-    <state width="1234" height="302" key="GridCell.Tab.0.bottom" timestamp="1594201443498">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1034" height="302" key="GridCell.Tab.0.bottom" timestamp="1594296943098">
+      <screen x="2560" y="-245" width="1080" height="1880" />
     </state>
     <state width="2517" height="380" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025674448" />
     <state width="1234" height="302" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594201443498" />
-    <state width="1234" height="302" key="GridCell.Tab.0.center" timestamp="1594201443498">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1034" height="302" key="GridCell.Tab.0.bottom/2560.-245.1080.1880/-2560.0.2560.1400/0.0.2560.1400@2560.-245.1080.1880" timestamp="1594296943098" />
+    <state width="1034" height="302" key="GridCell.Tab.0.center" timestamp="1594296943097">
+      <screen x="2560" y="-245" width="1080" height="1880" />
     </state>
     <state width="2517" height="380" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025674448" />
     <state width="1234" height="302" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594201443498" />
-    <state width="1234" height="302" key="GridCell.Tab.0.left" timestamp="1594201443498">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1034" height="302" key="GridCell.Tab.0.center/2560.-245.1080.1880/-2560.0.2560.1400/0.0.2560.1400@2560.-245.1080.1880" timestamp="1594296943097" />
+    <state width="1034" height="302" key="GridCell.Tab.0.left" timestamp="1594296943097">
+      <screen x="2560" y="-245" width="1080" height="1880" />
     </state>
     <state width="2517" height="380" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025674448" />
     <state width="1234" height="302" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594201443498" />
-    <state width="1234" height="302" key="GridCell.Tab.0.right" timestamp="1594201443498">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state width="1034" height="302" key="GridCell.Tab.0.left/2560.-245.1080.1880/-2560.0.2560.1400/0.0.2560.1400@2560.-245.1080.1880" timestamp="1594296943097" />
+    <state width="1034" height="302" key="GridCell.Tab.0.right" timestamp="1594296943097">
+      <screen x="2560" y="-245" width="1080" height="1880" />
     </state>
     <state width="2517" height="380" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025674448" />
     <state width="1234" height="302" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594201443498" />
+    <state width="1034" height="302" key="GridCell.Tab.0.right/2560.-245.1080.1880/-2560.0.2560.1400/0.0.2560.1400@2560.-245.1080.1880" timestamp="1594296943097" />
     <state x="781" y="342" key="SettingsEditor" timestamp="1594018148716">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

@@ -9,7 +9,6 @@
         <module name="inputdrivers" />
         <module name="input-drivers" />
         <module name="my-app" />
-        <module name="newinputdrivers" />
         <module name="androidapp" />
         <module name="systeminput" />
         <module name="backend" />
@@ -17,5 +16,8 @@
         <module name="outputdrivers" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="newinputdrivers" target="1.7" />
+    </bytecodeTargetLevel>
   </component>
 </project>
