@@ -9,6 +9,7 @@
         <module name="inputdrivers" />
         <module name="input-drivers" />
         <module name="my-app" />
+        <module name="newinputdrivers" />
         <module name="androidapp" />
         <module name="systeminput" />
         <module name="backend" />
