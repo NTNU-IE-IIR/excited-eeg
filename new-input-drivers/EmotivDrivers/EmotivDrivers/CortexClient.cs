@@ -16,6 +16,20 @@ namespace EmotivDrivers {
             MessageError = messageError;
         }
     }
+
+    public class StreamDataEventArgs {
+        public string Sid { get; private set; }
+        public double Time { get; private set; }
+        public JArray Data { get; private set; }
+        public string StreamName { get; private set; }
+
+        public StreamDataEventArgs(string sid, JArray data, double time, string streamName) {
+            Sid = sid;
+            Time = time;
+            Data = data;
+            StreamName = streamName;
+        }
+    }
     
     public sealed class CortexClient {
 
@@ -42,7 +56,8 @@ namespace EmotivDrivers {
         private AutoResetEvent OpenedEvent = new AutoResetEvent(false);
         private AutoResetEvent CloseEvent = new AutoResetEvent(false);
 
-        public event EventHandler<ErrorMsgEventArgs> OnErrorMsgReceived; 
+        public event EventHandler<ErrorMsgEventArgs> OnErrorMsgReceived;
+        public event EventHandler<StreamDataEventArgs> OnStreamDataReceived; 
         
         /// <summary>
         /// Constructors
@@ -97,6 +112,20 @@ namespace EmotivDrivers {
                 else {
                     JToken data = response["result"];
                     HandleResponse(method, data);
+                }
+            }
+            else if (response["sid"] != null) {
+                string sid = (string) response["sid"];
+                double time = 0;
+
+                if (response["time"] != null) {
+                    time = (double) response["time"];
+                }
+
+                foreach (JProperty property in response.Properties()) {
+                    if (property.Name != "sid" && property.Name != "time") {
+                        OnStreamDataReceived(this, new StreamDataEventArgs(sid, (JArray) property.Value, time, property.Name));
+                    }
                 }
             }
         }
