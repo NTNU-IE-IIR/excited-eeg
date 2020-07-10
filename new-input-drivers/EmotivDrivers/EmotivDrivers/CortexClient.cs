@@ -62,7 +62,8 @@ namespace EmotivDrivers {
         public event EventHandler<bool> OnHasAccessRight;
         public event EventHandler<bool> OnRequestAccessDone;
         public event EventHandler<bool> OnAccessRightGranted;
-        public event EventHandler<string> OnAuthorize; 
+        public event EventHandler<string> OnAuthorize;
+        public event EventHandler<bool> OnEULAAccepted;
         
         /// <summary>
         /// Constructors

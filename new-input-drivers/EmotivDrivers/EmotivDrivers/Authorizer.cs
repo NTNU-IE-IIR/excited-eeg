@@ -25,6 +25,12 @@ namespace EmotivDrivers {
             SubscribeToEvents();
         }
 
+        public void Start(string licenseID) {
+            licenseID = "";
+            this.licenseId = licenseID;
+            cortexClient.Open();
+        }
+        
         private void SubscribeToEvents() {
             cortexClient.OnConnected += ConnectedOK;
             cortexClient.OnGetUserLogin += GetUserLoginOK;
@@ -34,6 +40,7 @@ namespace EmotivDrivers {
             cortexClient.OnRequestAccessDone += RequestAccessDone;
             cortexClient.OnAccessRightGranted += AccessRightGrantedOK;
             cortexClient.OnAuthorize += AuthorizedOK;
+            cortexClient.OnEULAAccepted += EULAAcceptedOK;
         }
 
         private void ConnectedOK(object sender, bool isConnected) {
@@ -104,6 +111,16 @@ namespace EmotivDrivers {
             }
             else {
                 this.isEulaAccepted = false;
+                Console.WriteLine("User has not accepted EULA. Please accept EULA on EMOTIV App to proceed");
+            }
+        }
+
+        private void EULAAcceptedOK(object sender, bool isEULAAccepted) {
+            this.isEulaAccepted = isEULAAccepted;
+            if (isEULAAccepted) {
+                cortexClient.Authorize(this.licenseId, this.debitNo);
+            }
+            else {
                 Console.WriteLine("User has not accepted EULA. Please accept EULA on EMOTIV App to proceed");
             }
         }
