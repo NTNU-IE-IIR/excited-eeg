@@ -31,6 +31,9 @@ namespace EmotivDrivers {
             cortexClient.OnUserLogin += UserLoginOK;
             cortexClient.OnUserLogout += UserLogoutOK;
             cortexClient.OnHasAccessRight += HasAccessRightOK;
+            cortexClient.OnRequestAccessDone += RequestAccessDone;
+            cortexClient.OnAccessRightGranted += AccessRightGrantedOK;
+            cortexClient.OnAuthorize += AuthorizedOK;
         }
 
         private void ConnectedOK(object sender, bool isConnected) {
@@ -68,6 +71,40 @@ namespace EmotivDrivers {
         private void HasAccessRightOK(object sender, bool hasAccessRight) {
             if (hasAccessRight) {
                 cortexClient.Authorize(this.licenseId, this.debitNo);
+            }
+        }
+
+        private void RequestAccessDone(object sender, bool hasAccessRight) {
+            if (hasAccessRight) {
+                Console.WriteLine("The user has access right to this application.");
+            }
+            else {
+                Console.WriteLine("The user has not granted access right to this application." +
+                                  "Please use EMOTIV App to proceed.");
+            }
+        }
+
+        private void AccessRightGrantedOK(object sender, bool isGranted) {
+            if (isGranted) {
+                if (String.IsNullOrEmpty(this.cortexToken)) {
+                    cortexClient.Authorize(this.licenseId, this.debitNo);
+                }
+            }
+            else {
+                Console.WriteLine("The access right to the Application has been rejected");
+            }
+        }
+
+        private void AuthorizedOK(object sender, string cortexToken) {
+            if (!String.IsNullOrEmpty(cortexToken)) {
+                Console.WriteLine("Authorize successfully.");
+                this.cortexToken = cortexToken;
+                this.isEulaAccepted = true;
+                OnAuthorized(this, this.cortexToken);
+            }
+            else {
+                this.isEulaAccepted = false;
+                Console.WriteLine("User has not accepted EULA. Please accept EULA on EMOTIV App to proceed");
             }
         }
     }

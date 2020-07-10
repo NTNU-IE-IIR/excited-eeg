@@ -59,7 +59,10 @@ namespace EmotivDrivers {
         public event EventHandler<string> OnGetUserLogin;
         public event EventHandler<string> OnUserLogin;
         public event EventHandler<string> OnUserLogout;
-        public event EventHandler<bool> OnHasAccessRight; 
+        public event EventHandler<bool> OnHasAccessRight;
+        public event EventHandler<bool> OnRequestAccessDone;
+        public event EventHandler<bool> OnAccessRightGranted;
+        public event EventHandler<string> OnAuthorize; 
         
         /// <summary>
         /// Constructors
