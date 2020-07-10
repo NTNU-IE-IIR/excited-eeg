@@ -5,6 +5,7 @@
     <e p="C:\Users\Emil\.Rider2019.3\system\resharper-host\local\Transient\ReSharperHost\v193\SolutionCaches\_EmotivDrivers.2077977722.00" t="ExcludeRecursive" />
     <e p="C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers" t="IncludeFlat">
       <e p="EmotivDrivers" t="IncludeRecursive">
+        <e p="Authorizer.cs" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
         <e p="Config.cs" t="Include" />
         <e p="CortexClient.cs" t="Include" />

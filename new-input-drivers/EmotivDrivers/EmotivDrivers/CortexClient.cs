@@ -72,10 +72,10 @@ namespace EmotivDrivers {
         public static CortexClient Instance { get; } = new CortexClient();
         
         /// <summary>
-        /// Sends an JSON request message to the cortex client
+        /// Sends an JSON request message to the cortex server
         /// </summary>
         /// <param name="param">Different parameters if needed in the request message</param>
-        /// <param name="method">The method requested by the cortex client</param>
+        /// <param name="method">The method requested by the cortex server</param>
         /// <param name="hasParam">If the request message contains any parameters</param>
         private void SendWebSocketMessage(JObject param, string method, bool hasParam) {
             JObject request = new JObject(
