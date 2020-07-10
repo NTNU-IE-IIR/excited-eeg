@@ -13,3 +13,9 @@ C:\Users\Emil\Desktop\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\ne
 C:\Users\Emil\Desktop\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.genruntimeconfig.cache
 C:\Users\Emil\Desktop\new-input-drivers\EmotivDrivers\EmotivDrivers\bin\Debug\netcoreapp3.1\websocket-sharp.dll
 C:\Users\Emil\Desktop\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.csproj.CopyComplete
+C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.csprojAssemblyReference.cache
+C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.AssemblyInfoInputs.cache
+C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.AssemblyInfo.cs
+C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.csproj.CoreCompileInputs.cache
+C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.dll
+C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.pdb

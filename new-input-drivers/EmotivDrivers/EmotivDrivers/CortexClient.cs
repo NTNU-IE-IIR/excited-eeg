@@ -6,6 +6,16 @@ using Newtonsoft.Json.Linq;
 using SuperSocket.ClientEngine;
 
 namespace EmotivDrivers {
+
+    public class ErrorMsgEventArgs {
+        public int ErrorCode { get; set; }
+        public string MessageError { get; set; }
+
+        public ErrorMsgEventArgs(int errorCode, string messageError) {
+            ErrorCode = errorCode;
+            MessageError = messageError;
+        }
+    }
     
     public sealed class CortexClient {
 
@@ -31,7 +41,12 @@ namespace EmotivDrivers {
         private AutoResetEvent MessageReceivedEvent = new AutoResetEvent(false);
         private AutoResetEvent OpenedEvent = new AutoResetEvent(false);
         private AutoResetEvent CloseEvent = new AutoResetEvent(false);
+
+        public event EventHandler<ErrorMsgEventArgs> OnErrorMsgReceived; 
         
+        /// <summary>
+        /// Constructors
+        /// </summary>
         static CortexClient() {}
 
         private CortexClient() {
@@ -59,6 +74,35 @@ namespace EmotivDrivers {
             webSocketClient.Send(request.ToString());
             methodForRequestID.Add(nextRequestId, method);
             nextRequestId++;
+        }
+
+        private void WebSocketClientMessageReceived(object sender, MessageReceivedEventArgs eventArgs) {
+            currentMessage = eventArgs.Message;
+            MessageReceivedEvent.Set();
+
+            JObject response = JObject.Parse(eventArgs.Message);
+
+            if (response["id"] != null) {
+                int id = (int) response["id"];
+                string method = methodForRequestID[id];
+                methodForRequestID.Remove(id);
+
+                if (response["error"] != null) {
+                    JObject error = (JObject) response["error"];
+                    int errorCode = (int) error["code"];
+                    string messageError = (string) error["message"];
+                    Console.WriteLine("Received: " + messageError);
+                    OnErrorMsgReceived(this, new ErrorMsgEventArgs(errorCode, messageError));
+                }
+                else {
+                    JToken data = response["result"];
+                    HandleResponse(method, data);
+                }
+            }
+        }
+
+        private void HandleResponse(string method, JToken data) {
+            //TODO: ARILD FYLLER UT DENNE
         }
         
         private void SubscribeToEvents() {
