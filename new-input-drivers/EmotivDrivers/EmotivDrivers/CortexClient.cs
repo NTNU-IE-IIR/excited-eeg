@@ -53,8 +53,10 @@ namespace EmotivDrivers {
         private AutoResetEvent OpenedEvent = new AutoResetEvent(false);
         private AutoResetEvent CloseEvent = new AutoResetEvent(false);
 
+        public event EventHandler<bool> OnConnected;
         public event EventHandler<ErrorMsgEventArgs> OnErrorMsgReceived;
-        public event EventHandler<StreamDataEventArgs> OnStreamDataReceived; 
+        public event EventHandler<StreamDataEventArgs> OnStreamDataReceived;
+        public event EventHandler<string> OnGetUserLogin;
         
         /// <summary>
         /// Constructors
@@ -186,6 +188,35 @@ namespace EmotivDrivers {
 
         private void WebSocketClientClosed(object sender, EventArgs eventArgs) {
             CloseEvent.Set();
+        }
+
+        public void Open() {
+            webSocketClient.Open();
+
+            if (OpenedEvent.WaitOne(10000)) {
+                Console.WriteLine("Failed to Opened session on time");
+            }
+            if (webSocketClient.State == WebSocketState.Open) {
+                isWebSocketClientConnected = true;
+                OnConnected(this, true);
+            }
+            else {
+                isWebSocketClientConnected = false;
+                OnConnected(this, false);
+            }
+        }
+
+        public void GetUserLogin() {
+            JObject param = new JObject();
+            SendWebSocketMessage(param, "getUserLogin", false);
+        }
+
+        public void HasAccessRights() {
+            JObject param = new JObject(
+                new JProperty("clientId", Config.AppClientId), 
+                new JProperty("clientSecret", Config.AppClientSecret));
+            
+            SendWebSocketMessage(param, "hasAccessRight", true);
         }
     }
 }
