@@ -57,6 +57,9 @@ namespace EmotivDrivers {
         public event EventHandler<ErrorMsgEventArgs> OnErrorMsgReceived;
         public event EventHandler<StreamDataEventArgs> OnStreamDataReceived;
         public event EventHandler<string> OnGetUserLogin;
+        public event EventHandler<string> OnUserLogin;
+        public event EventHandler<string> OnUserLogout;
+        public event EventHandler<bool> OnHasAccessRight; 
         
         /// <summary>
         /// Constructors
@@ -217,6 +220,19 @@ namespace EmotivDrivers {
                 new JProperty("clientSecret", Config.AppClientSecret));
             
             SendWebSocketMessage(param, "hasAccessRight", true);
+        }
+
+        public void Authorize(string licenseId, int debitNumber) {
+            JObject param = new JObject();
+            param.Add("clientId", Config.AppClientId);
+            param.Add("clientSecret", Config.AppClientSecret);
+
+            if (!string.IsNullOrEmpty(licenseId)) {
+                param.Add("license", licenseId);
+            }
+            
+            param.Add("debit", debitNumber);
+            SendWebSocketMessage(param, "authorize", true);
         }
     }
 }
