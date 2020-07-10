@@ -2,10 +2,8 @@
 using System;
 using System.Collections.Generic;
 
-namespace EmotivDrivers
-{
-    public class Record
-    {
+namespace EmotivDrivers {
+    public class Record {
         private string uuid;
         private string applicationId;
         private string licenseId;
@@ -17,129 +15,55 @@ namespace EmotivDrivers
         private List<string> tags;
 
         // Properties
-        public string Uuid
-        {
-            get
-            {
-                return this.uuid;
-            }
-
-            set
-            {
-                this.uuid = value;
-            }
+        public string Uuid {
+            get { return this.uuid; }
+            set { this.uuid = value; }
         }
 
-        public string ApplicationId
-        {
-            get
-            {
-                return this.applicationId;
-            }
-
-            set
-            {
-                this.applicationId = value;
-            }
+        public string ApplicationId {
+            get { return this.applicationId; }
+            set { this.applicationId = value; }
         }
 
-        public string LicenseId
-        {
-            get
-            {
-                return this.licenseId;
-            }
-
-            set
-            {
-                this.licenseId = value;
-            }
+        public string LicenseId {
+            get { return this.licenseId; }
+            set { this.licenseId = value; }
         }
 
-        public string Title
-        {
-            get
-            {
-                return this.title;
-            }
-
-            set
-            {
-                this.title = value;
-            }
+        public string Title {
+            get { return this.title; }
+            set { this.title = value; }
         }
 
-        public string Description
-        {
-            get
-            {
-                return this.description;
-            }
-
-            set
-            {
-                this.description = value;
-            }
+        public string Description {
+            get { return this.description; }
+            set { this.description = value; }
         }
 
-        public string StartDateTime
-        {
-            get
-            {
-                return this.startDateTime;
-            }
-
-            set
-            {
-                this.startDateTime = value;
-            }
+        public string StartDateTime {
+            get { return this.startDateTime; }
+            set { this.startDateTime = value; }
         }
 
-        public string EndDateTime
-        {
-            get
-            {
-                return this.endDateTime;
-            }
-
-            set
-            {
-                this.endDateTime = value;
-            }
+        public string EndDateTime {
+            get { return this.endDateTime; }
+            set { this.endDateTime = value; }
         }
 
-        public JArray Markers
-        {
-            get
-            {
-                return this.markers;
-            }
-
-            set
-            {
-                this.markers = value;
-            }
+        public JArray Markers {
+            get { return this.markers; }
+            set { this.markers = value; }
         }
 
-        public List<string> Tags
-        {
-            get
-            {
-                return this.tags;
-            }
-
-            set
-            {
-                this.tags = value;
-            }
+        public List<string> Tags {
+            get { return this.tags; }
+            set { this.tags = value; }
         }
         //Constructor
-        public Record()
-        {
+        public Record() {
 
         }
-        public Record(JObject obj)
-        {
+        public Record(JObject obj) {
             uuid = (string)obj["uuid"];
             this.licenseId = (string)obj["licenseId"];
             this.applicationId = (string)obj["applicationId"];
@@ -150,8 +74,7 @@ namespace EmotivDrivers
             this.markers = (JArray)obj["markers"];
             this.tags = obj["tags"].ToObject<List<string>>();
         }
-        public void PrintOut()
-        {
+        public void PrintOut() {
             Console.WriteLine("id: " + uuid + ", title: " + this.title + ", startDatetime: " + this.startDateTime + ", endDatetime: " + this.endDateTime);
         }
 

@@ -2,10 +2,8 @@
 using System.Collections;
 using System;
 
-namespace EmotivDrivers
-{
-    public class Headset
-    {
+namespace EmotivDrivers {
+    public class Headset {
         private string headsetId;
         private string status;
         private string serialId;
@@ -18,24 +16,20 @@ namespace EmotivDrivers
         private string mode;
 
         // Contructor
-        public Headset()
-        {
+        public Headset() {
         }
-        public Headset (JObject jHeadset)
-        {
+        public Headset (JObject jHeadset) {
             HeadsetId = (string)jHeadset["id"];
             Status = (string)jHeadset["status"];
             FirmwareVersion = (string)jHeadset["firmware"];
             DongleSerial = (string)jHeadset["dongle"];
             Sensors = new ArrayList();
             
-            foreach (JToken sensor in (JArray)jHeadset["sensors"])
-            {
+            foreach (JToken sensor in (JArray)jHeadset["sensors"]) {
                 Sensors.Add(sensor.ToString());
             }
             MotionSensors = new ArrayList();
-            foreach (JToken sensor in (JArray)jHeadset["motionSensors"])
-            {
+            foreach (JToken sensor in (JArray)jHeadset["motionSensors"]) {
                 MotionSensors.Add(sensor.ToString());
             }
             Mode = (string)jHeadset["mode"];
@@ -44,134 +38,54 @@ namespace EmotivDrivers
         }
 
         // Properties
-        public string HeadsetId
-        {
-            get
-            {
-                return this.headsetId;
-            }
-
-            set
-            {
-                this.headsetId = value;
-            }
+        public string HeadsetId {
+            get { return this.headsetId; }
+            set { this.headsetId = value; }
         }
 
-        public string Status
-        {
-            get
-            {
-                return this.status;
-            }
-
-            set
-            {
-                this.status = value;
-            }
+        public string Status {
+            get { return this.status; }
+            set { this.status = value; }
         }
 
-        public string SerialId
-        {
-            get
-            {
-                return this.serialId;
-            }
-
-            set
-            {
-                this.serialId = value;
-            }
+        public string SerialId {
+            get { return this.serialId; }
+            set { this.serialId = value; }
         }
 
-        public string FirmwareVersion
-        {
-            get
-            {
-                return this.firmwareVersion;
-            }
-
-            set
-            {
-                this.firmwareVersion = value;
-            }
+        public string FirmwareVersion {
+            get { return this.firmwareVersion; }
+            set { this.firmwareVersion = value; }
         }
 
-        public string DongleSerial
-        {
-            get
-            {
-                return this.dongleSerial;
-            }
-
-            set
-            {
-                this.dongleSerial = value;
-            }
+        public string DongleSerial {
+            get { return this.dongleSerial; }
+            set { this.dongleSerial = value; }
         }
 
-        public ArrayList Sensors
-        {
-            get
-            {
-                return this.sensors;
-            }
-
-            set
-            {
-                this.sensors = value;
-            }
+        public ArrayList Sensors {
+            get { return this.sensors; }
+            set { this.sensors = value; }
         }
 
-        public ArrayList MotionSensors
-        {
-            get
-            {
-                return this.motionSensors;
-            }
-
-            set
-            {
-                this.motionSensors = value;
-            }
+        public ArrayList MotionSensors {
+            get { return this.motionSensors; }
+            set { this.motionSensors = value; }
         }
 
-        public JObject Settings
-        {
-            get
-            {
-                return this.settings;
-            }
-
-            set
-            {
-                this.settings = value;
-            }
+        public JObject Settings {
+            get { return this.settings; }
+            set { this.settings = value; }
         }
 
-        public string ConnectedBy
-        {
-            get
-            {
-                return this.connectedBy;
-            }
-
-            set
-            {
-                this.connectedBy = value;
-            }
+        public string ConnectedBy {
+            get { return this.connectedBy; }
+            set { this.connectedBy = value; }
         }
 
-        public string Mode
-        {
-            get
-            {
-                return this.mode;
-            }
-
-            set
-            {
-                this.mode = value;
-            }
+        public string Mode {
+            get { return this.mode; }
+            set { this.mode = value; }
         }
     }
 }

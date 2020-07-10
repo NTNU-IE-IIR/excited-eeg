@@ -122,8 +122,7 @@ namespace EmotivDrivers {
             new JProperty("id", nextRequestId),
             new JProperty("method", method));
 
-            if (hasParam)
-            {
+            if (hasParam) {
                 request.Add("params", param);
             }
             Console.WriteLine("Send " + method);
