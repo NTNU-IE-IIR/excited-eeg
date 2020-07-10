@@ -5,11 +5,15 @@
     <e p="C:\Users\robin\AppData\local\JetBrains\Rider2020.1\resharper-host\local\Transient\ReSharperHost\v201\SolutionCaches\_EmotivDrivers.2002413823.00" t="ExcludeRecursive" />
     <e p="C:\Users\robin\Documents\Sommer 2020\excited-eeg\new-input-drivers\EmotivDrivers" t="IncludeFlat">
       <e p="EmotivDrivers" t="IncludeRecursive">
+        <e p=".gitignore" t="Include" />
         <e p="bin" t="ExcludeRecursive" />
-        <e p="Config.cs" t="Include" />
-        <e p="CortexClient.cs" t="Include" />
+        <e p="CortexClient" t="Include">
+          <e p="Config.cs" t="Include" />
+          <e p="CortexClient.cs" t="Include" />
+          <e p="Headset.cs" t="Include" />
+          <e p="Record.cs" t="Include" />
+        </e>
         <e p="EmotivDrivers.csproj" t="IncludeRecursive" />
-        <e p="Headset.cs" t="Include" />
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.1" t="Include">
@@ -17,7 +21,6 @@
             </e>
           </e>
         </e>
-        <e p="Record.cs" t="Include" />
       </e>
       <e p="EmotivDrivers.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
