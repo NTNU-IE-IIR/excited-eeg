@@ -6,27 +6,27 @@ namespace EmotivDrivers
 {
     public class Record
     {
-        private string _uuid;
-        private string _applicationId;
-        private string _licenseId;
-        private string _title;
-        private string _description;
-        private string _startDateTime;
-        private string _endDateTime;
-        private JArray _markers;
-        private List<string> _tags;
+        private string uuid;
+        private string applicationId;
+        private string licenseId;
+        private string title;
+        private string description;
+        private string startDateTime;
+        private string endDateTime;
+        private JArray markers;
+        private List<string> tags;
 
         // Properties
         public string Uuid
         {
             get
             {
-                return _uuid;
+                return this.uuid;
             }
 
             set
             {
-                _uuid = value;
+                this.uuid = value;
             }
         }
 
@@ -34,12 +34,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _applicationId;
+                return this.applicationId;
             }
 
             set
             {
-                _applicationId = value;
+                this.applicationId = value;
             }
         }
 
@@ -47,12 +47,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _licenseId;
+                return this.licenseId;
             }
 
             set
             {
-                _licenseId = value;
+                this.licenseId = value;
             }
         }
 
@@ -60,12 +60,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _title;
+                return this.title;
             }
 
             set
             {
-                _title = value;
+                this.title = value;
             }
         }
 
@@ -73,12 +73,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _description;
+                return this.description;
             }
 
             set
             {
-                _description = value;
+                this.description = value;
             }
         }
 
@@ -86,12 +86,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _startDateTime;
+                return this.startDateTime;
             }
 
             set
             {
-                _startDateTime = value;
+                this.startDateTime = value;
             }
         }
 
@@ -99,12 +99,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _endDateTime;
+                return this.endDateTime;
             }
 
             set
             {
-                _endDateTime = value;
+                this.endDateTime = value;
             }
         }
 
@@ -112,12 +112,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _markers;
+                return this.markers;
             }
 
             set
             {
-                _markers = value;
+                this.markers = value;
             }
         }
 
@@ -125,12 +125,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _tags;
+                return this.tags;
             }
 
             set
             {
-                _tags = value;
+                this.tags = value;
             }
         }
         //Constructor
@@ -140,19 +140,19 @@ namespace EmotivDrivers
         }
         public Record(JObject obj)
         {
-            _uuid = (string)obj["uuid"];
-            _licenseId = (string)obj["licenseId"];
-            _applicationId = (string)obj["applicationId"];
-            _title = (string)obj["title"];
-            _description = (string)obj["description"];
-            _startDateTime = (string)obj["startDatetime"];
-            _endDateTime = (string)obj["endDatetime"];
-            _markers = (JArray)obj["markers"];
-            _tags = obj["tags"].ToObject<List<string>>();
+            uuid = (string)obj["uuid"];
+            this.licenseId = (string)obj["licenseId"];
+            this.applicationId = (string)obj["applicationId"];
+            this.title = (string)obj["title"];
+            this.description = (string)obj["description"];
+            this.startDateTime = (string)obj["startDatetime"];
+            this.endDateTime = (string)obj["endDatetime"];
+            this.markers = (JArray)obj["markers"];
+            this.tags = obj["tags"].ToObject<List<string>>();
         }
         public void PrintOut()
         {
-            Console.WriteLine("id: " + _uuid + ", title: " + _title + ", startDatetime: " + _startDateTime + ", endDatetime: " + _endDateTime);
+            Console.WriteLine("id: " + uuid + ", title: " + this.title + ", startDatetime: " + this.startDateTime + ", endDatetime: " + this.endDateTime);
         }
 
     }

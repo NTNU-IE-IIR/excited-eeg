@@ -6,16 +6,16 @@ namespace EmotivDrivers
 {
     public class Headset
     {
-        private string _headsetID;
-        private string _status;
-        private string _serialId;
-        private string _firmwareVersion;
-        private string _dongleSerial;
-        private ArrayList _sensors;
-        private ArrayList _motionSensors;
-        private JObject _settings;
-        private string _connectedBy;
-        private string _mode;
+        private string headsetId;
+        private string status;
+        private string serialId;
+        private string firmwareVersion;
+        private string dongleSerial;
+        private ArrayList sensors;
+        private ArrayList motionSensors;
+        private JObject settings;
+        private string connectedBy;
+        private string mode;
 
         // Contructor
         public Headset()
@@ -23,7 +23,7 @@ namespace EmotivDrivers
         }
         public Headset (JObject jHeadset)
         {
-            HeadsetID = (string)jHeadset["id"];
+            HeadsetId = (string)jHeadset["id"];
             Status = (string)jHeadset["status"];
             FirmwareVersion = (string)jHeadset["firmware"];
             DongleSerial = (string)jHeadset["dongle"];
@@ -44,16 +44,16 @@ namespace EmotivDrivers
         }
 
         // Properties
-        public string HeadsetID
+        public string HeadsetId
         {
             get
             {
-                return _headsetID;
+                return this.headsetId;
             }
 
             set
             {
-                _headsetID = value;
+                this.headsetId = value;
             }
         }
 
@@ -61,12 +61,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _status;
+                return this.status;
             }
 
             set
             {
-                _status = value;
+                this.status = value;
             }
         }
 
@@ -74,12 +74,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _serialId;
+                return this.serialId;
             }
 
             set
             {
-                _serialId = value;
+                this.serialId = value;
             }
         }
 
@@ -87,12 +87,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _firmwareVersion;
+                return this.firmwareVersion;
             }
 
             set
             {
-                _firmwareVersion = value;
+                this.firmwareVersion = value;
             }
         }
 
@@ -100,12 +100,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _dongleSerial;
+                return this.dongleSerial;
             }
 
             set
             {
-                _dongleSerial = value;
+                this.dongleSerial = value;
             }
         }
 
@@ -113,12 +113,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _sensors;
+                return this.sensors;
             }
 
             set
             {
-                _sensors = value;
+                this.sensors = value;
             }
         }
 
@@ -126,12 +126,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _motionSensors;
+                return this.motionSensors;
             }
 
             set
             {
-                _motionSensors = value;
+                this.motionSensors = value;
             }
         }
 
@@ -139,12 +139,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _settings;
+                return this.settings;
             }
 
             set
             {
-                _settings = value;
+                this.settings = value;
             }
         }
 
@@ -152,12 +152,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _connectedBy;
+                return this.connectedBy;
             }
 
             set
             {
-                _connectedBy = value;
+                this.connectedBy = value;
             }
         }
 
@@ -165,12 +165,12 @@ namespace EmotivDrivers
         {
             get
             {
-                return _mode;
+                return this.mode;
             }
 
             set
             {
-                _mode = value;
+                this.mode = value;
             }
         }
     }
