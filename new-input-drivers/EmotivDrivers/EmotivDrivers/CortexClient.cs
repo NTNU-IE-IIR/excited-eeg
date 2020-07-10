@@ -128,10 +128,30 @@ namespace EmotivDrivers {
                     }
                 }
             }
+            else if (response["warning"] != null) {
+                JObject warning = (JObject) response["warning"];
+                string messageWarning = "";
+                int warningCode = -1;
+
+                if (warning["code"] != null) {
+                    warningCode = (int) warning["code"];
+                }
+                if (warning["message"].Type == JTokenType.String) {
+                    messageWarning = warning["message"].ToString();
+                }
+                else if (warning["message"].Type == JTokenType.Object) {
+                    Console.WriteLine("Received Warning Object");
+                }
+                HandleWarning(warningCode, messageWarning);
+            }
         }
 
         private void HandleResponse(string method, JToken data) {
             //TODO: ARILD FYLLER UT DENNE
+        }
+
+        private void HandleWarning(int warningCode, string message) {
+            //TODO ARILD FYLLER UT DENNE
         }
         
         private void SubscribeToEvents() {
