@@ -73,7 +73,13 @@ namespace EmotivDrivers {
         }
         
         public static CortexClient Instance { get; } = new CortexClient();
-
+        
+        /// <summary>
+        /// Sends an JSON request message to the cortex client
+        /// </summary>
+        /// <param name="param">Different parameters if needed in the request message</param>
+        /// <param name="method">The method requested by the cortex client</param>
+        /// <param name="hasParam">If the request message contains any parameters</param>
         private void SendWebSocketMessage(JObject param, string method, bool hasParam) {
             JObject request = new JObject(
                 new JProperty("jsonrpc", "2.0"), 
@@ -90,7 +96,12 @@ namespace EmotivDrivers {
             methodForRequestID.Add(nextRequestId, method);
             nextRequestId++;
         }
-
+        
+        /// <summary>
+        /// This function is fired when the web socket client receives an message
+        /// </summary>
+        /// <param name="sender">The object calling</param>
+        /// <param name="eventArgs">The event args containing the message data</param>
         private void WebSocketClientMessageReceived(object sender, MessageReceivedEventArgs eventArgs) {
             currentMessage = eventArgs.Message;
             MessageReceivedEvent.Set();
@@ -156,10 +167,9 @@ namespace EmotivDrivers {
         
         private void SubscribeToEvents() {
             webSocketClient.Opened += new EventHandler(WebSocketClientOpened);
-            
             webSocketClient.Error += new EventHandler<SuperSocket.ClientEngine.ErrorEventArgs>(WebSocketClientError);
-            
             webSocketClient.Closed += new EventHandler(WebSocketClientClosed);
+            webSocketClient.MessageReceived += new EventHandler<MessageReceivedEventArgs>(WebSocketClientMessageReceived);
         }
         
         private void WebSocketClientOpened(object sender, EventArgs eventArgs) {
