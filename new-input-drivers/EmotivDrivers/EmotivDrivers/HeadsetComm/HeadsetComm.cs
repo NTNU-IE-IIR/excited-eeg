@@ -7,13 +7,14 @@ using System.Text;
 using EmotivDrivers;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using WebSocket4Net;
 
 namespace EmotivDrivers.HeadsetComm {
     class HeadsetComm {
         const string OutFilePath = @"EEGLogger.csv";
         const string licenseID = "giK2jIkOy5x0Ry1xwixpdbAykYZi1Ebr3xjv7Asy";
         private static FileStream OutFileStream;
-
+        
         static void Main(string[] args) {
             Console.WriteLine("EEG LOGGER");
             Console.WriteLine("Please wear Headset with good signal!!!");
@@ -34,17 +35,18 @@ namespace EmotivDrivers.HeadsetComm {
             //dse.Start(licenseID, true);
 
             Console.WriteLine("Press Esc to flush data to file and exit");
-            while (Console.ReadKey().Key != ConsoleKey.Escape) { }
+            while (Console.ReadKey().Key != ConsoleKey.Escape) {
 
-            // Unsubcribe stream
-            //dse.UnSubscribe();
-            Thread.Sleep(5000);
+                // Unsubcribe stream
+                //dse.UnSubscribe();
+                Thread.Sleep(5000);
 
-            // Close Session
-            //dse.CloseSession();
-            Thread.Sleep(5000);
-            // Close Out Stream
-            OutFileStream.Dispose();
+                // Close Session
+                //dse.CloseSession();
+                Thread.Sleep(5000);
+                // Close Out Stream
+                OutFileStream.Dispose();
+            }
         }
 
         private static void SubscribedOK(object sender, Dictionary<string, JArray> e) {
@@ -80,6 +82,6 @@ namespace EmotivDrivers.HeadsetComm {
         private static void OnEEGDataReceived(object sender, ArrayList eegData) {
             WriteDataToFile(eegData);
         }
-
+        
     }
 }

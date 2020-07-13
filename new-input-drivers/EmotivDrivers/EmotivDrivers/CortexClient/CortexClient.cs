@@ -401,7 +401,49 @@ namespace EmotivDrivers.CortexClient {
             else if (code == WarningCode.UserLogout) {
                 OnUserLogout(this, message);
             }
+        }
 
+        public void QueryHeadsets(string headsetId) {
+            JObject param = new JObject();
+
+            if (!String.IsNullOrEmpty(headsetId)) {
+                param.Add("id", headsetId);
+            }
+            
+            SendWebSocketMessage(param, "queryHeadsets", false);
+        }
+        
+        public void ControlDevice(string command, string headsetId, JObject mappings) {
+            JObject param = new JObject();
+            param.Add("command", command);
+
+            if (!String.IsNullOrEmpty(headsetId)) {
+                param.Add("headset", headsetId);
+            }
+            if (mappings.Count > 0) {
+                param.Add("mappings", mappings);
+            }
+            SendWebSocketMessage(param, "controlDevice", true);
+        }
+
+        public void CreateSession(string cortexToken, string headsetId, string status) {
+            JObject param = new JObject();
+
+            if (!String.IsNullOrEmpty(headsetId)) {
+                param.Add("headset", headsetId);
+            }
+            
+            param.Add("cortexToken", cortexToken);
+            param.Add("status", status);
+            SendWebSocketMessage(param, "createSession", true);
+        }
+
+        public void UpdateSession(string cortexToken, string sessionId, string status) {
+            JObject param = new JObject();
+            param.Add("session", sessionId);
+            param.Add("cortexToken", cortexToken);
+            param.Add("status", status);
+            SendWebSocketMessage(param, "updateSession", true);
         }
         
         private void WebSocketClientClosed(object sender, EventArgs eventArgs) {
