@@ -1,24 +1,11 @@
-﻿namespace EmotivDrivers
-{
-    static class Config
-    {
-        /*
-         * To get a client id and a client secret, you must connect to your Emotiv
-         * account on emotiv.com and create a Cortex app.
-         * https://www.emotiv.com/my-account/cortex-apps/
-         */
-        public static string AppClientId = "The client id of your Cortex app goes here";
-        public static string AppClientSecret = "The client secret of your Cortex app goes here";
-
-        // If you use an Epoc Flex headset, then you must put your configuration here
-        public static string FlexMapping = @"{
-                                  'CMS':'TP8', 'DRL':'P6',
-                                  'RM':'TP10','RN':'P4','RO':'P8'}";
-
+﻿namespace EmotivDrivers.CortexClient {
+    static class Config {
+        public static string AppClientId = "giK2jIkOy5x0Ry1xwixpdbAykYZi1Ebr3xjv7Asy";
+        public static string AppClientSecret =
+            "SzXU4drfTJuAshSb9wInyvE3MYx5Z0jAZR1Au0b2ETXp0F8T7wpbTYXzAqezvJxYM7u9UJndXkiKdUDD6hE5h0G5ZbEQdtQcCn43PJXzme9DHsS95alVLQtCDGgql4Ot";
     }
 
-    public static class WarningCode
-    {
+    public static class WarningCode {
         public const int StreamStop = 0;
         public const int SessionAutoClosed = 1;
         public const int UserLogin = 2;

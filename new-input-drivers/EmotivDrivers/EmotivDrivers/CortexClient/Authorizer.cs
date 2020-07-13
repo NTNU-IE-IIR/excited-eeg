@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EmotivDrivers {
+namespace EmotivDrivers.CortexClient {
     public class Authorizer {
         private CortexClient cortexClient;
         

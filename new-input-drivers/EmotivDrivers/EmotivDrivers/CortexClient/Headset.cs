@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-namespace EmotivDrivers {
+namespace EmotivDrivers.CortexClient {
     public class Headset {
         private string headsetId;
         private string status;

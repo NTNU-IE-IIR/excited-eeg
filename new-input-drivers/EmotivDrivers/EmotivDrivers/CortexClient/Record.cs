@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace EmotivDrivers {
+namespace EmotivDrivers.CortexClient {
     public class Record {
         private string uuid;
         private string applicationId;
