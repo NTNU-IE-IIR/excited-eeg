@@ -4,7 +4,7 @@ using WebSocket4Net;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 
-namespace EmotivDrivers {
+namespace EmotivDrivers.CortexClient {
     
     public enum SessionStatus {
         Opened = 0,
@@ -38,6 +38,7 @@ namespace EmotivDrivers {
         public SessionStatus Status { get; set; }
         public string ApplicationId { get; set; }
     }
+    
     public class StreamDataEventArgs {
         public StreamDataEventArgs(string sid, JArray data, double time, string streamName) {
             Sid = sid;
@@ -50,6 +51,7 @@ namespace EmotivDrivers {
         public JArray Data { get; private set; }
         public string StreamName { get; private set; }
     }
+    
     public class ErrorMsgEventArgs {
         public ErrorMsgEventArgs(int code, string messageError) {
             Code = code;
@@ -59,18 +61,19 @@ namespace EmotivDrivers {
         public string MessageError { get; set; }
     }
 
-    public class CortexClient {
+    public sealed class CortexClient {
 
         private const string CortexURL = "wss://localhost:6868";
 
         private WebSocket webSocketClient;
         
         private int nextRequestId;
-        private string CurrentMessage = string.Empty;
-        private Dictionary<int, string> idRequest;
+        private string currentMessage = string.Empty;
+        private Dictionary<int, string> methodForRequestID;
+        private bool isWebSocketClientConnected;
         
          //Events
-        private AutoResetEvent MessageReceiveEvent = new AutoResetEvent(false);
+        private AutoResetEvent MessageReceivedEvent = new AutoResetEvent(false);
         private AutoResetEvent OpenedEvent = new AutoResetEvent(false);
         private AutoResetEvent CloseEvent = new AutoResetEvent(false);
 
@@ -110,77 +113,101 @@ namespace EmotivDrivers {
         public event EventHandler<JArray> OnQueryProfile;
         public event EventHandler<double> OnGetTrainingTime;
         public event EventHandler<JObject> OnTraining;
+        
+        /// <summary>
+        /// Constructors
+        /// </summary>
+        static CortexClient() {}
 
-        public static void Main(string[] args) {
-            CortexClient client = new CortexClient();
+        private CortexClient() {
+            nextRequestId = 1;
+            webSocketClient = new WebSocket(CortexURL);
+            methodForRequestID = new Dictionary<int, string>();
             
+            SubscribeToEvents();
         }
-        // Build a request message
-        private void SendTextMessage(JObject param, string method, bool hasParam = true) {
+        
+        public static CortexClient Instance { get; } = new CortexClient();
+        
+        private void SubscribeToEvents() {
+            webSocketClient.Opened += new EventHandler(WebSocketClientOpened);
+            webSocketClient.Error += new EventHandler<SuperSocket.ClientEngine.ErrorEventArgs>(WebSocketClientError);
+            webSocketClient.Closed += new EventHandler(WebSocketClientClosed);
+            webSocketClient.MessageReceived += new EventHandler<MessageReceivedEventArgs>(WebSocketClientMessageReceived);
+        }
+        
+        /// <summary>
+        /// Sends an JSON request message to the cortex server
+        /// </summary>
+        /// <param name="param">Different parameters if needed in the request message</param>
+        /// <param name="method">The method requested by the cortex server</param>
+        /// <param name="hasParam">If the request message contains any parameters</param>
+        private void SendWebSocketMessage(JObject param, string method, bool hasParam) {
             JObject request = new JObject(
-            new JProperty("jsonrpc", "2.0"),
-            new JProperty("id", nextRequestId),
-            new JProperty("method", method));
+                new JProperty("jsonrpc", "2.0"), 
+                new JProperty("id", nextRequestId), 
+                new JProperty("method", method));
 
             if (hasParam) {
                 request.Add("params", param);
             }
+            
             Console.WriteLine("Send " + method);
-            //Console.WriteLine(request.ToString());
-
-            // send the json message
+            
             webSocketClient.Send(request.ToString());
-
-            this.idRequest.Add(nextRequestId, method);
+            methodForRequestID.Add(nextRequestId, method);
             nextRequestId++;
         }
-        // Handle receieved message 
-        private void WebSocketClientMessageReceived(object sender, MessageReceivedEventArgs e) {
-            this.CurrentMessage = e.Message;
-            this.MessageReceiveEvent.Set();
-            //Console.WriteLine("Received: " + e.Message);
+        
+        /// <summary>
+        /// This function is fired when the web socket client receives an message
+        /// </summary>
+        /// <param name="sender">The object calling</param>
+        /// <param name="eventArgs">The event args containing the message data</param>
+        private void WebSocketClientMessageReceived(object sender, MessageReceivedEventArgs eventArgs) {
+            currentMessage = eventArgs.Message;
+            MessageReceivedEvent.Set();
 
-            JObject response = JObject.Parse(e.Message);
+            JObject response = JObject.Parse(eventArgs.Message);
 
             if (response["id"] != null) {
-                int id = (int)response["id"];
-                string method = this.idRequest[id];
-                this.idRequest.Remove(id);
-                
+                int id = (int) response["id"];
+                string method = methodForRequestID[id];
+                methodForRequestID.Remove(id);
+
                 if (response["error"] != null) {
-                    JObject error = (JObject)response["error"];
-                    int code = (int)error["code"];
-                    string messageError = (string)error["message"];
+                    JObject error = (JObject) response["error"];
+                    int errorCode = (int) error["code"];
+                    string messageError = (string) error["message"];
                     Console.WriteLine("Received: " + messageError);
-                    //Send Error message event
-                    OnErrorMsgReceived(this, new ErrorMsgEventArgs(code, messageError));
+                    OnErrorMsgReceived(this, new ErrorMsgEventArgs(errorCode, messageError));
                 }
                 else {
-                    // handle response
                     JToken data = response["result"];
                     HandleResponse(method, data);
                 }
             }
             else if (response["sid"] != null) {
-                string sid = (string)response["sid"];
+                string sid = (string) response["sid"];
                 double time = 0;
-                if (response["time"] != null)
-                    time = (double)response["time"];
+
+                if (response["time"] != null) {
+                    time = (double) response["time"];
+                }
 
                 foreach (JProperty property in response.Properties()) {
-                    //Console.WriteLine(property.Name + " - " + property.Value);
-                    if (property.Name != "sid" &&
-                        property.Name != "time") {
-                        OnStreamDataReceived(this, new StreamDataEventArgs(sid, (JArray)property.Value, time, property.Name));
+                    if (property.Name != "sid" && property.Name != "time") {
+                        OnStreamDataReceived(this, new StreamDataEventArgs(sid, (JArray) property.Value, time, property.Name));
                     }
                 }
             }
             else if (response["warning"] != null) {
-                JObject warning = (JObject)response["warning"];
+                JObject warning = (JObject) response["warning"];
                 string messageWarning = "";
-                int code = -1;
+                int warningCode = -1;
+
                 if (warning["code"] != null) {
-                    code = (int)warning["code"];
+                    warningCode = (int) warning["code"];
                 }
                 if (warning["message"].Type == JTokenType.String) {
                     messageWarning = warning["message"].ToString();
@@ -188,10 +215,10 @@ namespace EmotivDrivers {
                 else if (warning["message"].Type == JTokenType.Object) {
                     Console.WriteLine("Received Warning Object");
                 }
-                HandleWarning(code, messageWarning);
+                HandleWarning(warningCode, messageWarning);
             }
-            
         }
+        
         // handle Response
         private void HandleResponse(string method, JToken data) {
             Console.WriteLine("handleResponse: " + method);
@@ -376,20 +403,63 @@ namespace EmotivDrivers {
             }
 
         }
-        private void WebSocketClientClosed(object sender, EventArgs e) {
+        
+        private void WebSocketClientClosed(object sender, EventArgs eventArgs) {
             this.CloseEvent.Set();
         }
 
-        private void WebSocketClientOpened(object sender, EventArgs e) {
+        private void WebSocketClientOpened(object sender, EventArgs eventArgs) {
             this.OpenedEvent.Set();
         }
 
-        private void WebSocketClientError(object sender, SuperSocket.ClientEngine.ErrorEventArgs e) {
-            Console.WriteLine(e.Exception.GetType() + ":" + e.Exception.Message + Environment.NewLine + e.Exception.StackTrace);
+        private void WebSocketClientError(object sender, SuperSocket.ClientEngine.ErrorEventArgs eventArgs) {
+            Console.WriteLine(eventArgs.Exception.GetType() + ":" + eventArgs.Exception.Message + Environment.NewLine + eventArgs.Exception.StackTrace);
 
-            if (e.Exception.InnerException != null) {
-                Console.WriteLine(e.Exception.InnerException.GetType());
+            if (eventArgs.Exception.InnerException != null) {
+                Console.WriteLine(eventArgs.Exception.InnerException.GetType());
             }
+        }
+        
+        public void Open() {
+            webSocketClient.Open();
+
+            if (OpenedEvent.WaitOne(10000)) {
+                Console.WriteLine("Failed to Opened session on time");
+            }
+            if (webSocketClient.State == WebSocketState.Open) {
+                isWebSocketClientConnected = true;
+                OnConnected(this, true);
+            }
+            else {
+                isWebSocketClientConnected = false;
+                OnConnected(this, false);
+            }
+        }
+
+        public void GetUserLogin() {
+            JObject param = new JObject();
+            SendWebSocketMessage(param, "getUserLogin", false);
+        }
+
+        public void HasAccessRights() {
+            JObject param = new JObject(
+                new JProperty("clientId", Config.AppClientId), 
+                new JProperty("clientSecret", Config.AppClientSecret));
+            
+            SendWebSocketMessage(param, "hasAccessRight", true);
+        }
+
+        public void Authorize(string licenseId, int debitNumber) {
+            JObject param = new JObject();
+            param.Add("clientId", Config.AppClientId);
+            param.Add("clientSecret", Config.AppClientSecret);
+
+            if (!string.IsNullOrEmpty(licenseId)) {
+                param.Add("license", licenseId);
+            }
+            
+            param.Add("debit", debitNumber);
+            SendWebSocketMessage(param, "authorize", true);
         }
     }
 }
