@@ -404,6 +404,75 @@ namespace EmotivDrivers.CortexClient {
 
         }
         
+        // controlDevice
+        // required params: command
+        // command = {"connect", "disconnect", "refresh"}
+        // mappings is required if connect to epoc flex
+        public void ControlDevice(string command, string headsetId, JObject mappings) {
+            JObject param = new JObject();
+            param.Add("command", command);
+            if (!String.IsNullOrEmpty(headsetId)) {
+                param.Add("headset", headsetId);
+            }
+            if (mappings.Count > 0) {
+                param.Add("mappings", mappings);
+            }
+            SendWebSocketMessage(param, "controlDevice", true);
+        }
+        
+        // Subscribe Data
+        // Required params: session, cortexToken, streams
+        public void Subscribe(string cortexToken, string sessionId, List<string> streams) {
+            JObject param = new JObject();
+            param.Add("session", sessionId);
+            param.Add("cortexToken", cortexToken);
+            param.Add("streams", JToken.FromObject(streams));
+            SendWebSocketMessage(param, "subscribe", true);
+        }
+
+        // UnSubscribe Data
+        // Required params: session, cortexToken, streams
+        public void UnSubscribe(string cortexToken, string sessionId, List<string> streams) {
+            JObject param = new JObject();
+            param.Add("session", sessionId);
+            param.Add("cortexToken", cortexToken);
+            param.Add("streams", JToken.FromObject(streams));
+            SendWebSocketMessage(param, "unsubscribe", true);
+        }
+        
+        // CreateSession
+        // Required params: cortexToken, status
+        public void CreateSession(string cortexToken, string headsetId, string status) {
+            JObject param = new JObject();
+            if (!String.IsNullOrEmpty(headsetId)) {
+                param.Add("headset", headsetId);
+            }
+            param.Add("cortexToken", cortexToken);
+            param.Add("status", status);
+            SendWebSocketMessage(param, "createSession", true);
+        }
+
+        // UpdateSession
+        // Required params: session, status, cortexToken
+        public void UpdateSession(string cortexToken, string sessionId, string status) {
+            JObject param = new JObject();
+            param.Add("session", sessionId);
+            param.Add("cortexToken", cortexToken);
+            param.Add("status", status);
+            SendWebSocketMessage(param, "updateSession", true);
+        }
+        
+        // QueryHeadset
+        public void QueryHeadsets(string headsetId) {
+            JObject param = new JObject();
+            if (!String.IsNullOrEmpty(headsetId)) {
+                param.Add("id", headsetId);
+            }
+            SendWebSocketMessage(param, "queryHeadsets", false);
+        }
+        
+        
+        // websocket methods
         private void WebSocketClientClosed(object sender, EventArgs eventArgs) {
             this.CloseEvent.Set();
         }
