@@ -18,6 +18,7 @@
           <e p="HeadsetFinder.cs" t="Include" />
           <e p="Record.cs" t="Include" />
           <e p="SessionCreator.cs" t="Include" />
+          <e p="Training.cs" t="Include" />
         </e>
         <e p="EmotivDrivers.csproj" t="IncludeRecursive" />
         <e p="HeadsetComm" t="Include">
