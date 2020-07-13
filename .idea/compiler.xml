@@ -7,6 +7,8 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="inputdrivers" />
+        <module name="android-app" />
+        <module name="webapi" />
         <module name="input-drivers" />
         <module name="my-app" />
         <module name="androidapp" />
@@ -17,6 +19,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
+      <module name="new-input-drivers" target="1.7" />
       <module name="newinputdrivers" target="1.7" />
     </bytecodeTargetLevel>
   </component>

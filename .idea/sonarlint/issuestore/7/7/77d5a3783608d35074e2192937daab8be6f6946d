@@ -1,0 +1,15 @@
+
+M
+java:S1128"7Remove this unused import 'android.widget.AdapterView'.(¶¾éæ
+J
+java:S1128"4Remove this unused import 'android.widget.ListView'.(Œ‰Ö×
+o
+java:S2293S"YReplace the type specification in this constructor call with the diamond operator ("<>").(µ§†™
+I
+java:S1135Ã"2Complete the task associated to this TODO comment.(éƒÂ
+S
+java:S1068!"8Remove this unused "previousViewSelected" private field.(åœÅûÿÿÿÿ
+V	java:S125f"<This block of commented-out lines of code should be removed.(§ú¾¡üÿÿÿÿ
+Q	java:S125l"<This block of commented-out lines of code should be removed.(ßåù
+Z
+java:S1144Ä">Remove this unused private "checkIfSuggestionIsActive" method.(ø¶æĞøÿÿÿÿ
