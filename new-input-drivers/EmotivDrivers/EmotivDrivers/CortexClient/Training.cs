@@ -44,13 +44,13 @@ namespace EmotivDrivers.CortexClient {
             cortexClient.OnStreamDataReceived += StreamDataReceived;
             cortexClient.OnSubscribeData += SubscribeDataOK;
             cortexClient.OnCreateProfile += ProfileCreatedOK;
-            cortexClient.OnLoadProfile += ProfileLoadedOk;
-            cortexClient.OnSaveProfile += ProfileSavedOk;
-            cortexClient.OnUnloadProfile += ProfileUnloadedOk;
-            cortexClient.OnTraining += TrainingOk;
-            cortexClient.OnQueryProfile += QueryProfileOk;
+            cortexClient.OnLoadProfile += ProfileLoadedOK;
+            cortexClient.OnSaveProfile += ProfileSavedOK;
+            cortexClient.OnUnloadProfile += ProfileUnloadedOK;
+            cortexClient.OnTraining += TrainingOK;
+            cortexClient.OnQueryProfile += QueryProfileOK;
 
-            authorizer.OnAuthorized += AuthorizerOK;
+            authorizer.OnAuthorized += AuthorizedOK;
             headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
             sessionCreator.OnSessionCreated += SessionCreatedOk;
             sessionCreator.OnSessionClosed += SessionClosedOK;
@@ -133,6 +133,65 @@ namespace EmotivDrivers.CortexClient {
             if (!profileList.Contains(profileName)) {
                 profileList.Add(profileName);
             }
+        }
+
+        private void ProfileLoadedOK(object sender, string profileName) {
+            this.profileName = profileName;
+            isProfileLoaded = true;
+            OnProfileLoaded(this, profileName);
+        }
+
+        private void ProfileSavedOK(object sender, string profileName) {
+            Console.WriteLine("The profile " + profileName + " is saved successfully");
+        }
+
+        private void ProfileUnloadedOK(object sender, bool eventArgs) {
+            OnUnProfileLoaded(this, true);
+        }
+
+        private void TrainingOK(object sender, JObject eventArgs) {
+            Console.WriteLine("Training OK: " + eventArgs);
+        }
+
+        private void QueryProfileOK(object sender, JArray profiles) {
+            Console.WriteLine("Query profile OK: " + profiles);
+
+            foreach (JObject element in profiles) {
+                string name = (string) element["name"];
+                profileList.Add(name);
+            }
+            
+            headsetFinder.FindHeadset();
+        }
+
+        private void AuthorizedOK(object sender, string cortexToken) {
+            if (!String.IsNullOrEmpty(cortexToken)) {
+                this.cortexToken = cortexToken;
+                cortexClient.GetDetectionInfo(detection);
+            }
+        }
+
+        private void HeadsetConnectedOK(object sender, string headsetId) {
+            this.headsetId = headsetId;
+            
+            //Wait a moment before creating a session to make sure the headset is ready
+            System.Threading.Thread.Sleep(1500);
+            
+            sessionCreator.Create(cortexToken, headsetId);
+        }
+
+        private void SessionCreatedOk(object sender, string sessionId) {
+            this.sessionId = sessionId;
+
+            List<string> stream = new List<string>() {
+                "sys"
+            };
+
+            cortexClient.Subscribe(cortexToken, sessionId, stream);
+        }
+
+        private void SessionClosedOK(object sender, string sessionId) {
+            Console.WriteLine("Session: " + sessionId + " has closed");
         }
     }
 }

@@ -466,6 +466,20 @@ namespace EmotivDrivers.CortexClient {
             }
             SendWebSocketMessage(param, "setupProfile", true);
         }
+
+        public void GetDetectionInfo(string detection) {
+            JObject param = new JObject();
+            param.Add("detection", detection);
+            SendWebSocketMessage(param, "getDetectionInfo", true);
+        }
+
+        public void Subscribe(string cortexToken, string sessionId, List<string> streams) {
+            JObject param = new JObject();
+            param.Add("session", sessionId);
+            param.Add("cortexToken", cortexToken);
+            param.Add("streams", JToken.FromObject(streams));
+            SendWebSocketMessage(param, "subscribe", true);
+        }
         
         private void WebSocketClientClosed(object sender, EventArgs eventArgs) {
             this.CloseEvent.Set();
