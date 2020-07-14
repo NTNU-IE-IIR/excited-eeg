@@ -14,6 +14,7 @@
           <e p="Authorizer.cs" t="Include" />
           <e p="Config.cs" t="Include" />
           <e p="CortexClient.cs" t="Include" />
+          <e p="DataStreamExample.cs" t="Include" />
           <e p="Headset.cs" t="Include" />
           <e p="HeadsetFinder.cs" t="Include" />
           <e p="Record.cs" t="Include" />
