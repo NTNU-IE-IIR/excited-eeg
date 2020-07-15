@@ -19,14 +19,13 @@ namespace EmotivDrivers.HeadsetComm {
         static void Main(string[] args) {
             Console.WriteLine("EEG LOGGER");
             Console.WriteLine("Please wear Headset with good signal!!!");
-
+            
             // Delete Output file if existed
             if (File.Exists(OutFilePath)) {
                 File.Delete(OutFilePath);
             }
             OutFileStream = new FileStream(OutFilePath, FileMode.Append, FileAccess.Write);
-
-
+            
             DataStreamExample dse = new DataStreamExample();
             dse.AddStreams("eeg");                          // You can add more streams to subscribe multiple streams
             dse.OnSubscribed += SubscribedOK;
