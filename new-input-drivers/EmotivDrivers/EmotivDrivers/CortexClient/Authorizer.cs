@@ -1,6 +1,21 @@
 ﻿using System;
 
 namespace EmotivDrivers.CortexClient {
+    
+    /// <summary>
+    /// Class used to handle the authorization of a connection to the Emotiv cortex API.
+    /// It communicates with the cortex client by using event's.
+    /// In this class you can:
+    ///     Check if your connection to the cortex API is OK.
+    ///     Check if the login of a Emotiv user to the cortex API is correct.
+    ///     Check if a login process of a Emotiv user to the cortex API was OK.
+    ///     Check if a logout process of a Emotiv user to the cortex API was OK.
+    ///     Check if a user has access ot the cortex API.
+    ///     Confirmation if a Emotiv user have or does not have access to the cortex API.
+    ///     Confirmation that cortex API access rights have been granted to a Emotiv user.
+    ///     Check if the total authorization process was OK
+    ///     Check if a user has accepted EULA
+    /// </summary>
     public class Authorizer {
         private CortexClient cortexClient;
         
@@ -10,8 +25,9 @@ namespace EmotivDrivers.CortexClient {
 
         private bool isEulaAccepted;
         private bool hasAccessRight;
-
-        private ushort debitNo = 5; //Default value
+        
+        //Default value
+        private ushort debitNo = 5; 
 
         public event EventHandler<string> OnAuthorized;
 
@@ -24,7 +40,7 @@ namespace EmotivDrivers.CortexClient {
             
             SubscribeToEvents();
         }
-
+        
         public void Start(string licenseID) {
             licenseID = "";
             this.licenseId = licenseID;
@@ -42,7 +58,7 @@ namespace EmotivDrivers.CortexClient {
             cortexClient.OnAuthorize += AuthorizedOK;
             cortexClient.OnEULAAccepted += EULAAcceptedOK;
         }
-
+        
         private void ConnectedOK(object sender, bool isConnected) {
             if (isConnected) {
                 cortexClient.GetUserLogin();

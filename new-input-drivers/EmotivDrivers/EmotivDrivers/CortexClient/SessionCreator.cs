@@ -1,6 +1,13 @@
 ﻿using System;
 
 namespace EmotivDrivers.CortexClient {
+    /// <summary>
+    /// Responsible for handling sessions between the cortex API and cortex client
+    /// In this class you can:
+    ///     Create a new session
+    ///     Update a session
+    ///     Close a session
+    /// </summary>
     public class SessionCreator {
 
         private string sessionId;

@@ -60,9 +60,18 @@ namespace EmotivDrivers.CortexClient {
         public int Code { get; set; }
         public string MessageError { get; set; }
     }
-
+    
+    /// <summary>
+    /// Handles all the communication between the users own application and the Cortex API
+    /// The cortex client communicates by sending and receiving JSON objects.
+    /// The connection is made by using web secure sockets (wss). The cortex API
+    /// does not support un-secured web sockets.
+    /// </summary>
     public sealed class CortexClient {
-
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private const string CortexURL = "wss://localhost:6868";
 
         private WebSocket webSocketClient;
@@ -72,7 +81,9 @@ namespace EmotivDrivers.CortexClient {
         private Dictionary<int, string> methodForRequestID;
         private bool isWebSocketClientConnected;
         
-         //Events
+         /// <summary>
+         /// --------------------------- EVENTS ---------------------------
+         /// </summary>
         private AutoResetEvent MessageReceivedEvent = new AutoResetEvent(false);
         private AutoResetEvent OpenedEvent = new AutoResetEvent(false);
         private AutoResetEvent CloseEvent = new AutoResetEvent(false);
@@ -115,7 +126,7 @@ namespace EmotivDrivers.CortexClient {
         public event EventHandler<JObject> OnTraining;
         
         /// <summary>
-        /// Constructors
+        /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
         static CortexClient() {}
 
@@ -127,6 +138,9 @@ namespace EmotivDrivers.CortexClient {
             SubscribeToEvents();
         }
         
+        /// <summary>
+        /// Makes sure that classes are connected to the right instance of the cortex client
+        /// </summary>
         public static CortexClient Instance { get; } = new CortexClient();
         
         private void SubscribeToEvents() {
@@ -402,7 +416,12 @@ namespace EmotivDrivers.CortexClient {
                 OnUserLogout(this, message);
             }
         }
-
+        
+        /// <summary>
+        /// Asks the cortex API query the list of all available headsets, and
+        /// checks if the headset with a given Id is in the list
+        /// </summary>
+        /// <param name="headsetId">Id of the headset wanted to be checked</param>
         public void QueryHeadsets(string headsetId) {
             JObject param = new JObject();
 
@@ -425,7 +444,13 @@ namespace EmotivDrivers.CortexClient {
             }
             SendWebSocketMessage(param, "controlDevice", true);
         }
-
+        
+        /// <summary>
+        /// Asks the cortex API create a new session with a specific cortex token
+        /// </summary>
+        /// <param name="cortexToken"></param>
+        /// <param name="headsetId">the Id of the headset we want to create a session with</param>
+        /// <param name="status"></param>
         public void CreateSession(string cortexToken, string headsetId, string status) {
             JObject param = new JObject();
 
@@ -437,7 +462,13 @@ namespace EmotivDrivers.CortexClient {
             param.Add("status", status);
             SendWebSocketMessage(param, "createSession", true);
         }
-
+        
+        /// <summary>
+        /// Ask the cortex API to update a session with a specific cortex token
+        /// </summary>
+        /// <param name="cortexToken"></param>
+        /// <param name="sessionId">The Id of the session we want to update</param>
+        /// <param name="status"></param>
         public void UpdateSession(string cortexToken, string sessionId, string status) {
             JObject param = new JObject();
             param.Add("session", sessionId);
@@ -451,7 +482,7 @@ namespace EmotivDrivers.CortexClient {
             param.Add("cortexToken", cortexToken);
             SendWebSocketMessage(param, "queryProfile", true);
         }
-
+        
         public void SetupProfile(string cortexToken, string profile, string status, string headsetId = null, string newProfileName = null) {
             JObject param = new JObject();
             param.Add("profile", profile);

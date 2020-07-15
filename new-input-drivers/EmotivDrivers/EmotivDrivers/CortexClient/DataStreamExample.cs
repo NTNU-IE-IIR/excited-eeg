@@ -4,6 +4,9 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.CortexClient {
+    /// <summary>
+    /// A example way of receiving data streams for a Emotiv device.
+    /// </summary>
     public class DataStreamExample {
 
         private CortexClient cortexClient;

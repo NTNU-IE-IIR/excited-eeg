@@ -5,8 +5,11 @@ using System.Timers;
 using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.CortexClient {
+    /// <summary>
+    /// Responsible for finding available Emotiv headsets for the cortex API to use.
+    /// </summary>
     public class HeadsetFinder {
-
+        
         private CortexClient cortexClient;
         private string headsetId;
         public string HeadsetId => headsetId;
