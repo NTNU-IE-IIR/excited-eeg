@@ -26,9 +26,10 @@ namespace EmotivDrivers.CortexClient
         }
 
         // Event
+        public event EventHandler<ArrayList> OnComDataReceived; // command word data
         public event EventHandler<ArrayList> OnMotionDataReceived; // motion data
         public event EventHandler<ArrayList> OnEEGDataReceived; // eeg data
-        //public event EventHandler<ArrayList> OnDevDataReceived; // contact quality data
+        public event EventHandler<ArrayList> OnDevDataReceived; // contact quality data
         public event EventHandler<ArrayList> OnPerfDataReceived; // performance metric
         public event EventHandler<ArrayList> OnBandPowerDataReceived; // band power
         public event EventHandler<Dictionary<string, JArray>> OnSubscribed;
@@ -127,10 +128,13 @@ namespace EmotivDrivers.CortexClient
             ArrayList data = e.Data.ToObject<ArrayList>();
             // insert timestamp to datastream
             data.Insert(0, e.Time);
-            if (e.StreamName == "eeg") {
-                OnEEGDataReceived(this, data); }
+            if (e.StreamName == "com") {
+                OnComDataReceived(this, data);
+            }
+            else if (e.StreamName == "eeg") {
+                OnEEGDataReceived(this, data); 
+            }
             else if (e.StreamName == "mot") {
-                
                 OnMotionDataReceived(this, data);
             }
             else if (e.StreamName == "met") {

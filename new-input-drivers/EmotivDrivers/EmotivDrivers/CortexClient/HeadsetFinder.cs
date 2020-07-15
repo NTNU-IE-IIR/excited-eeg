@@ -3,7 +3,6 @@ using System.Collections.Generic;
 using System.Linq;
 using Newtonsoft.Json.Linq;
 using System.Timers;
-using EmotivDrivers.CortexClient;
 
 namespace EmotivDrivers.CortexClient {
     public class HeadsetFinder {
