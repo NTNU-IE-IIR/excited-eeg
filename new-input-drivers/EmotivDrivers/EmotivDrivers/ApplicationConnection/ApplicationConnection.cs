@@ -20,6 +20,7 @@ namespace EmotivDrivers {
                 
                 webSocket.Connect();
                 webSocket.Send(message);
+                webSocket.Close();
             }
         }
     }
