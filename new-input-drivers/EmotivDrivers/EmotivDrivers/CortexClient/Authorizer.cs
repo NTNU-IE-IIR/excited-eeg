@@ -79,6 +79,9 @@ namespace EmotivDrivers.CortexClient {
             if (hasAccessRight) {
                 cortexClient.Authorize(this.licenseId, this.debitNo);
             }
+            else {
+                cortexClient.RequestAccess();
+            }
         }
 
         private void RequestAccessDone(object sender, bool hasAccessRight) {

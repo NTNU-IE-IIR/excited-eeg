@@ -7,6 +7,7 @@ using System.Text;
 using EmotivDrivers;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using EmotivDrivers.CortexClient;
 using WebSocket4Net;
 
 namespace EmotivDrivers.HeadsetComm {
@@ -26,13 +27,13 @@ namespace EmotivDrivers.HeadsetComm {
             OutFileStream = new FileStream(OutFilePath, FileMode.Append, FileAccess.Write);
 
 
-            //DataStreamExample dse = new DataStreamExample();
-            //dse.AddStreams("eeg");                          // You can add more streams to subscribe multiple streams
-            //dse.OnSubscribed += SubscribedOK;
-            //dse.OnEEGDataReceived += OnEEGDataReceived;
+            DataStreamExample dse = new DataStreamExample();
+            dse.AddStreams("eeg");                          // You can add more streams to subscribe multiple streams
+            dse.OnSubscribed += SubscribedOK;
+            dse.OnEEGDataReceived += OnEEGDataReceived;
 
-            // Need a valid license key and activeSession when subscribe eeg data
-            //dse.Start(licenseID, true);
+            //Need a valid license key and activeSession when subscribe eeg data
+            dse.Start(licenseID, true);
 
             Console.WriteLine("Press Esc to flush data to file and exit");
             while (Console.ReadKey().Key != ConsoleKey.Escape) {

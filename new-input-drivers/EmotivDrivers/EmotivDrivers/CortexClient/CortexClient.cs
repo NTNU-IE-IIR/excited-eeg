@@ -538,5 +538,12 @@ namespace EmotivDrivers.CortexClient {
             param.Add("debit", debitNumber);
             SendWebSocketMessage(param, "authorize", true);
         }
+
+        public void RequestAccess() {
+            JObject param = new JObject(
+                new JProperty("clientId", Config.AppClientId), 
+                new JProperty("clientSecret", Config.AppClientSecret));
+            SendWebSocketMessage(param, "requestAccess", true);
+        }
     }
 }

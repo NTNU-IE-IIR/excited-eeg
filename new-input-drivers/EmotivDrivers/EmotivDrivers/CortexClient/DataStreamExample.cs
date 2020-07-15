@@ -150,5 +150,16 @@ namespace EmotivDrivers.CortexClient {
         private void SessionClosedOK(object sender, string sessionId) {
             Console.WriteLine("The session " + sessionId + " has closed successfully");
         }
+
+        public void AddStreams(string stream) {
+            if (!streams.Contains(stream)) {
+                streams.Add(stream);
+            }
+        }
+
+        public void Start(string licenseID = "", bool activeSession = false) {
+            this.isSessionActive = activeSession;
+            authorizer.Start(licenseID);
+        }
     }
 }
