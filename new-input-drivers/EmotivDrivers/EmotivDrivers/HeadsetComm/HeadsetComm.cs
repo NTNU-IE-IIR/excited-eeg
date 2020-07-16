@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading;
-using System.IO;
 using System.Collections;
-using System.Text;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using EmotivDrivers.CortexClient;
@@ -20,6 +18,9 @@ namespace EmotivDrivers.HeadsetComm {
             // Need a valid license key and activeSession when subscribe eeg data
             dataStream.Start("", true);
 
+            Console.WriteLine("Press Esc to exit");
+            while (Console.ReadKey().Key != ConsoleKey.Escape) { }
+            
             // Unsubcribe stream
             dataStream.UnSubscribe();
             Thread.Sleep(5000);
@@ -31,7 +32,7 @@ namespace EmotivDrivers.HeadsetComm {
 
         private static void SubscribedOK(object sender, Dictionary<string, JArray> e) {
             foreach (string key in e.Keys) {
-                if (key == "eeg") {
+                if (key == "com") {
                     // print header
                     ArrayList header = e[key].ToObject<ArrayList>();
                     //add timeStamp to header
