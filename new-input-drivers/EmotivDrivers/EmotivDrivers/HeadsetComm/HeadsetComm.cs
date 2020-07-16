@@ -1,8 +1,6 @@
 ﻿using System;
 using System.Threading;
-using System.IO;
 using System.Collections;
-using System.Text;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using EmotivDrivers.CortexClient;

@@ -511,6 +511,49 @@ namespace EmotivDrivers.CortexClient {
             SendWebSocketMessage(param, "queryHeadsets", false);
         }
         
+        // Training - Profile
+        // getDetectionInfo
+        // Required params: detection
+        public void GetDetectionInfo(string detection) {
+            JObject param = new JObject();
+            param.Add("detection", detection);
+            SendWebSocketMessage(param, "getDetectionInfo", true);
+        }
+        
+        // getCurrentProfile
+        // Required params: cortexToken, headset
+        public void GetCurrentProfile(string cortexToken, string headsetId) {
+            JObject param = new JObject();
+            param.Add("cortexToken", cortexToken);
+            param.Add("headset", headsetId);
+            SendWebSocketMessage(param, "getCurrentProfile", true);
+        }
+        
+        // setupProfile
+        // Required params: cortexToken, profile, status
+        public void SetupProfile(string cortexToken, string profile, string status, string headsetId = null, string newProfileName = null)
+        {
+            JObject param = new JObject();
+            param.Add("profile", profile);
+            param.Add("cortexToken", cortexToken);
+            param.Add("status", status);
+            if (headsetId != null) {
+                param.Add("headset", headsetId);
+            }
+            if (newProfileName != null) {
+                param.Add("newProfileName", newProfileName);
+            }
+            SendWebSocketMessage(param, "setupProfile", true);
+        }
+        
+        // queryProfile
+        // Required params: cortexToken
+        public void QueryProfile(string cortexToken) {
+            JObject param = new JObject();
+            param.Add("cortexToken", cortexToken);
+            SendWebSocketMessage(param, "queryProfile", true);
+        }
+        
         
         // websocket methods
         private void WebSocketClientClosed(object sender, EventArgs eventArgs) {
@@ -534,7 +577,7 @@ namespace EmotivDrivers.CortexClient {
 
             if (OpenedEvent.WaitOne(10000)) {
                 Console.WriteLine("Failed to Opened session on time");
-            }
+            }    
             if (webSocketClient.State == WebSocketState.Open) {
                 isWebSocketClientConnected = true;
                 OnConnected(this, true);
