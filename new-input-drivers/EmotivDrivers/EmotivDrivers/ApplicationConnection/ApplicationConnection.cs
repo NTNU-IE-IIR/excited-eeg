@@ -5,7 +5,7 @@ using WebSocketSharp;
 namespace EmotivDrivers {
     public class ApplicationConnection {
         
-        private static string keyboardServerURL = "ws://192.168.0.47:43879/input";
+        private static string keyboardServerURL = "ws://localhost:43879/input";
 
         static ApplicationConnection() {}
 

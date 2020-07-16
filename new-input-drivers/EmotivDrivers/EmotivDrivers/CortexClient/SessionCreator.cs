@@ -82,5 +82,7 @@ namespace EmotivDrivers.CortexClient {
                 this.ctxClient.UpdateSession(this.cortexToken, this.sessionId, "close");
             }
         }
+        
+        // Load profile
     }
 }

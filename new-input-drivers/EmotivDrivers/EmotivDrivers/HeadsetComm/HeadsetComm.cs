@@ -14,8 +14,7 @@ namespace EmotivDrivers.HeadsetComm {
             dataStream.AddStreams("com");                          // You can add more streams to subscribe multiple streams
             dataStream.OnSubscribed += SubscribedOK;
             dataStream.OnComDataReceived += ComDataReceived;
-
-            // Need a valid license key and activeSession when subscribe eeg data
+            
             dataStream.Start("", true);
             
             while (Console.ReadKey().Key != ConsoleKey.Escape) {}
@@ -61,6 +60,10 @@ namespace EmotivDrivers.HeadsetComm {
                 
                 case "pull":
 
+                    break;
+                
+                default:
+                    Console.WriteLine("Invalid input.");
                     break;
             }
         }
