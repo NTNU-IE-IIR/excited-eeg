@@ -19,7 +19,9 @@ namespace EmotivDrivers.HeadsetComm {
 
             // Need a valid license key and activeSession when subscribe eeg data
             dataStream.Start("", true);
-
+            
+            while (Console.ReadKey().Key != ConsoleKey.Escape) {}
+            
             // Unsubcribe stream
             dataStream.UnSubscribe();
             Thread.Sleep(5000);
@@ -31,7 +33,7 @@ namespace EmotivDrivers.HeadsetComm {
 
         private static void SubscribedOK(object sender, Dictionary<string, JArray> e) {
             foreach (string key in e.Keys) {
-                if (key == "eeg") {
+                if (key == "com") {
                     // print header
                     ArrayList header = e[key].ToObject<ArrayList>();
                     //add timeStamp to header
@@ -41,8 +43,10 @@ namespace EmotivDrivers.HeadsetComm {
         }
 
         private static void ComDataReceived(object sender, ArrayList comData) {
-            string command = comData[0].ToString();
-            string power = comData[1].ToString();
+            string command = comData[1].ToString();
+            string power = comData[2].ToString();
+            Console.WriteLine(command);
+            Console.WriteLine(power);
 
             switch (command) {
                 case "left":
