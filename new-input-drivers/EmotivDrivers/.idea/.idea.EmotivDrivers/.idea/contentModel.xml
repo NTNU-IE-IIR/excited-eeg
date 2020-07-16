@@ -6,6 +6,9 @@
     <e p="C:\Users\robin\Documents\Sommer 2020\excited-eeg\new-input-drivers\EmotivDrivers" t="IncludeFlat">
       <e p="EmotivDrivers" t="IncludeRecursive">
         <e p=".gitignore" t="Include" />
+        <e p="ApplicationConnection" t="Include">
+          <e p="ApplicationConnection.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="CortexClient" t="Include">
           <e p="Authorizer.cs" t="Include" />

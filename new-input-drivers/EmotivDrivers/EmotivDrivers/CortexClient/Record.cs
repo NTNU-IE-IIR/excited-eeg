@@ -3,6 +3,9 @@ using System;
 using System.Collections.Generic;
 
 namespace EmotivDrivers.CortexClient {
+    /// <summary>
+    /// Responsible for recording data from the Emotiv devices.
+    /// </summary>
     public class Record {
         private string uuid;
         private string applicationId;

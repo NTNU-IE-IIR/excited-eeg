@@ -1,10 +1,10 @@
 
-Q
-java:S2696i"6Make the enclosing method "static" or remove this set.(—Ê°óþÿÿÿÿ
 L
 java:S2696b"6Make the enclosing method "static" or remove this set.(ÌÜþ×
 `
 java:S1192a"JDefine a constant instead of duplicating this literal "WEBSOCKET" 6 times.(õ”þÅ
+Q
+java:S2696i"6Make the enclosing method "static" or remove this set.(—Ê°óþÿÿÿÿ
 \
 java:S2142^"FEither re-interrupt this method or rethrow the "InterruptedException".(òž¶È
 [
