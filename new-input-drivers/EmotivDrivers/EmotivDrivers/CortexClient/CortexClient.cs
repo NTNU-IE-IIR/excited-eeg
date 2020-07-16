@@ -417,33 +417,6 @@ namespace EmotivDrivers.CortexClient {
             }
         }
         
-        public void QueryProfile(string cortexToken) {
-            JObject param = new JObject();
-            param.Add("cortexToken", cortexToken);
-            SendWebSocketMessage(param, "queryProfile", true);
-        }
-        
-        public void SetupProfile(string cortexToken, string profile, string status, string headsetId = null, string newProfileName = null) {
-            JObject param = new JObject();
-            param.Add("profile", profile);
-            param.Add("cortexToken", cortexToken);
-            param.Add("status", status);
-
-            if (headsetId != null) {
-                param.Add("headset", headsetId);
-            }
-            if (newProfileName != null) {
-                param.Add("newProfileName", newProfileName);
-            }
-            SendWebSocketMessage(param, "setupProfile", true);
-        }
-
-        public void GetDetectionInfo(string detection) {
-            JObject param = new JObject();
-            param.Add("detection", detection);
-            SendWebSocketMessage(param, "getDetectionInfo", true);
-        }
-
         // controlDevice
         // required params: command
         // command = {"connect", "disconnect", "refresh"}
