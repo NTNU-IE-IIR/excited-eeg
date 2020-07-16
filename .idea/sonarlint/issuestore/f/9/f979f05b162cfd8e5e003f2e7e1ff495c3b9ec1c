@@ -1,0 +1,28 @@
+
+@squid:S1148‚"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+T
+squid:S106"9Replace this use of System.out or System.err by a logger.(·µ‚¡øÿÿÿÿ
+>squid:S2189v""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ
+;squid:S1148¤"#Use a logger to log this exception.(Ç’Çê
+®%squid:RedundantThrowsDeclarationCheck‰"wRemove the declaration of thrown exception 'java.lang.InterruptedException', as it cannot be thrown from method's body.(…ëÁúÿÿÿÿ
+P
+squid:S106š"9Replace this use of System.out or System.err by a logger.(ıš¦ó
+>squid:S2189J""Add an end condition to this loop.(˜ïˆÿÿÿÿÿ
+]squid:S2142q"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+O
+squid:S106~"9Replace this use of System.out or System.err by a logger.(ç¿ŒÊ
+^squid:S2142“"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+?squid:S1148N"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+?squid:S1148F"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ
+jsquid:ModifiersOrderCheck$"EReorder the modifiers to comply with the Java Language Specification.(ëŠ‘
+¤%squid:RedundantThrowsDeclarationCheck("sRemove the declaration of thrown exception 'java.awt.AWTException', as it cannot be thrown from constructor's body.(ğ”ÏÑ
+]squid:S2142M"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+^squid:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+P
+squid:S106‹"9Replace this use of System.out or System.err by a logger.(á ¶
+bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.( ·„¥
+P
+squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(ÆÆº´
+P
+squid:S106"9Replace this use of System.out or System.err by a logger.(»Œ¦Á
+?squid:S1148r"#Use a logger to log this exception.(€ÉÔ…ıÿÿÿÿ

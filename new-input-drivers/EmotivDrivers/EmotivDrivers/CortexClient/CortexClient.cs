@@ -60,9 +60,18 @@ namespace EmotivDrivers.CortexClient {
         public int Code { get; set; }
         public string MessageError { get; set; }
     }
-
+    
+    /// <summary>
+    /// Handles all the communication between the users own application and the Cortex API
+    /// The cortex client communicates by sending and receiving JSON objects.
+    /// The connection is made by using web secure sockets (wss). The cortex API
+    /// does not support un-secured web sockets.
+    /// </summary>
     public sealed class CortexClient {
-
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private const string CortexURL = "wss://localhost:6868";
 
         private WebSocket webSocketClient;
@@ -72,7 +81,9 @@ namespace EmotivDrivers.CortexClient {
         private Dictionary<int, string> methodForRequestID;
         private bool isWebSocketClientConnected;
         
-         //Events
+         /// <summary>
+         /// --------------------------- EVENTS ---------------------------
+         /// </summary>
         private AutoResetEvent MessageReceivedEvent = new AutoResetEvent(false);
         private AutoResetEvent OpenedEvent = new AutoResetEvent(false);
         private AutoResetEvent CloseEvent = new AutoResetEvent(false);
@@ -115,7 +126,7 @@ namespace EmotivDrivers.CortexClient {
         public event EventHandler<JObject> OnTraining;
         
         /// <summary>
-        /// Constructors
+        /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
         static CortexClient() {}
 
@@ -127,6 +138,9 @@ namespace EmotivDrivers.CortexClient {
             SubscribeToEvents();
         }
         
+        /// <summary>
+        /// Makes sure that classes are connected to the right instance of the cortex client
+        /// </summary>
         public static CortexClient Instance { get; } = new CortexClient();
         
         private void SubscribeToEvents() {
@@ -401,9 +415,147 @@ namespace EmotivDrivers.CortexClient {
             else if (code == WarningCode.UserLogout) {
                 OnUserLogout(this, message);
             }
-
         }
         
+        public void QueryProfile(string cortexToken) {
+            JObject param = new JObject();
+            param.Add("cortexToken", cortexToken);
+            SendWebSocketMessage(param, "queryProfile", true);
+        }
+        
+        public void SetupProfile(string cortexToken, string profile, string status, string headsetId = null, string newProfileName = null) {
+            JObject param = new JObject();
+            param.Add("profile", profile);
+            param.Add("cortexToken", cortexToken);
+            param.Add("status", status);
+
+            if (headsetId != null) {
+                param.Add("headset", headsetId);
+            }
+            if (newProfileName != null) {
+                param.Add("newProfileName", newProfileName);
+            }
+            SendWebSocketMessage(param, "setupProfile", true);
+        }
+
+        public void GetDetectionInfo(string detection) {
+            JObject param = new JObject();
+            param.Add("detection", detection);
+            SendWebSocketMessage(param, "getDetectionInfo", true);
+        }
+
+        // controlDevice
+        // required params: command
+        // command = {"connect", "disconnect", "refresh"}
+        // mappings is required if connect to epoc flex
+        public void ControlDevice(string command, string headsetId, JObject mappings) {
+            JObject param = new JObject();
+            param.Add("command", command);
+            if (!String.IsNullOrEmpty(headsetId)) {
+                param.Add("headset", headsetId);
+            }
+            if (mappings.Count > 0) {
+                param.Add("mappings", mappings);
+            }
+            SendWebSocketMessage(param, "controlDevice", true);
+        }
+        
+        // Subscribe Data
+        // Required params: session, cortexToken, streams
+        public void Subscribe(string cortexToken, string sessionId, List<string> streams) {
+            JObject param = new JObject();
+            param.Add("session", sessionId);
+            param.Add("cortexToken", cortexToken);
+            param.Add("streams", JToken.FromObject(streams));
+            SendWebSocketMessage(param, "subscribe", true);
+        }
+
+        // UnSubscribe Data
+        // Required params: session, cortexToken, streams
+        public void UnSubscribe(string cortexToken, string sessionId, List<string> streams) {
+            JObject param = new JObject();
+            param.Add("session", sessionId);
+            param.Add("cortexToken", cortexToken);
+            param.Add("streams", JToken.FromObject(streams));
+            SendWebSocketMessage(param, "unsubscribe", true);
+        }
+        
+        // CreateSession
+        // Required params: cortexToken, status
+        public void CreateSession(string cortexToken, string headsetId, string status) {
+            JObject param = new JObject();
+            if (!String.IsNullOrEmpty(headsetId)) {
+                param.Add("headset", headsetId);
+            }
+            param.Add("cortexToken", cortexToken);
+            param.Add("status", status);
+            SendWebSocketMessage(param, "createSession", true);
+        }
+
+        // UpdateSession
+        // Required params: session, status, cortexToken
+        public void UpdateSession(string cortexToken, string sessionId, string status) {
+            JObject param = new JObject();
+            param.Add("session", sessionId);
+            param.Add("cortexToken", cortexToken);
+            param.Add("status", status);
+            SendWebSocketMessage(param, "updateSession", true);
+        }
+        
+        // QueryHeadset
+        public void QueryHeadsets(string headsetId) {
+            JObject param = new JObject();
+            if (!String.IsNullOrEmpty(headsetId)) {
+                param.Add("id", headsetId);
+            }
+            SendWebSocketMessage(param, "queryHeadsets", false);
+        }
+        
+        // Training - Profile
+        // getDetectionInfo
+        // Required params: detection
+        public void GetDetectionInfo(string detection) {
+            JObject param = new JObject();
+            param.Add("detection", detection);
+            SendWebSocketMessage(param, "getDetectionInfo", true);
+        }
+        
+        // getCurrentProfile
+        // Required params: cortexToken, headset
+        public void GetCurrentProfile(string cortexToken, string headsetId) {
+            JObject param = new JObject();
+            param.Add("cortexToken", cortexToken);
+            param.Add("headset", headsetId);
+            SendWebSocketMessage(param, "getCurrentProfile", true);
+        }
+        
+        // setupProfile
+        // Required params: cortexToken, profile, status
+        public void SetupProfile(string cortexToken, string profile, string status, string headsetId = null, string newProfileName = null)
+        {
+            JObject param = new JObject();
+            param.Add("profile", profile);
+            param.Add("cortexToken", cortexToken);
+            param.Add("status", status);
+            if (headsetId != null) {
+                param.Add("headset", headsetId);
+            }
+            if (newProfileName != null) {
+                param.Add("newProfileName", newProfileName);
+            }
+            SendWebSocketMessage(param, "setupProfile", true);
+        }
+        
+        // queryProfile
+        // Required params: cortexToken
+        public void QueryProfile(string cortexToken) {
+            JObject param = new JObject();
+            param.Add("cortexToken", cortexToken);
+            SendWebSocketMessage(param, "queryProfile", true);
+        }
+        
+        
+        // websocket methods
         private void WebSocketClientClosed(object sender, EventArgs eventArgs) {
             this.CloseEvent.Set();
         }
@@ -425,7 +577,7 @@ namespace EmotivDrivers.CortexClient {
 
             if (OpenedEvent.WaitOne(10000)) {
                 Console.WriteLine("Failed to Opened session on time");
-            }
+            }    
             if (webSocketClient.State == WebSocketState.Open) {
                 isWebSocketClientConnected = true;
                 OnConnected(this, true);
@@ -460,6 +612,13 @@ namespace EmotivDrivers.CortexClient {
             
             param.Add("debit", debitNumber);
             SendWebSocketMessage(param, "authorize", true);
+        }
+
+        public void RequestAccess() {
+            JObject param = new JObject(
+                new JProperty("clientId", Config.AppClientId), 
+                new JProperty("clientSecret", Config.AppClientSecret));
+            SendWebSocketMessage(param, "requestAccess", true);
         }
     }
 }

@@ -1,0 +1,32 @@
+
+ksquid:S00100L"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ê¹Æ±üÿÿÿÿ
+Bsquid:S1168&"+Return an empty collection instead of null.(¥¹ï
+Asquid:S2160"+Override the "equals" method in this class.(§À÷
+ksquid:S00100["NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½«ìçûÿÿÿÿ
+ksquid:S00100f"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿™û¹ùÿÿÿÿ
+ksquid:S00100B"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’¥³Èıÿÿÿÿ
+dsquid:S00101"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(§À÷
+ksquid:S00100z"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğİÉËøÿÿÿÿ
+lsquid:S00100ª"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞÑ¥•ùÿÿÿÿ
+Nsquid:S1135%"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
+isquid:S00117Ó"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÓÑª
+wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ¹‡ıÿÿÿÿ
+lsquid:S00100¢"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Â€Â±şÿÿÿÿ
+lsquid:S00100™"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âñ­Îøÿÿÿÿ
+gsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æÑûœ
+>squid:S1214
+""Move constants to a class or enum.(¡Ï¿õüÿÿÿÿ
+Qsquid:S1191"5Use classes from the Java API instead of Sun classes.(ªìŸ´ûÿÿÿÿ
+Ksquid:EmptyStatementUsageCheck"Remove this empty statement.(ôŸìúÿÿÿÿ
+lsquid:S00100²"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(çœÀ®øÿÿÿÿ
+gsquid:S00100Ñ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ƒ÷ò
+usquid:S00116!"XRename this field "last_modified" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(´•¶¨ÿÿÿÿÿ
+ksquid:S00100/"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(–Ô»şÿÿÿÿ
+ksquid:S001006"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(÷ç×óşÿÿÿÿ
+fsquid:S00100q"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ìõ„É
+fsquid:S00100º"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Òö¼
+gsquid:S00100ƒ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ç÷¿
+fsquid:S00100="NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(şš€
+lsquid:S00100Å"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²—äûÿÿÿÿ
+fsquid:S00100S"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ğì ™
+lsquid:S00100İ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(³ƒåÿÿÿÿÿ

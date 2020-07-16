@@ -6,13 +6,21 @@
     <e p="C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers" t="IncludeFlat">
       <e p="EmotivDrivers" t="IncludeRecursive">
         <e p=".gitignore" t="Include" />
+        <e p="ApplicationConnection" t="Include">
+          <e p="ApplicationConnection.cs" t="Include" />
+        </e>
         <e p="bin" t="ExcludeRecursive" />
         <e p="CortexClient" t="Include">
           <e p="Authorizer.cs" t="Include" />
           <e p="Config.cs" t="Include" />
           <e p="CortexClient.cs" t="Include" />
+          <e p="DataStream.cs" t="Include" />
           <e p="Headset.cs" t="Include" />
+          <e p="HeadsetFinder.cs" t="Include" />
           <e p="Record.cs" t="Include" />
+          <e p="SessionCreator.cs" t="Include" />
+          <e p="Training.cs" t="Include" />
+          <e p="Utils.cs" t="Include" />
         </e>
         <e p="EmotivDrivers.csproj" t="IncludeRecursive" />
         <e p="HeadsetComm" t="Include">
