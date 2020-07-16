@@ -417,66 +417,6 @@ namespace EmotivDrivers.CortexClient {
             }
         }
         
-        /// <summary>
-        /// Asks the cortex API query the list of all available headsets, and
-        /// checks if the headset with a given Id is in the list
-        /// </summary>
-        /// <param name="headsetId">Id of the headset wanted to be checked</param>
-        public void QueryHeadsets(string headsetId) {
-            JObject param = new JObject();
-
-            if (!String.IsNullOrEmpty(headsetId)) {
-                param.Add("id", headsetId);
-            }
-            
-            SendWebSocketMessage(param, "queryHeadsets", false);
-        }
-        
-        public void ControlDevice(string command, string headsetId, JObject mappings) {
-            JObject param = new JObject();
-            param.Add("command", command);
-
-            if (!String.IsNullOrEmpty(headsetId)) {
-                param.Add("headset", headsetId);
-            }
-            if (mappings.Count > 0) {
-                param.Add("mappings", mappings);
-            }
-            SendWebSocketMessage(param, "controlDevice", true);
-        }
-        
-        /// <summary>
-        /// Asks the cortex API create a new session with a specific cortex token
-        /// </summary>
-        /// <param name="cortexToken"></param>
-        /// <param name="headsetId">the Id of the headset we want to create a session with</param>
-        /// <param name="status"></param>
-        public void CreateSession(string cortexToken, string headsetId, string status) {
-            JObject param = new JObject();
-
-            if (!String.IsNullOrEmpty(headsetId)) {
-                param.Add("headset", headsetId);
-            }
-            
-            param.Add("cortexToken", cortexToken);
-            param.Add("status", status);
-            SendWebSocketMessage(param, "createSession", true);
-        }
-        
-        /// <summary>
-        /// Ask the cortex API to update a session with a specific cortex token
-        /// </summary>
-        /// <param name="cortexToken"></param>
-        /// <param name="sessionId">The Id of the session we want to update</param>
-        /// <param name="status"></param>
-        public void UpdateSession(string cortexToken, string sessionId, string status) {
-            JObject param = new JObject();
-            param.Add("session", sessionId);
-            param.Add("cortexToken", cortexToken);
-            param.Add("status", status);
-            SendWebSocketMessage(param, "updateSession", true);
-        }
-
         public void QueryProfile(string cortexToken) {
             JObject param = new JObject();
             param.Add("cortexToken", cortexToken);
@@ -504,14 +444,6 @@ namespace EmotivDrivers.CortexClient {
             SendWebSocketMessage(param, "getDetectionInfo", true);
         }
 
-        public void Subscribe(string cortexToken, string sessionId, List<string> streams) {
-            JObject param = new JObject();
-            param.Add("session", sessionId);
-            param.Add("cortexToken", cortexToken);
-            param.Add("streams", JToken.FromObject(streams));
-            SendWebSocketMessage(param, "subscribe", true);
-        }
-        
         // controlDevice
         // required params: command
         // command = {"connect", "disconnect", "refresh"}
