@@ -212,5 +212,37 @@ namespace EmotivDrivers.CortexClient {
         private void SessionClosedOK(object sender, string sessionId) {
             Console.WriteLine("Session: " + sessionId + " has closed");
         }
+
+        public void CreateProfile(string profileName) {
+            if (profileList.Contains(profileName)) {
+                Console.WriteLine("The profile has name " + profileName + " already exists. Please use another name");
+            }
+            else {
+                cortexClient.SetupProfile(cortexToken, profileName, "create");
+            }
+        }
+
+        public void LoadProfile(string profileName) {
+            if (profileList.Contains(profileName)) {
+                cortexClient.SetupProfile(cortexToken, profileName, "load", headsetId);
+                Console.WriteLine("The profile: " + profileName + " was loaded.");
+            }
+            else {
+                Console.WriteLine("The profile can not be loaded. The name " + profileName + " does not exist");
+            }
+        }
+
+        public void UnLoadProfile(string profileName) {
+            if (profileList.Contains(profileName)) {
+                cortexClient.SetupProfile(cortexToken, profileName, "unload", headsetId);
+            }
+            else {
+                Console.WriteLine("The profile can not be un-loaded. The name " + profileName + " does not exist");
+            }
+        }
+
+        public void CloseSession() {
+            sessionCreator.CloseSession();
+        }
     }
 }
