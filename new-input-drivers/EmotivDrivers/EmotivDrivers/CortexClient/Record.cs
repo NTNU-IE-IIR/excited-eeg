@@ -7,6 +7,10 @@ namespace EmotivDrivers.CortexClient {
     /// Responsible for recording data from the Emotiv devices.
     /// </summary>
     public class Record {
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private string uuid;
         private string applicationId;
         private string licenseId;
@@ -17,7 +21,9 @@ namespace EmotivDrivers.CortexClient {
         private JArray markers;
         private List<string> tags;
 
-        // Properties
+        /// <summary>
+        /// --------------------------- PROPERTIES ---------------------------
+        /// </summary>
         public string Uuid {
             get { return this.uuid; }
             set { this.uuid = value; }
@@ -62,10 +68,12 @@ namespace EmotivDrivers.CortexClient {
             get { return this.tags; }
             set { this.tags = value; }
         }
-        //Constructor
-        public Record() {
-
-        }
+        
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
+        public Record() {}
+        
         public Record(JObject obj) {
             uuid = (string)obj["uuid"];
             this.licenseId = (string)obj["licenseId"];
@@ -77,6 +85,14 @@ namespace EmotivDrivers.CortexClient {
             this.markers = (JArray)obj["markers"];
             this.tags = obj["tags"].ToObject<List<string>>();
         }
+        
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
+        
+        /// <summary>
+        /// Prints out what is currently being recorded
+        /// </summary>
         public void PrintOut() {
             Console.WriteLine("id: " + uuid + ", title: " + this.title + ", startDatetime: " + this.startDateTime + ", endDatetime: " + this.endDateTime);
         }

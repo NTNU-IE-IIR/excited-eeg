@@ -3,9 +3,16 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace EmotivDrivers.CortexClient
-{
+namespace EmotivDrivers.CortexClient {
+    
+    /// <summary>
+    /// Used to subscribe to a data stream from a emotiv device.
+    /// </summary>
     public class DataStream {
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private CortexClient ctxClient;
         private List<string> streams;
         private string cortexToken;
@@ -25,7 +32,9 @@ namespace EmotivDrivers.CortexClient
             get { return this.sessionId; }
         }
 
-        // Event
+        /// <summary>
+        /// --------------------------- EVENTS ---------------------------
+        /// </summary>
         public event EventHandler<ArrayList> OnComDataReceived; // command word data
         public event EventHandler<ArrayList> OnMotionDataReceived; // motion data
         public event EventHandler<ArrayList> OnEEGDataReceived; // eeg data
@@ -34,7 +43,9 @@ namespace EmotivDrivers.CortexClient
         public event EventHandler<ArrayList> OnBandPowerDataReceived; // band power
         public event EventHandler<Dictionary<string, JArray>> OnSubscribed;
 
-        // Constructor
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
         public DataStream() {
 
             authorizer = new Authorizer();
@@ -47,6 +58,14 @@ namespace EmotivDrivers.CortexClient
             streams = new List<string>();
             // Event register
             ctxClient = CortexClient.Instance;
+            
+            SubscribeToEvents();
+        }
+
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
+        private void SubscribeToEvents() {
             this.ctxClient.OnErrorMsgReceived += MessageErrorRecieved;
             this.ctxClient.OnStreamDataReceived += StreamDataReceived;
             this.ctxClient.OnSubscribeData += SubscribeDataOK;
@@ -57,7 +76,7 @@ namespace EmotivDrivers.CortexClient
             this.sessionCreator.OnSessionCreated += SessionCreatedOk;
             this.sessionCreator.OnSessionClosed += SessionClosedOK;
         }
-
+        
         private void SessionClosedOK(object sender, string sessionId) {
             Console.WriteLine("The Session " + sessionId + " has closed successfully.");
         }
@@ -148,19 +167,30 @@ namespace EmotivDrivers.CortexClient
             Console.WriteLine("MessageErrorRecieved :code " + e.Code + " message " + e.MessageError);
         }
 
-        // set Streams
+        /// <summary>
+        /// Adds a new stream to our list of subscribed streams
+        /// </summary>
+        /// <param name="stream">Name of the stream we want to add</param>
         public void AddStreams(string stream) {
             if (!this.streams.Contains(stream)) {
                 this.streams.Add(stream);
             }
         }
-        // start
+        
+        /// <summary>
+        /// Starts a new data stream session
+        /// </summary>
+        /// <param name="licenseID"></param>
+        /// <param name="activeSession">If a session is active or not</param>
         public void Start(string licenseID="", bool activeSession = false) {
             this.isActiveSession = activeSession;
             this.authorizer.Start(licenseID);
         }
 
-        // Unsubscribe
+        /// <summary>
+        /// Unsubscribe from all data streams
+        /// </summary>
+        /// <param name="streams">The list of streams we want to unsubscribe from</param>
         public void UnSubscribe(List<string> streams = null) {
             if (streams == null) {
                 // unsubscribe all data
@@ -169,6 +199,10 @@ namespace EmotivDrivers.CortexClient
             else 
                 this.ctxClient.UnSubscribe(this.cortexToken, this.sessionId, streams);
         }
+        
+        /// <summary>
+        /// Close current data streams session
+        /// </summary>
         public void CloseSession() {
             this.sessionCreator.CloseSession();
         }

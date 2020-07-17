@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.CortexClient {
+    
+    /// <summary>
+    /// Used to train emotiv profiles.
+    /// It is important to be able to train emotiv profiles, as
+    /// it will make future commands much more reliable.
+    /// </summary>
     public class Training {
-
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private CortexClient cortexClient;
         private string profileName;
         private string cortexToken;
@@ -18,11 +27,18 @@ namespace EmotivDrivers.CortexClient {
         private Authorizer authorizer;
         private SessionCreator sessionCreator;
         private List<string> profileList;
-
+        
+        /// <summary>
+        /// --------------------------- EVENTS ---------------------------
+        /// </summary>
         public event EventHandler<string> OnProfileLoaded;
         public event EventHandler<bool> OnUnProfileLoaded;
         public event EventHandler<bool> OnTrainingSucceeded;
-        public event EventHandler<bool> OnReadyForTraining; 
+        public event EventHandler<bool> OnReadyForTraining;
+        
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
         public Training() {
             authorizer = new Authorizer();
             headsetFinder = new HeadsetFinder();
@@ -37,7 +53,10 @@ namespace EmotivDrivers.CortexClient {
 
             SubscribeToEvents();
         }
-
+        
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
         private void SubscribeToEvents() {
             cortexClient.OnErrorMsgReceived += MessageErrorReceived;
             cortexClient.OnGetDetectionInfo += GetDetectionOk;
