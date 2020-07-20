@@ -45,33 +45,27 @@ namespace EmotivDrivers.GUI {
             this.textBox.AcceptsTab = true;
             this.textBox.Location = new Point((guiWidth / 2) - (textBoxWidth / 2), (guiHeight / 2) - (textBoxHeight / 2));
             this.textBox.MinimumSize = new Size(textBoxWidth, textBoxHeight);
-            this.textBox.Font = new Font("Comic sans MS", 14);
+            this.textBox.Font = new Font("Verdana", 14);
             this.textBox.TextAlign = HorizontalAlignment.Center;
             this.textBox.Multiline = true;
             this.textBox.ScrollBars = ScrollBars.Vertical;
-            this.textBox.BackColor = Color.Brown;
-            this.textBox.ForeColor = Color.Yellow;
 
             this.label.Text = "Input IP-address of device running Keyboard App";
-            this.label.ForeColor = Color.Fuchsia;
             this.label.AutoSize = true;
-            this.label.Font = new Font("Comic sans MS", 14);
-            this.label.Location = new Point((guiWidth / 2) - (label.Size.Width * 2), (guiHeight / 2) - (label.Size.Height / 2) - 30);
+            this.label.Font = new Font("Verdana", 14);
+            this.label.Location = new Point((guiWidth / 2) - (label.Size.Width + 135), (guiHeight / 2) - (label.Size.Height / 2) - 30);
 
             this.button.Text = "Set IP";
             this.button.AutoSize = true;
             this.button.TextAlign = ContentAlignment.MiddleCenter;
-            this.button.BackColor = Color.Red;
-            this.button.ForeColor = Color.Blue;
-            this.button.Font = new Font("Comic sans MS", 14);
+            this.button.BackColor = Color.DodgerBlue;
+            this.button.Font = new Font("Verdana", 14);
             this.button.Location = new Point((guiWidth / 2) + (button.Size.Width), (guiHeight / 2) + 20);
 
             using (var stream = File.OpenRead("Resources/ntnu.ico")) {
                 this.Icon = new Icon(stream);
             }
-            
-            this.BackColor = Color.Chartreuse;
-            
+
             Text = "Emotiv drivers";
             ClientSize = new Size(guiWidth, guiHeight);
             this.Controls.Add(this.textBox);
@@ -86,6 +80,7 @@ namespace EmotivDrivers.GUI {
             var eventArgs = new SetIPEventArgs();
             eventArgs.Ip = textBox.Text;
             SetIPEvent?.Invoke(this, eventArgs);
+            textBox.Text = "";
         }
     }
 }
