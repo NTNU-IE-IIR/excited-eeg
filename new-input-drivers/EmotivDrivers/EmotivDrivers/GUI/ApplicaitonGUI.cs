@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Drawing;
+using System.IO;
 using System.Windows.Forms;
 
 namespace EmotivDrivers.GUI {
@@ -53,7 +54,10 @@ namespace EmotivDrivers.GUI {
             this.button.ForeColor = Color.Blue;
             this.button.Font = new Font("Comic sans MS", 14);
             this.button.Location = new Point((guiWidth / 2) + (button.Size.Width), (guiHeight / 2) + 20);
-            
+
+            using (var stream = File.OpenRead("Resources/ntnu.ico")) {
+                this.Icon = new Icon(stream);
+            }
             
             Text = "Emotiv drivers";
             ClientSize = new Size(guiWidth, guiHeight);
