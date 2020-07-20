@@ -74,6 +74,11 @@ namespace EmotivDrivers.GUI {
             this.ResumeLayout(false);
             this.PerformLayout();
             CenterToScreen();
+            
+            // To make the GUI unable to resize
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
         
         private void OnButtonClick(object sender, EventArgs e) {
