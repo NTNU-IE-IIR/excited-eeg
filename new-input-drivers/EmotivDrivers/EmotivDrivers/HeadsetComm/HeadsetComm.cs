@@ -8,26 +8,26 @@ using EmotivDrivers.CortexClient;
 namespace EmotivDrivers.HeadsetComm {
     class HeadsetComm {
 
-        static void Main(string[] args) {
-            
-            DataStream dataStream = new DataStream();
-            dataStream.AddStreams("com");                          
-            dataStream.OnSubscribed += SubscribedOK;
-            dataStream.OnComDataReceived += ComDataReceived;
-
-            // Need a valid license key and activeSession when subscribe com data
-            dataStream.Start("", true);
-            
-            while (Console.ReadKey().Key != ConsoleKey.Escape) {}
-            
-            // Unsubcribe stream
-            dataStream.UnSubscribe();
-            Thread.Sleep(5000);
-
-            // Close Session
-            dataStream.CloseSession();
-            Thread.Sleep(5000);
-        }
+        // static void Main(string[] args) {
+                    //     
+                    //     DataStream dataStream = new DataStream();
+                    //     dataStream.AddStreams("com");                          
+                    //     dataStream.OnSubscribed += SubscribedOK;
+                    //     dataStream.OnComDataReceived += ComDataReceived;
+                    //
+                    //     // Need a valid license key and activeSession when subscribe com data
+                    //     dataStream.Start("", true);
+                    //     
+                    //     while (Console.ReadKey().Key != ConsoleKey.Escape) {}
+                    //     
+                    //     // Unsubcribe stream
+                    //     dataStream.UnSubscribe();
+                    //     Thread.Sleep(5000);
+                    //
+                    //     // Close Session
+                    //     dataStream.CloseSession();
+                    //     Thread.Sleep(5000);
+                    // }
 
         private static void SubscribedOK(object sender, Dictionary<string, JArray> e) {
             foreach (string key in e.Keys) {
