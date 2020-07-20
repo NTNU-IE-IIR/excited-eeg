@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Windows.Forms;
 using System.Xml.Serialization;
+using EmotivDrivers.GUI;
 using WebSocketSharp;
 
 namespace EmotivDrivers {
@@ -18,14 +20,18 @@ namespace EmotivDrivers {
         /// </summary>
         
         //You need to change the IP address to the device the keyboard application is running on
-        private static string keyboardServerURL = "ws://192.168.0.47:43879/input"; 
+        private static string keyboardServerURL = "ws://192.168.0.47:43879/input";
         
         /// <summary>
         /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
-        static ApplicationConnection() {}
+        static ApplicationConnection() {
+            
+        }
 
-        private ApplicationConnection() {}
+        private ApplicationConnection() {
+            SubscribeToEvents();
+        }
         
         /// <summary>
         /// Makes sure that classes are connected to the right instance of the cortex client
@@ -43,6 +49,21 @@ namespace EmotivDrivers {
                 webSocket.Send(message);
                 webSocket.Close();
             }
+        }
+        
+        [STAThread]
+        static void Main() {
+            Application.EnableVisualStyles();
+            Application.Run(new ApplicaitonGUI());
+        }
+        
+        private static void SubscribeToEvents() {
+            ApplicaitonGUI.SetIPEvent += UpdateKeyboardAddress;
+        }
+        
+        private static void UpdateKeyboardAddress(object sender, SetIPEventArgs eventArgs) {
+            keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input";
+            Console.WriteLine(keyboardServerURL);
         }
     }
 }

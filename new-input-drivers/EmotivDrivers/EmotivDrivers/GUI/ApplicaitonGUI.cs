@@ -4,6 +4,10 @@ using System.IO;
 using System.Windows.Forms;
 
 namespace EmotivDrivers.GUI {
+    public class SetIPEventArgs : EventArgs {
+        public string Ip { get; set; }
+    }
+    
     public class ApplicaitonGUI : Form {
 
         private int guiWidth = 800;
@@ -23,10 +27,14 @@ namespace EmotivDrivers.GUI {
 
         private Button button;
 
+        public static event EventHandler<SetIPEventArgs> SetIPEvent; 
+        
         public ApplicaitonGUI() {
             InitComponents();
+            
+            button.Click += new EventHandler(OnButtonClick);
         }
-
+        
         private void InitComponents() {
             this.textBox = new TextBox();
             this.label = new Label();
@@ -41,8 +49,11 @@ namespace EmotivDrivers.GUI {
             this.textBox.TextAlign = HorizontalAlignment.Center;
             this.textBox.Multiline = true;
             this.textBox.ScrollBars = ScrollBars.Vertical;
+            this.textBox.BackColor = Color.Brown;
+            this.textBox.ForeColor = Color.Yellow;
 
             this.label.Text = "Input IP-address of device running Keyboard App";
+            this.label.ForeColor = Color.Fuchsia;
             this.label.AutoSize = true;
             this.label.Font = new Font("Comic sans MS", 14);
             this.label.Location = new Point((guiWidth / 2) - (label.Size.Width * 2), (guiHeight / 2) - (label.Size.Height / 2) - 30);
@@ -59,6 +70,8 @@ namespace EmotivDrivers.GUI {
                 this.Icon = new Icon(stream);
             }
             
+            this.BackColor = Color.Chartreuse;
+            
             Text = "Emotiv drivers";
             ClientSize = new Size(guiWidth, guiHeight);
             this.Controls.Add(this.textBox);
@@ -68,11 +81,11 @@ namespace EmotivDrivers.GUI {
             this.PerformLayout();
             CenterToScreen();
         }
-
-        [STAThread]
-        static void Main() {
-            Application.EnableVisualStyles();
-            Application.Run(new ApplicaitonGUI());
+        
+        private void OnButtonClick(object sender, EventArgs e) {
+            var eventArgs = new SetIPEventArgs();
+            eventArgs.Ip = textBox.Text;
+            SetIPEvent?.Invoke(this, eventArgs);
         }
     }
 }
