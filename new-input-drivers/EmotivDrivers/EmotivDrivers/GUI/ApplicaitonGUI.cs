@@ -18,12 +18,15 @@ namespace EmotivDrivers.GUI {
             set => textBoxValue = value;
         }
 
+        private Label label;
+
         public ApplicaitonGUI() {
             InitComponents();
         }
 
         private void InitComponents() {
             this.textBox = new TextBox();
+            this.label = new Label();
             this.SuspendLayout();
 
             this.textBox.AcceptsReturn = true;
@@ -34,15 +37,19 @@ namespace EmotivDrivers.GUI {
             this.textBox.TextAlign = HorizontalAlignment.Center;
             this.textBox.Multiline = true;
             this.textBox.ScrollBars = ScrollBars.Vertical;
+
+            this.label.Text = "Input IP-address of device running Keyboard App";
+            this.label.AutoSize = true;
+            this.label.Font = new Font("Comic sans MS", 14);
+            this.label.Location = new Point((guiWidth / 2) - (label.Size.Width * 2), (guiHeight / 2) - (label.Size.Height / 2) - 30);
             
             Text = "Emotiv drivers";
             ClientSize = new Size(guiWidth, guiHeight);
             this.Controls.Add(this.textBox);
+            this.Controls.Add(this.label);
             this.ResumeLayout(false);
             this.PerformLayout();
             CenterToScreen();
-            
-            Console.WriteLine(textBox.Size);
         }
 
         [STAThread]
