@@ -20,6 +20,8 @@ namespace EmotivDrivers.GUI {
 
         private Label label;
 
+        private Button button;
+
         public ApplicaitonGUI() {
             InitComponents();
         }
@@ -27,6 +29,7 @@ namespace EmotivDrivers.GUI {
         private void InitComponents() {
             this.textBox = new TextBox();
             this.label = new Label();
+            this.button = new Button();
             this.SuspendLayout();
 
             this.textBox.AcceptsReturn = true;
@@ -42,11 +45,21 @@ namespace EmotivDrivers.GUI {
             this.label.AutoSize = true;
             this.label.Font = new Font("Comic sans MS", 14);
             this.label.Location = new Point((guiWidth / 2) - (label.Size.Width * 2), (guiHeight / 2) - (label.Size.Height / 2) - 30);
+
+            this.button.Text = "Set IP";
+            this.button.AutoSize = true;
+            this.button.TextAlign = ContentAlignment.MiddleCenter;
+            this.button.BackColor = Color.Red;
+            this.button.ForeColor = Color.Blue;
+            this.button.Font = new Font("Comic sans MS", 14);
+            this.button.Location = new Point((guiWidth / 2) + (button.Size.Width), (guiHeight / 2) + 20);
+            
             
             Text = "Emotiv drivers";
             ClientSize = new Size(guiWidth, guiHeight);
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.label);
+            this.Controls.Add(this.button);
             this.ResumeLayout(false);
             this.PerformLayout();
             CenterToScreen();
