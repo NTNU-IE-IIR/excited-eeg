@@ -95,19 +95,6 @@ namespace EmotivDrivers.GUI {
             this.MinimizeBox = false;
         }
         
-        [STAThread]
-        static void Main(string[] args) {
-            if (args.Length == 0) {
-                autoStart = false;
-            }
-            else if (args[0] == "AUTO") {
-                autoStart = true;
-            }
-            
-            Application.EnableVisualStyles();
-            Application.Run(new ApplicaitonGUI());
-        }
-        
         private void OnButtonClick(object sender, EventArgs e) {
             var eventArgs = new SetIPEventArgs();
             eventArgs.Ip = textBox.Text;

@@ -56,6 +56,13 @@ namespace EmotivDrivers.ApplicationConnection {
             ApplicaitonGUI.SetIPEvent += UpdateKeyboardAddress;
         }
         
+        [STAThread]
+        static void Main(string[] args) {
+            
+            Application.EnableVisualStyles();
+            Application.Run(new ApplicaitonGUI());
+        }
+        
         private static void UpdateKeyboardAddress(object sender, SetIPEventArgs eventArgs) {
             keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input";
             Console.WriteLine(keyboardServerURL);
