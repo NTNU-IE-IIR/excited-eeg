@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -26,19 +27,24 @@ namespace EmotivDrivers.GUI {
         private Label label;
 
         private Button button;
+        private Button connectButton;
 
-        public static event EventHandler<SetIPEventArgs> SetIPEvent; 
-        
+        public static bool autoStart;
+
+        public static event EventHandler<SetIPEventArgs> SetIPEvent;
+
         public ApplicaitonGUI() {
             InitComponents();
             
             button.Click += new EventHandler(OnButtonClick);
+            connectButton.Click += new EventHandler(OnConnectionButtonClick);
         }
         
         private void InitComponents() {
             this.textBox = new TextBox();
             this.label = new Label();
             this.button = new Button();
+            this.connectButton = new Button();
             this.SuspendLayout();
 
             this.textBox.AcceptsReturn = true;
@@ -62,6 +68,13 @@ namespace EmotivDrivers.GUI {
             this.button.Font = new Font("Verdana", 14);
             this.button.Location = new Point((guiWidth / 2) + (button.Size.Width), (guiHeight / 2) + 20);
 
+            this.connectButton.Text = "Start Emotiv drivers";
+            this.connectButton.AutoSize = true;
+            this.connectButton.TextAlign = ContentAlignment.MiddleCenter;
+            this.connectButton.BackColor = Color.DodgerBlue;
+            this.connectButton.Font = new Font("Verdana", 14);
+            this.connectButton.Location = new Point((guiWidth / 2) + (button.Size.Width), (guiHeight / 2) + 60);
+
             using (var stream = File.OpenRead("Resources/ntnu.ico")) {
                 this.Icon = new Icon(stream);
             }
@@ -71,6 +84,7 @@ namespace EmotivDrivers.GUI {
             this.Controls.Add(this.textBox);
             this.Controls.Add(this.label);
             this.Controls.Add(this.button);
+            this.Controls.Add(this.connectButton);
             this.ResumeLayout(false);
             this.PerformLayout();
             CenterToScreen();
@@ -81,11 +95,28 @@ namespace EmotivDrivers.GUI {
             this.MinimizeBox = false;
         }
         
+        [STAThread]
+        static void Main(string[] args) {
+            if (args.Length == 0) {
+                autoStart = false;
+            }
+            else if (args[0] == "AUTO") {
+                autoStart = true;
+            }
+            
+            Application.EnableVisualStyles();
+            Application.Run(new ApplicaitonGUI());
+        }
+        
         private void OnButtonClick(object sender, EventArgs e) {
             var eventArgs = new SetIPEventArgs();
             eventArgs.Ip = textBox.Text;
             SetIPEvent?.Invoke(this, eventArgs);
             textBox.Text = "";
+        }
+
+        private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
+            
         }
     }
 }

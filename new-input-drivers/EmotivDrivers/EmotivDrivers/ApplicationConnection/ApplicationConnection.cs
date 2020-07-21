@@ -2,9 +2,10 @@
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using EmotivDrivers.GUI;
+using EmotivDrivers.HeadsetComm;
 using WebSocketSharp;
 
-namespace EmotivDrivers {
+namespace EmotivDrivers.ApplicationConnection {
     
     /// <summary>
     /// Class used for connecting the cortex client to the android keyboard application.
@@ -21,7 +22,7 @@ namespace EmotivDrivers {
         
         //You need to change the IP address to the device the keyboard application is running on
         private static string keyboardServerURL = "ws://192.168.0.47:43879/input";
-        
+
         /// <summary>
         /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
@@ -50,13 +51,7 @@ namespace EmotivDrivers {
                 webSocket.Close();
             }
         }
-        
-        [STAThread]
-        static void Main() {
-            Application.EnableVisualStyles();
-            Application.Run(new ApplicaitonGUI());
-        }
-        
+
         private static void SubscribeToEvents() {
             ApplicaitonGUI.SetIPEvent += UpdateKeyboardAddress;
         }

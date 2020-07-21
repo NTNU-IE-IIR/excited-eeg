@@ -4,30 +4,32 @@ using System.Collections;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using EmotivDrivers.CortexClient;
+using EmotivDrivers.GUI;
 
 namespace EmotivDrivers.HeadsetComm {
     class HeadsetComm {
 
-        // static void Main(string[] args) {
-                    //     
-                    //     DataStream dataStream = new DataStream();
-                    //     dataStream.AddStreams("com");                          
-                    //     dataStream.OnSubscribed += SubscribedOK;
-                    //     dataStream.OnComDataReceived += ComDataReceived;
-                    //
-                    //     // Need a valid license key and activeSession when subscribe com data
-                    //     dataStream.Start("", true);
-                    //     
-                    //     while (Console.ReadKey().Key != ConsoleKey.Escape) {}
-                    //     
-                    //     // Unsubcribe stream
-                    //     dataStream.UnSubscribe();
-                    //     Thread.Sleep(5000);
-                    //
-                    //     // Close Session
-                    //     dataStream.CloseSession();
-                    //     Thread.Sleep(5000);
-                    // }
+        static HeadsetComm() { }
+        
+        static void StartHeadsetCommunications() {
+            DataStream dataStream = new DataStream();
+            dataStream.AddStreams("com");                          
+            dataStream.OnSubscribed += SubscribedOK;
+            dataStream.OnComDataReceived += ComDataReceived;
+                    
+            // Need a valid license key and activeSession when subscribe com data
+            dataStream.Start("", true);
+                        
+            while (Console.ReadKey().Key != ConsoleKey.Escape) {}
+                        
+            // Unsubcribe stream
+            dataStream.UnSubscribe();
+            Thread.Sleep(5000);
+                    
+            // Close Session
+            dataStream.CloseSession();
+            Thread.Sleep(5000);
+        }
 
         private static void SubscribedOK(object sender, Dictionary<string, JArray> e) {
             foreach (string key in e.Keys) {
@@ -63,6 +65,10 @@ namespace EmotivDrivers.HeadsetComm {
 
                     break;
             }
+        }
+
+        private void StartDriver(object sender, EventArgs eventArgs) {
+            Console.WriteLine("Start drivers");
         }
     }
 }

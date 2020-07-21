@@ -16,8 +16,4 @@
       <Reference Include="System.Windows.Forms" />
     </ItemGroup>
 
-    <ItemGroup>
-      <Folder Include="Resources" />
-    </ItemGroup>
-
 </Project>
