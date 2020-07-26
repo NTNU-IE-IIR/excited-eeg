@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
@@ -10,11 +9,14 @@ namespace EmotivDrivers.GUI {
     }
     
     public class ApplicaitonGUI : Form {
-
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private int guiWidth = 800;
         private int guiHeight = 450;
         
-        private TextBox textBox;
+        private TextBox ipInputTextBox;
         private int textBoxWidth = 300;
         private int textBoxHeight = 30;
 
@@ -24,67 +26,58 @@ namespace EmotivDrivers.GUI {
             set => textBoxValue = value;
         }
 
-        private Label label;
+        private Label ipLabel;
 
-        private Button button;
-        private Button connectButton;
+        private Button setIpButton;
+        private Button startDriverButton;
 
         public static bool autoStart;
-
+        
+        /// <summary>
+        /// --------------------------- EVENTS ---------------------------
+        /// </summary>
         public static event EventHandler<SetIPEventArgs> SetIPEvent;
-
+        
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
         public ApplicaitonGUI() {
             InitComponents();
             
-            button.Click += new EventHandler(OnButtonClick);
-            connectButton.Click += new EventHandler(OnConnectionButtonClick);
+            SubscribeToEvents();
+        }
+        
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
+        private void SubscribeToEvents() {
+            setIpButton.Click += new EventHandler(OnButtonClick);
+            startDriverButton.Click += new EventHandler(OnConnectionButtonClick);
         }
         
         private void InitComponents() {
-            this.textBox = new TextBox();
-            this.label = new Label();
-            this.button = new Button();
-            this.connectButton = new Button();
+            this.ipInputTextBox = new TextBox();
+            this.ipLabel = new Label();
+            this.setIpButton = new Button();
+            this.startDriverButton = new Button();
             this.SuspendLayout();
 
-            this.textBox.AcceptsReturn = true;
-            this.textBox.AcceptsTab = true;
-            this.textBox.Location = new Point((guiWidth / 2) - (textBoxWidth / 2), (guiHeight / 2) - (textBoxHeight / 2));
-            this.textBox.MinimumSize = new Size(textBoxWidth, textBoxHeight);
-            this.textBox.Font = new Font("Verdana", 14);
-            this.textBox.TextAlign = HorizontalAlignment.Center;
-            this.textBox.Multiline = true;
-            this.textBox.ScrollBars = ScrollBars.Vertical;
-
-            this.label.Text = "Input IP-address of device running Keyboard App";
-            this.label.AutoSize = true;
-            this.label.Font = new Font("Verdana", 14);
-            this.label.Location = new Point((guiWidth / 2) - (label.Size.Width + 135), (guiHeight / 2) - (label.Size.Height / 2) - 30);
-
-            this.button.Text = "Set IP";
-            this.button.AutoSize = true;
-            this.button.TextAlign = ContentAlignment.MiddleCenter;
-            this.button.BackColor = Color.DodgerBlue;
-            this.button.Font = new Font("Verdana", 14);
-            this.button.Location = new Point((guiWidth / 2) + (button.Size.Width), (guiHeight / 2) + 20);
-
-            this.connectButton.Text = "Start Emotiv drivers";
-            this.connectButton.AutoSize = true;
-            this.connectButton.TextAlign = ContentAlignment.MiddleCenter;
-            this.connectButton.BackColor = Color.DodgerBlue;
-            this.connectButton.Font = new Font("Verdana", 14);
-            this.connectButton.Location = new Point((guiWidth / 2) + (button.Size.Width), (guiHeight / 2) + 60);
-
+            SetupIpInputTextBox();
+            SetupIpLabel();
+            SetupSetIpButton();
+            SetupStartDriverButton();
+            
+            // Set application icon
             using (var stream = File.OpenRead("Resources/ntnu.ico")) {
                 this.Icon = new Icon(stream);
             }
 
             Text = "Emotiv drivers";
             ClientSize = new Size(guiWidth, guiHeight);
-            this.Controls.Add(this.textBox);
-            this.Controls.Add(this.label);
-            this.Controls.Add(this.button);
-            this.Controls.Add(this.connectButton);
+            this.Controls.Add(this.ipInputTextBox);
+            this.Controls.Add(this.ipLabel);
+            this.Controls.Add(this.setIpButton);
+            this.Controls.Add(this.startDriverButton);
             this.ResumeLayout(false);
             this.PerformLayout();
             CenterToScreen();
@@ -94,16 +87,55 @@ namespace EmotivDrivers.GUI {
             this.MaximizeBox = false;
             this.MinimizeBox = false;
         }
+
+        private void SetupIpInputTextBox() {
+            this.ipInputTextBox.AcceptsReturn = true;
+            this.ipInputTextBox.AcceptsTab = true;
+            this.ipInputTextBox.Location = new Point((guiWidth / 2) - (textBoxWidth / 2), (guiHeight / 2) - (textBoxHeight / 2));
+            this.ipInputTextBox.MinimumSize = new Size(textBoxWidth, textBoxHeight);
+            this.ipInputTextBox.Font = new Font("Verdana", 14);
+            this.ipInputTextBox.TextAlign = HorizontalAlignment.Center;
+            this.ipInputTextBox.Multiline = true;
+            this.ipInputTextBox.ScrollBars = ScrollBars.Vertical;
+        }
+
+        private void SetupIpLabel() {
+            this.ipLabel.Text = "Input IP-address of device running Keyboard App";
+            this.ipLabel.AutoSize = true;
+            this.ipLabel.Font = new Font("Verdana", 14);
+            this.ipLabel.Location = new Point((guiWidth / 2) - (ipLabel.Size.Width + 135), (guiHeight / 2) - (ipLabel.Size.Height / 2) - 30);
+        }
+
+        private void SetupSetIpButton() {
+            this.setIpButton.Text = "Set IP";
+            this.setIpButton.AutoSize = true;
+            this.setIpButton.TextAlign = ContentAlignment.MiddleCenter;
+            this.setIpButton.BackColor = Color.DodgerBlue;
+            this.setIpButton.Font = new Font("Verdana", 14);
+            this.setIpButton.Location = new Point((guiWidth / 2) + (setIpButton.Size.Width), (guiHeight / 2) + 20);
+        }
+
+        private void SetupStartDriverButton() {
+            this.startDriverButton.Text = "Start Emotiv drivers";
+            this.startDriverButton.AutoSize = true;
+            this.startDriverButton.TextAlign = ContentAlignment.MiddleCenter;
+            this.startDriverButton.BackColor = Color.DodgerBlue;
+            this.startDriverButton.Font = new Font("Verdana", 14);
+            this.startDriverButton.Location = new Point((guiWidth / 2) + (setIpButton.Size.Width), (guiHeight / 2) + 60);
+        }
         
         private void OnButtonClick(object sender, EventArgs e) {
             var eventArgs = new SetIPEventArgs();
-            eventArgs.Ip = textBox.Text;
+            eventArgs.Ip = ipInputTextBox.Text;
             SetIPEvent?.Invoke(this, eventArgs);
-            textBox.Text = "";
+            ipInputTextBox.Text = "";
         }
 
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
-            
+            this.ipLabel.Text = "Input IP-address of device running Keyboard App";
+            this.ipLabel.AutoSize = true;
+            this.ipLabel.Font = new Font("Verdana", 14);
+            this.ipLabel.Location = new Point((guiWidth / 2) - (ipLabel.Size.Width + 135), (guiHeight / 2) - (ipLabel.Size.Height / 2) - 30);
         }
     }
 }
