@@ -30,8 +30,6 @@ namespace EmotivDrivers.GUI {
 
         private Button setIpButton;
         private Button startDriverButton;
-
-        public static bool autoStart;
         
         /// <summary>
         /// --------------------------- EVENTS ---------------------------
