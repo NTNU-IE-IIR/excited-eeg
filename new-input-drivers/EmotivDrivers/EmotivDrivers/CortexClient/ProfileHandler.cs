@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.CortexClient {
-    public class Training {
+    public class ProfileHandler {
 
         private CortexClient cortexClient;
         private string profileName;
@@ -23,7 +23,7 @@ namespace EmotivDrivers.CortexClient {
         public event EventHandler<bool> OnUnProfileLoaded;
         public event EventHandler<bool> OnTrainingSucceeded;
         public event EventHandler<bool> OnReadyForTraining; 
-        public Training() {
+        public ProfileHandler() {
             authorizer = new Authorizer();
             headsetFinder = new HeadsetFinder();
             sessionCreator = new SessionCreator();
