@@ -135,7 +135,38 @@ namespace EmotivDrivers.GUI {
         }
 
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
-            headsetComm.StartHeadsetCommunications();
+            StartConsoleOutputForm();
+            
+            //headsetComm.StartHeadsetCommunications();
+        }
+
+        private void StartConsoleOutputForm() {
+            var form = new Form();
+            form.Location = this.Location;
+            form.StartPosition = FormStartPosition.Manual;
+            form.FormClosing += delegate { this.Show(); };
+            form.ClientSize = new Size(guiWidth, guiHeight);
+
+            form.Text = "Emotiv driver output";
+            
+            // Set application icon
+            using (var stream = File.OpenRead("Resources/ntnu.ico")) {
+                form.Icon = new Icon(stream);
+            }
+            
+            // To make the GUI unable to resize
+            form.FormBorderStyle = FormBorderStyle.FixedSingle;
+            form.MaximizeBox = false;
+            form.MinimizeBox = false;
+            
+            form.Show();
+            this.Hide();
+            
+            InitConsoleOutputComponents();
+        }
+
+        private void InitConsoleOutputComponents() {
+            
         }
     }
 }
