@@ -3,15 +3,16 @@ using System.Threading;
 using System.Collections;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using EmotivDrivers.CortexClient;
 using EmotivDrivers.GUI;
 
 namespace EmotivDrivers.HeadsetComm {
-    class HeadsetComm {
+    public class HeadsetComm {
 
-        static HeadsetComm() { }
+        public HeadsetComm() { }
         
-        static void StartHeadsetCommunications() {
+        public void StartHeadsetCommunications() {
             DataStream dataStream = new DataStream();
             dataStream.AddStreams("com");                          
             dataStream.OnSubscribed += SubscribedOK;

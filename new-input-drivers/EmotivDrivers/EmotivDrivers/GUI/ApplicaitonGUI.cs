@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.IO;
 using System.Windows.Forms;
+using EmotivDrivers.HeadsetComm;
 
 namespace EmotivDrivers.GUI {
     public class SetIPEventArgs : EventArgs {
@@ -31,6 +32,8 @@ namespace EmotivDrivers.GUI {
         private Button setIpButton;
         private Button startDriverButton;
         
+        private HeadsetComm.HeadsetComm headsetComm;
+        
         /// <summary>
         /// --------------------------- EVENTS ---------------------------
         /// </summary>
@@ -40,6 +43,8 @@ namespace EmotivDrivers.GUI {
         /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
         public ApplicaitonGUI() {
+            headsetComm = new HeadsetComm.HeadsetComm();
+            
             InitComponents();
             
             SubscribeToEvents();
@@ -130,10 +135,7 @@ namespace EmotivDrivers.GUI {
         }
 
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
-            this.ipLabel.Text = "Input IP-address of device running Keyboard App";
-            this.ipLabel.AutoSize = true;
-            this.ipLabel.Font = new Font("Verdana", 14);
-            this.ipLabel.Location = new Point((guiWidth / 2) - (ipLabel.Size.Width + 135), (guiHeight / 2) - (ipLabel.Size.Height / 2) - 30);
+            headsetComm.StartHeadsetCommunications();
         }
     }
 }

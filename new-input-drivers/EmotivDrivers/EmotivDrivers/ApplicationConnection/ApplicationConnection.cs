@@ -59,12 +59,13 @@ namespace EmotivDrivers.ApplicationConnection {
         [STAThread]
         static void Main(string[] args) {
             Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new ApplicaitonGUI());
         }
         
         private static void UpdateKeyboardAddress(object sender, SetIPEventArgs eventArgs) {
             keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input";
-            Console.WriteLine(keyboardServerURL);
+            Console.WriteLine("Keyboard server IP set to: " + keyboardServerURL);
         }
     }
 }
