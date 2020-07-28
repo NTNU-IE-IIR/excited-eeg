@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.IO;
+using System.Threading;
 using System.Windows.Forms;
 using EmotivDrivers.HeadsetComm;
 
@@ -147,7 +148,9 @@ namespace EmotivDrivers.GUI {
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
             StartConsoleOutputForm();
             
-            headsetComm.StartHeadsetCommunications();
+            //Start in new thread to not freeze up GUI
+            Thread thread = new Thread(headsetComm.StartHeadsetCommunications);
+            thread.Start();
         }
 
         private void StartConsoleOutputForm() {
@@ -161,6 +164,8 @@ namespace EmotivDrivers.GUI {
 
             form.Text = "Emotiv driver output";
             
+            InitConsoleOutputComponents();
+            
             // Set application icon
             using (var stream = File.OpenRead("Resources/ntnu.ico")) {
                 form.Icon = new Icon(stream);
@@ -171,9 +176,7 @@ namespace EmotivDrivers.GUI {
                 consoleWriter.WriteLineEvent += ConsoleWriterWriteLineEvent;
                 Console.SetOut(consoleWriter);
             }
-            
-            InitConsoleOutputComponents();
-            
+
             // To make the GUI unable to resize
             form.FormBorderStyle = FormBorderStyle.FixedSingle;
             form.MaximizeBox = false;
@@ -186,19 +189,20 @@ namespace EmotivDrivers.GUI {
         }
 
         private void InitConsoleOutputComponents() {
-            //this.consoleOutputTextBox.ReadOnly = true;
+            this.consoleOutputTextBox.ReadOnly = true;
             this.consoleOutputTextBox.Location = new Point((guiWidth / 2) - (consoleOutputTextBoxWidth / 2), (guiHeight / 2) - consoleOutputTextBoxHeight / 2);
             this.consoleOutputTextBox.MinimumSize = new Size(consoleOutputTextBoxWidth, consoleOutputTextBoxHeight);
+            this.consoleOutputTextBox.Font = new Font("", 12);
             this.consoleOutputTextBox.Multiline = true;
             this.consoleOutputTextBox.ScrollBars = ScrollBars.Both;
         }
 
         private void ConsoleWriterWriteEvent(object sender, ConsoleWriterEventArgs eventArgs) {
-            this.consoleOutputTextBox.Text = eventArgs.Value;
+            this.consoleOutputTextBox.Text += eventArgs.Value;
         }
 
         private void ConsoleWriterWriteLineEvent(object sender, ConsoleWriterEventArgs eventArgs) {
-            this.consoleOutputTextBox.Text = eventArgs.Value;
+            this.consoleOutputTextBox.Text += eventArgs.Value + Environment.NewLine;
         }
     }
 }
