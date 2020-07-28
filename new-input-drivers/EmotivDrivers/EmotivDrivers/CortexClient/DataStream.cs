@@ -11,6 +11,9 @@ namespace EmotivDrivers.CortexClient
         private string cortexToken;
         private string sessionId;
         private bool isActiveSession;
+        private string profileName;
+
+        private string headsetId;
 
         private HeadsetFinder headsetFinder;
         private Authorizer authorizer;
@@ -43,6 +46,7 @@ namespace EmotivDrivers.CortexClient
             cortexToken = "";
             sessionId = "";
             isActiveSession = false;
+            this.profileName = "Arild";
 
             streams = new List<string>();
             // Event register
@@ -56,6 +60,8 @@ namespace EmotivDrivers.CortexClient
             this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
             this.sessionCreator.OnSessionCreated += SessionCreatedOk;
             this.sessionCreator.OnSessionClosed += SessionClosedOK;
+            this.sessionCreator.OnProfileQuery += ProfileQueryOK;
+            this.sessionCreator.OnProfileLoaded += ProfileLoadedOK;
         }
 
         private void SessionClosedOK(object sender, string sessionId) {
@@ -108,6 +114,24 @@ namespace EmotivDrivers.CortexClient
         }
 
         private void HeadsetConnectedOK(object sender, string headsetId) {
+            //Console.WriteLine("HeadsetConnectedOK " + headsetId);
+            // Wait a moment before creating session
+            //System.Threading.Thread.Sleep(1500);
+            // CreateSession
+            //this.sessionCreator.Create(this.cortexToken, headsetId, this.isActiveSession);
+            this.headsetId = headsetId;
+            this.ctxClient.QueryProfile(this.cortexToken);
+        }
+        
+        private void ProfileQueryOK(object sender, string profileName) {
+            //Console.WriteLine("HeadsetConnectedOK " + headsetId);
+            // Wait a moment before creating session
+            //System.Threading.Thread.Sleep(1500);
+            // CreateSession
+            this.sessionCreator.LoadProfile(this.profileName, this.cortexToken, this.headsetId);
+        }
+        
+        private void ProfileLoadedOK(object sender, string headsetId) {
             //Console.WriteLine("HeadsetConnectedOK " + headsetId);
             // Wait a moment before creating session
             System.Threading.Thread.Sleep(1500);
