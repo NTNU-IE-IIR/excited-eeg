@@ -18,13 +18,23 @@ namespace EmotivDrivers.GUI {
         private int guiHeight = 450;
         
         private TextBox ipInputTextBox;
-        private int textBoxWidth = 300;
-        private int textBoxHeight = 30;
-
-        private string textBoxValue;
+        private int ipTextBoxWidth = 300;
+        private int ipTextBoxHeight = 30;
+        
+        private string ipTextBoxValue;
         public string TextBoxValue {
-            get => textBoxValue;
-            set => textBoxValue = value;
+            get => ipTextBoxValue;
+            set => ipTextBoxValue = value;
+        }
+
+        private TextBox consoleOutputTextBox;
+        private int consoleOutputTextBoxWidth = 750;
+        private int consoleOutputTextBoxHeight = 400;
+
+        private string consoleOutputtextBoxValue;
+        public TextBox ConsoleOutputTextBox {
+            get => consoleOutputTextBox;
+            set => consoleOutputTextBox = value;
         }
 
         private Label ipLabel;
@@ -94,8 +104,8 @@ namespace EmotivDrivers.GUI {
         private void SetupIpInputTextBox() {
             this.ipInputTextBox.AcceptsReturn = true;
             this.ipInputTextBox.AcceptsTab = true;
-            this.ipInputTextBox.Location = new Point((guiWidth / 2) - (textBoxWidth / 2), (guiHeight / 2) - (textBoxHeight / 2));
-            this.ipInputTextBox.MinimumSize = new Size(textBoxWidth, textBoxHeight);
+            this.ipInputTextBox.Location = new Point((guiWidth / 2) - (ipTextBoxWidth / 2), (guiHeight / 2) - (ipTextBoxHeight / 2));
+            this.ipInputTextBox.MinimumSize = new Size(ipTextBoxWidth, ipTextBoxHeight);
             this.ipInputTextBox.Font = new Font("Verdana", 14);
             this.ipInputTextBox.TextAlign = HorizontalAlignment.Center;
             this.ipInputTextBox.Multiline = true;
@@ -137,11 +147,13 @@ namespace EmotivDrivers.GUI {
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
             StartConsoleOutputForm();
             
-            //headsetComm.StartHeadsetCommunications();
+            headsetComm.StartHeadsetCommunications();
         }
 
         private void StartConsoleOutputForm() {
             var form = new Form();
+            this.consoleOutputTextBox = new TextBox();
+
             form.Location = this.Location;
             form.StartPosition = FormStartPosition.Manual;
             form.FormClosing += delegate { this.Show(); };
@@ -153,20 +165,40 @@ namespace EmotivDrivers.GUI {
             using (var stream = File.OpenRead("Resources/ntnu.ico")) {
                 form.Icon = new Icon(stream);
             }
+
+            using (var consoleWriter = new ConsoleWriter()) {
+                consoleWriter.WriteEvent += ConsoleWriterWriteEvent;
+                consoleWriter.WriteLineEvent += ConsoleWriterWriteLineEvent;
+                Console.SetOut(consoleWriter);
+            }
+            
+            InitConsoleOutputComponents();
             
             // To make the GUI unable to resize
             form.FormBorderStyle = FormBorderStyle.FixedSingle;
             form.MaximizeBox = false;
             form.MinimizeBox = false;
             
+            form.Controls.Add(consoleOutputTextBox);
+            
             form.Show();
             this.Hide();
-            
-            InitConsoleOutputComponents();
         }
 
         private void InitConsoleOutputComponents() {
-            
+            //this.consoleOutputTextBox.ReadOnly = true;
+            this.consoleOutputTextBox.Location = new Point((guiWidth / 2) - (consoleOutputTextBoxWidth / 2), (guiHeight / 2) - consoleOutputTextBoxHeight / 2);
+            this.consoleOutputTextBox.MinimumSize = new Size(consoleOutputTextBoxWidth, consoleOutputTextBoxHeight);
+            this.consoleOutputTextBox.Multiline = true;
+            this.consoleOutputTextBox.ScrollBars = ScrollBars.Both;
+        }
+
+        private void ConsoleWriterWriteEvent(object sender, ConsoleWriterEventArgs eventArgs) {
+            this.consoleOutputTextBox.Text = eventArgs.Value;
+        }
+
+        private void ConsoleWriterWriteLineEvent(object sender, ConsoleWriterEventArgs eventArgs) {
+            this.consoleOutputTextBox.Text = eventArgs.Value;
         }
     }
 }
