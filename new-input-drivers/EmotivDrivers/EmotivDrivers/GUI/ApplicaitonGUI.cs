@@ -72,32 +72,22 @@ namespace EmotivDrivers.GUI {
             this.ipLabel = new Label();
             this.setIpButton = new Button();
             this.startDriverButton = new Button();
-            this.SuspendLayout();
+            
 
             SetupIpInputTextBox();
             SetupIpLabel();
             SetupSetIpButton();
             SetupStartDriverButton();
             
-            // Set application icon
-            using (var stream = File.OpenRead("Resources/ntnu.ico")) {
-                this.Icon = new Icon(stream);
-            }
 
             Text = "Emotiv drivers";
-            ClientSize = new Size(guiWidth, guiHeight);
+            
             this.Controls.Add(this.ipInputTextBox);
             this.Controls.Add(this.ipLabel);
             this.Controls.Add(this.setIpButton);
             this.Controls.Add(this.startDriverButton);
-            this.ResumeLayout(false);
-            this.PerformLayout();
-            CenterToScreen();
             
-            // To make the GUI unable to resize
-            this.FormBorderStyle = FormBorderStyle.FixedSingle;
-            this.MaximizeBox = false;
-            this.MinimizeBox = false;
+            
         }
 
         private void SetupIpInputTextBox() {

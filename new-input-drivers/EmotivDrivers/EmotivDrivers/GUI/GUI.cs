@@ -1,4 +1,6 @@
-﻿using System.Windows.Forms;
+﻿using System.Drawing;
+using System.IO;
+using System.Windows.Forms;
 
 namespace EmotivDrivers.GUI {
     public class GUI : Form {
@@ -7,7 +9,27 @@ namespace EmotivDrivers.GUI {
         protected int guiHeight = 450;
         
         public GUI() {
+            InitComponents();
+        }
+
+        private void InitComponents() {
+            this.SuspendLayout();
             
+            // Set application icon
+            using (var stream = File.OpenRead("Resources/ntnu.ico")) {
+                this.Icon = new Icon(stream);
+            }
+            
+            ClientSize = new Size(guiWidth, guiHeight);
+            
+            this.ResumeLayout(false);
+            this.PerformLayout();
+            CenterToScreen();
+            
+            // To make the GUI unable to resize
+            this.FormBorderStyle = FormBorderStyle.FixedSingle;
+            this.MaximizeBox = false;
+            this.MinimizeBox = false;
         }
     }
 }
