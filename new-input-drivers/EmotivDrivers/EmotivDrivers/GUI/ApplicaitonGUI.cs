@@ -10,14 +10,12 @@ namespace EmotivDrivers.GUI {
         public string Ip { get; set; }
     }
     
-    public class ApplicaitonGUI : Form {
+    public class ApplicaitonGUI : GUI {
         
         /// <summary>
         /// --------------------------- VARIABLES ---------------------------
         /// </summary>
-        private int guiWidth = 800;
-        private int guiHeight = 450;
-        
+
         private TextBox ipInputTextBox;
         private int ipTextBoxWidth = 300;
         private int ipTextBoxHeight = 30;
@@ -199,12 +197,24 @@ namespace EmotivDrivers.GUI {
 
         private void ConsoleWriterWriteEvent(object sender, ConsoleWriterEventArgs eventArgs) {
             this.consoleOutputTextBox.Text += eventArgs.Value;
-            GUIUtils.ScrollToBottom(consoleOutputTextBox);
+            try {
+                GUIUtils.ScrollToBottom(consoleOutputTextBox);
+            }
+            catch (ObjectDisposedException e) {
+                Console.WriteLine(e);
+                throw;
+            }
         }
 
         private void ConsoleWriterWriteLineEvent(object sender, ConsoleWriterEventArgs eventArgs) {
             this.consoleOutputTextBox.Text += eventArgs.Value + Environment.NewLine;
-            GUIUtils.ScrollToBottom(consoleOutputTextBox);
+            try {
+                GUIUtils.ScrollToBottom(consoleOutputTextBox);
+            }
+            catch (ObjectDisposedException e) {
+                Console.WriteLine(e);
+                throw;
+            }
         }
     }
 }
