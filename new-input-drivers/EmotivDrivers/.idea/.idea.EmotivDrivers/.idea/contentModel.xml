@@ -24,10 +24,11 @@
         </e>
         <e p="EmotivDrivers.csproj" t="IncludeRecursive" />
         <e p="GUI" t="Include">
-          <e p="ApplicaitonGUI.cs" t="Include" />
+          <e p="ConsoleOutputGUI.cs" t="Include" />
           <e p="ConsoleWriter.cs" t="Include" />
           <e p="GUI.cs" t="Include" />
           <e p="GUIUtils.cs" t="Include" />
+          <e p="SetIPGUI.cs" t="Include" />
         </e>
         <e p="HeadsetComm" t="Include">
           <e p="HeadsetComm.cs" t="Include" />

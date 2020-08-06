@@ -53,14 +53,14 @@ namespace EmotivDrivers.ApplicationConnection {
         }
 
         private static void SubscribeToEvents() {
-            ApplicaitonGUI.SetIPEvent += UpdateKeyboardAddress;
+            SetIPGUI.SetIPEvent += UpdateKeyboardAddress;
         }
         
         [STAThread]
         static void Main(string[] args) {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new ApplicaitonGUI());
+            Application.Run(new SetIPGUI());
         }
         
         private static void UpdateKeyboardAddress(object sender, SetIPEventArgs eventArgs) {

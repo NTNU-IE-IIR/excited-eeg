@@ -10,7 +10,7 @@ namespace EmotivDrivers.GUI {
         public string Ip { get; set; }
     }
     
-    public class ApplicaitonGUI : GUI {
+    public class SetIPGUI : GUI {
         
         /// <summary>
         /// --------------------------- VARIABLES ---------------------------
@@ -26,15 +26,7 @@ namespace EmotivDrivers.GUI {
             set => ipTextBoxValue = value;
         }
 
-        private TextBox consoleOutputTextBox;
-        private int consoleOutputTextBoxWidth = 750;
-        private int consoleOutputTextBoxHeight = 400;
-
-        private string consoleOutputtextBoxValue;
-        public TextBox ConsoleOutputTextBox {
-            get => consoleOutputTextBox;
-            set => consoleOutputTextBox = value;
-        }
+        
 
         private Label ipLabel;
 
@@ -51,7 +43,7 @@ namespace EmotivDrivers.GUI {
         /// <summary>
         /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
-        public ApplicaitonGUI() {
+        public SetIPGUI() {
             headsetComm = new HeadsetComm.HeadsetComm();
             
             InitComponents();
@@ -63,7 +55,7 @@ namespace EmotivDrivers.GUI {
         /// --------------------------- METHODS ---------------------------
         /// </summary>
         private void SubscribeToEvents() {
-            setIpButton.Click += new EventHandler(OnButtonClick);
+            setIpButton.Click += new EventHandler(OnSetIPButtonClick);
             startDriverButton.Click += new EventHandler(OnConnectionButtonClick);
         }
         
@@ -86,8 +78,6 @@ namespace EmotivDrivers.GUI {
             this.Controls.Add(this.ipLabel);
             this.Controls.Add(this.setIpButton);
             this.Controls.Add(this.startDriverButton);
-            
-            
         }
 
         private void SetupIpInputTextBox() {
@@ -126,7 +116,7 @@ namespace EmotivDrivers.GUI {
             this.startDriverButton.Location = new Point((guiWidth / 2) + (setIpButton.Size.Width), (guiHeight / 2) + 60);
         }
         
-        private void OnButtonClick(object sender, EventArgs e) {
+        private void OnSetIPButtonClick(object sender, EventArgs e) {
             var eventArgs = new SetIPEventArgs();
             eventArgs.Ip = ipInputTextBox.Text;
             SetIPEvent?.Invoke(this, eventArgs);
@@ -134,77 +124,11 @@ namespace EmotivDrivers.GUI {
         }
 
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
-            StartConsoleOutputForm();
+            ConsoleOutputGUI.Instance.ShowConsoleOutputForm();
             
             //Start in new thread to not freeze up GUI
             Thread thread = new Thread(headsetComm.StartHeadsetCommunications);
             thread.Start();
-        }
-
-        private void StartConsoleOutputForm() {
-            var form = new Form();
-            this.consoleOutputTextBox = new TextBox();
-
-            form.Location = this.Location;
-            form.StartPosition = FormStartPosition.Manual;
-            form.FormClosing += delegate { this.Show(); };
-            form.ClientSize = new Size(guiWidth, guiHeight);
-
-            form.Text = "Emotiv driver output";
-            
-            InitConsoleOutputComponents();
-            
-            // Set application icon
-            using (var stream = File.OpenRead("Resources/ntnu.ico")) {
-                form.Icon = new Icon(stream);
-            }
-
-            using (var consoleWriter = new ConsoleWriter()) {
-                consoleWriter.WriteEvent += ConsoleWriterWriteEvent;
-                consoleWriter.WriteLineEvent += ConsoleWriterWriteLineEvent;
-                Console.SetOut(consoleWriter);
-            }
-
-            // To make the GUI unable to resize
-            form.FormBorderStyle = FormBorderStyle.FixedSingle;
-            form.MaximizeBox = false;
-            form.MinimizeBox = false;
-            
-            form.Controls.Add(consoleOutputTextBox);
-            
-            form.Show();
-            this.Hide();
-        }
-
-        private void InitConsoleOutputComponents() {
-            this.consoleOutputTextBox.ReadOnly = true;
-            this.consoleOutputTextBox.Location = new Point((guiWidth / 2) - (consoleOutputTextBoxWidth / 2), (guiHeight / 2) - consoleOutputTextBoxHeight / 2);
-            this.consoleOutputTextBox.MinimumSize = new Size(consoleOutputTextBoxWidth, consoleOutputTextBoxHeight);
-            this.consoleOutputTextBox.Font = new Font("", 12);
-            this.consoleOutputTextBox.Multiline = true;
-            this.consoleOutputTextBox.ScrollBars = ScrollBars.Both;
-        }
-
-        private void ConsoleWriterWriteEvent(object sender, ConsoleWriterEventArgs eventArgs) {
-            this.consoleOutputTextBox.Text += eventArgs.Value;
-            try {
-                GUIUtils.ScrollToBottom(consoleOutputTextBox);
-            }
-            catch (ObjectDisposedException e) {
-                Console.WriteLine(e);
-                throw;
-            }
-        }
-
-        private void ConsoleWriterWriteLineEvent(object sender, ConsoleWriterEventArgs eventArgs) {
-            this.consoleOutputTextBox.Text += eventArgs.Value + Environment.NewLine;
-            try {
-                GUIUtils.ScrollToBottom(consoleOutputTextBox);
-            }
-            catch (ObjectDisposedException e) {
-                Console.WriteLine(e);
-                throw;
-            }
         }
     }
 }
