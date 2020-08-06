@@ -6,8 +6,6 @@ using System.Windows.Forms;
 namespace EmotivDrivers.GUI {
     public class ConsoleOutputGUI : GUI {
         
-        private Form form = new Form();
-        
         private TextBox consoleOutputTextBox;
         private int consoleOutputTextBoxWidth = 750;
         private int consoleOutputTextBoxHeight = 400;
@@ -18,30 +16,26 @@ namespace EmotivDrivers.GUI {
             set => consoleOutputTextBox = value;
         }
         
-        static ConsoleOutputGUI() {}
-        
         public ConsoleOutputGUI() {
             InitComponents();
         }
         
-        public static ConsoleOutputGUI Instance { get; } = new ConsoleOutputGUI();
 
         private void InitComponents() {
-            
             this.consoleOutputTextBox = new TextBox();
 
-            form.Location = this.Location;
-            form.StartPosition = FormStartPosition.Manual;
-            form.FormClosing += delegate { this.Show(); };
-            form.ClientSize = new Size(guiWidth, guiHeight);
+            this.Location = this.Location;
+            this.StartPosition = FormStartPosition.Manual;
+            this.FormClosing += delegate { this.Show(); };
+            this.ClientSize = new Size(guiWidth, guiHeight);
 
-            form.Text = "Emotiv driver output";
+            this.Text = "Emotiv driver output";
             
             InitConsoleOutputComponents();
             
             // Set application icon
             using (var stream = File.OpenRead("Resources/ntnu.ico")) {
-                form.Icon = new Icon(stream);
+                this.Icon = new Icon(stream);
             }
 
             using (var consoleWriter = new ConsoleWriter()) {
@@ -51,7 +45,7 @@ namespace EmotivDrivers.GUI {
             }
             
             
-            form.Controls.Add(consoleOutputTextBox);
+            this.Controls.Add(consoleOutputTextBox);
         }
         
         private void InitConsoleOutputComponents() {
@@ -61,10 +55,6 @@ namespace EmotivDrivers.GUI {
             this.consoleOutputTextBox.Font = new Font("", 12);
             this.consoleOutputTextBox.Multiline = true;
             this.consoleOutputTextBox.ScrollBars = ScrollBars.Both;
-        }
-
-        public void ShowConsoleOutputForm() {
-            form.Show();
         }
         
         private void ConsoleWriterWriteEvent(object sender, ConsoleWriterEventArgs eventArgs) {
@@ -88,5 +78,6 @@ namespace EmotivDrivers.GUI {
                 throw;
             }
         }
+        
     }
 }

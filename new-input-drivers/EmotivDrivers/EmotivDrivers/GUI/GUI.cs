@@ -14,7 +14,7 @@ namespace EmotivDrivers.GUI {
 
         private void InitComponents() {
             this.SuspendLayout();
-            
+
             // Set application icon
             using (var stream = File.OpenRead("Resources/ntnu.ico")) {
                 this.Icon = new Icon(stream);

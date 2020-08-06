@@ -25,15 +25,15 @@ namespace EmotivDrivers.GUI {
             get => ipTextBoxValue;
             set => ipTextBoxValue = value;
         }
-
         
-
         private Label ipLabel;
 
         private Button setIpButton;
         private Button startDriverButton;
         
         private HeadsetComm.HeadsetComm headsetComm;
+
+        private Thread headsetCommThread;
         
         /// <summary>
         /// --------------------------- EVENTS ---------------------------
@@ -65,13 +65,11 @@ namespace EmotivDrivers.GUI {
             this.setIpButton = new Button();
             this.startDriverButton = new Button();
             
-
             SetupIpInputTextBox();
             SetupIpLabel();
             SetupSetIpButton();
             SetupStartDriverButton();
             
-
             Text = "Emotiv drivers";
             
             this.Controls.Add(this.ipInputTextBox);
@@ -124,11 +122,19 @@ namespace EmotivDrivers.GUI {
         }
 
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
-            ConsoleOutputGUI.Instance.ShowConsoleOutputForm();
+            ConsoleOutputGUI consoleOutputGui = new ConsoleOutputGUI();
+            consoleOutputGui.Owner = this;
+            consoleOutputGui.Disposed += ChildFormClosed;
+            consoleOutputGui.Show();
+            this.Hide();
             
-            //Start in new thread to not freeze up GUI
-            Thread thread = new Thread(headsetComm.StartHeadsetCommunications);
-            thread.Start();
+            //Start headset communication in new thread to not freeze up GUI
+            headsetCommThread = new Thread(headsetComm.StartHeadsetCommunications);
+            headsetCommThread.Start();
+        }
+
+        private void ChildFormClosed(object sender, EventArgs eventArgs) {
+            this.Close();
         }
     }
 }
