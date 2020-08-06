@@ -199,10 +199,12 @@ namespace EmotivDrivers.GUI {
 
         private void ConsoleWriterWriteEvent(object sender, ConsoleWriterEventArgs eventArgs) {
             this.consoleOutputTextBox.Text += eventArgs.Value;
+            GUIUtils.ScrollToBottom(consoleOutputTextBox);
         }
 
         private void ConsoleWriterWriteLineEvent(object sender, ConsoleWriterEventArgs eventArgs) {
             this.consoleOutputTextBox.Text += eventArgs.Value + Environment.NewLine;
+            GUIUtils.ScrollToBottom(consoleOutputTextBox);
         }
     }
 }
