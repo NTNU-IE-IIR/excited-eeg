@@ -24,6 +24,8 @@ namespace EmotivDrivers.ApplicationConnection {
         //You need to change the IP address to the device the keyboard application is running on
         private static string keyboardServerURL = "ws://192.168.0.47:43879/input";
 
+        private static IPAddressValidator ipAddressValidator;
+
         /// <summary>
         /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
@@ -32,6 +34,8 @@ namespace EmotivDrivers.ApplicationConnection {
         }
 
         private ApplicationConnection() {
+            ipAddressValidator = new IPAddressValidator();
+            
             SubscribeToEvents();
         }
         
@@ -65,7 +69,7 @@ namespace EmotivDrivers.ApplicationConnection {
         }
         
         private static void UpdateKeyboardAddress(object sender, SetIPEventArgs eventArgs) {
-            if (ValidateIPv4(eventArgs.Ip)) {
+            if (IPAddressValidator.ValidateIPv4(eventArgs.Ip)) {
                 keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input";
                 Console.WriteLine("Keyboard server IP set to: " + keyboardServerURL);
             }
@@ -74,19 +78,6 @@ namespace EmotivDrivers.ApplicationConnection {
             }
         }
 
-        private static bool ValidateIPv4(string ipString) {
-            if (String.IsNullOrWhiteSpace(ipString)) {
-                return false;
-            }
-
-            string[] splitValues = ipString.Split('.');
-            if (splitValues.Length != 4) {
-                return false;
-            }
-
-            byte tempForParsing;
-
-            return splitValues.All(r => byte.TryParse(r, out tempForParsing));
-        }
+        
     }
 }
