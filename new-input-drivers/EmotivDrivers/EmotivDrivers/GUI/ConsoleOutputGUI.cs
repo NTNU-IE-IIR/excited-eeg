@@ -20,7 +20,6 @@ namespace EmotivDrivers.GUI {
             InitComponents();
         }
         
-
         private void InitComponents() {
             this.consoleOutputTextBox = new TextBox();
 
@@ -78,6 +77,10 @@ namespace EmotivDrivers.GUI {
                 throw;
             }
         }
-        
+
+        protected override void OnFormClosing(FormClosingEventArgs e) {
+            base.OnFormClosing(e);
+            Application.Exit();
+        }
     }
 }

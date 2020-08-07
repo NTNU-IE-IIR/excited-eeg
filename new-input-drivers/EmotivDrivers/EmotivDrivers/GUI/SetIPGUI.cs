@@ -120,21 +120,17 @@ namespace EmotivDrivers.GUI {
             SetIPEvent?.Invoke(this, eventArgs);
             ipInputTextBox.Text = "";
         }
-
+        
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
             ConsoleOutputGUI consoleOutputGui = new ConsoleOutputGUI();
             consoleOutputGui.Owner = this;
-            consoleOutputGui.Disposed += ChildFormClosed;
             consoleOutputGui.Show();
             this.Hide();
             
             //Start headset communication in new thread to not freeze up GUI
             headsetCommThread = new Thread(headsetComm.StartHeadsetCommunications);
+            headsetCommThread.IsBackground = true;
             headsetCommThread.Start();
-        }
-
-        private void ChildFormClosed(object sender, EventArgs eventArgs) {
-            this.Close();
         }
     }
 }

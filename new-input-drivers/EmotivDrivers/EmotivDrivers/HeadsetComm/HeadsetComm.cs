@@ -67,9 +67,5 @@ namespace EmotivDrivers.HeadsetComm {
                     break;
             }
         }
-
-        private void StartDriver(object sender, EventArgs eventArgs) {
-            Console.WriteLine("Start drivers");
-        }
     }
 }
