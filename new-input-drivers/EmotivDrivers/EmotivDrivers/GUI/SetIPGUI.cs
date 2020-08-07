@@ -15,7 +15,6 @@ namespace EmotivDrivers.GUI {
         /// <summary>
         /// --------------------------- VARIABLES ---------------------------
         /// </summary>
-
         private TextBox ipInputTextBox;
         private int ipTextBoxWidth = 300;
         private int ipTextBoxHeight = 30;

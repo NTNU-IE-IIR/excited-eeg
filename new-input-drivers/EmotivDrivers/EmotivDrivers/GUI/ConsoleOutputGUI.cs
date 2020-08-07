@@ -6,6 +6,9 @@ using System.Windows.Forms;
 namespace EmotivDrivers.GUI {
     public class ConsoleOutputGUI : GUI {
         
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private TextBox consoleOutputTextBox;
         public TextBox ConsoleOutputTextBox {
             get => consoleOutputTextBox;
@@ -17,12 +20,18 @@ namespace EmotivDrivers.GUI {
 
         private Button stopDriverButton;
         
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
         public ConsoleOutputGUI() {
             InitComponents();
             
             SubscribeToEvents();
         }
-
+        
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
         private void SubscribeToEvents() {
             stopDriverButton.Click += new EventHandler(OnStopDriverButtonClick);
         }
