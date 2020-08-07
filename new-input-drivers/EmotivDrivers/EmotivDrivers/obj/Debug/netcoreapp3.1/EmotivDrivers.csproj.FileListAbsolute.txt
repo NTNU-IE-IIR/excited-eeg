@@ -49,3 +49,4 @@ C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\Emoti
 C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.dll
 C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.pdb
 C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\obj\Debug\netcoreapp3.1\EmotivDrivers.genruntimeconfig.cache
+C:\Users\Emil\Documents\GitHub\excited-eeg\new-input-drivers\EmotivDrivers\EmotivDrivers\bin\Debug\netcoreapp3.1\Xwt.dll

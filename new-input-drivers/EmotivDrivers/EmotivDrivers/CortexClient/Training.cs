@@ -3,8 +3,17 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.CortexClient {
+    
+    /// <summary>
+    /// Used to train emotiv profiles.
+    /// It is important to be able to train emotiv profiles, as
+    /// it will make future commands much more reliable.
+    /// </summary>
     public class Training {
-
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private CortexClient cortexClient;
         private string profileName;
         private string cortexToken;
@@ -18,11 +27,18 @@ namespace EmotivDrivers.CortexClient {
         private Authorizer authorizer;
         private SessionCreator sessionCreator;
         private List<string> profileList;
-
+        
+        /// <summary>
+        /// --------------------------- EVENTS ---------------------------
+        /// </summary>
         public event EventHandler<string> OnProfileLoaded;
         public event EventHandler<bool> OnUnProfileLoaded;
         public event EventHandler<bool> OnTrainingSucceeded;
-        public event EventHandler<bool> OnReadyForTraining; 
+        public event EventHandler<bool> OnReadyForTraining;
+        
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
         public Training() {
             authorizer = new Authorizer();
             headsetFinder = new HeadsetFinder();
@@ -37,7 +53,10 @@ namespace EmotivDrivers.CortexClient {
 
             SubscribeToEvents();
         }
-
+        
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
         private void SubscribeToEvents() {
             cortexClient.OnErrorMsgReceived += MessageErrorReceived;
             cortexClient.OnGetDetectionInfo += GetDetectionOk;
@@ -192,6 +211,38 @@ namespace EmotivDrivers.CortexClient {
 
         private void SessionClosedOK(object sender, string sessionId) {
             Console.WriteLine("Session: " + sessionId + " has closed");
+        }
+
+        public void CreateProfile(string profileName) {
+            if (profileList.Contains(profileName)) {
+                Console.WriteLine("The profile has name " + profileName + " already exists. Please use another name");
+            }
+            else {
+                cortexClient.SetupProfile(cortexToken, profileName, "create");
+            }
+        }
+
+        public void LoadProfile(string profileName) {
+            if (profileList.Contains(profileName)) {
+                cortexClient.SetupProfile(cortexToken, profileName, "load", headsetId);
+                Console.WriteLine("The profile: " + profileName + " was loaded.");
+            }
+            else {
+                Console.WriteLine("The profile can not be loaded. The name " + profileName + " does not exist");
+            }
+        }
+
+        public void UnLoadProfile(string profileName) {
+            if (profileList.Contains(profileName)) {
+                cortexClient.SetupProfile(cortexToken, profileName, "unload", headsetId);
+            }
+            else {
+                Console.WriteLine("The profile can not be un-loaded. The name " + profileName + " does not exist");
+            }
+        }
+
+        public void CloseSession() {
+            sessionCreator.CloseSession();
         }
     }
 }

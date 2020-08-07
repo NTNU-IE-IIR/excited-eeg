@@ -1,15 +1,20 @@
 ﻿namespace EmotivDrivers.CortexClient {
+    
+    /// <summary>
+    /// Used to store differed configuration variables for the cortex client.
+    /// </summary>
     static class Config {
         public static string AppClientId = "giK2jIkOy5x0Ry1xwixpdbAykYZi1Ebr3xjv7Asy";
         public static string AppClientSecret =
             "SzXU4drfTJuAshSb9wInyvE3MYx5Z0jAZR1Au0b2ETXp0F8T7wpbTYXzAqezvJxYM7u9UJndXkiKdUDD6hE5h0G5ZbEQdtQcCn43PJXzme9DHsS95alVLQtCDGgql4Ot";
    
-
+    
     // If you use an Epoc Flex headset, then you must put your configuration here
     public static string FlexMapping = @"{
                                   'CMS':'TP8', 'DRL':'P6',
                                   'RM':'TP10','RN':'P4','RO':'P8'}";
     }
+    
     public static class WarningCode {
         public const int StreamStop = 0;
         public const int SessionAutoClosed = 1;

@@ -23,12 +23,19 @@
           <e p="Utils.cs" t="Include" />
         </e>
         <e p="EmotivDrivers.csproj" t="IncludeRecursive" />
+        <e p="GUI" t="Include">
+          <e p="ConsoleOutputGUI.cs" t="Include" />
+          <e p="ConsoleWriter.cs" t="Include" />
+          <e p="GUI.cs" t="Include" />
+          <e p="GUIUtils.cs" t="Include" />
+          <e p="SetIPGUI.cs" t="Include" />
+        </e>
         <e p="HeadsetComm" t="Include">
           <e p="HeadsetComm.cs" t="Include" />
         </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
-            <e p="netcoreapp3.1" t="Include">
+            <e p="net452" t="Include">
               <e p="EmotivDrivers.AssemblyInfo.cs" t="Include" />
             </e>
           </e>

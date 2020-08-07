@@ -3,27 +3,30 @@ using System.Threading;
 using System.Collections;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Windows.Forms;
 using EmotivDrivers.CortexClient;
+using EmotivDrivers.GUI;
 
 namespace EmotivDrivers.HeadsetComm {
-    class HeadsetComm {
+    public class HeadsetComm {
 
-        static void Main(string[] args) {
-            
+        public HeadsetComm() { }
+        
+        public void StartHeadsetCommunications() {
             DataStream dataStream = new DataStream();
-            dataStream.AddStreams("com");                          // You can add more streams to subscribe multiple streams
+            dataStream.AddStreams("com");                          
             dataStream.OnSubscribed += SubscribedOK;
             dataStream.OnComDataReceived += ComDataReceived;
-
-            // Need a valid license key and activeSession when subscribe eeg data
+                    
+            // Need a valid license key and activeSession when subscribe com data
             dataStream.Start("", true);
-            
+                        
             while (Console.ReadKey().Key != ConsoleKey.Escape) {}
-            
+                        
             // Unsubcribe stream
             dataStream.UnSubscribe();
             Thread.Sleep(5000);
-
+                    
             // Close Session
             dataStream.CloseSession();
             Thread.Sleep(5000);

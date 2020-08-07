@@ -143,6 +143,9 @@ namespace EmotivDrivers.CortexClient {
         /// </summary>
         public static CortexClient Instance { get; } = new CortexClient();
         
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
         private void SubscribeToEvents() {
             webSocketClient.Opened += new EventHandler(WebSocketClientOpened);
             webSocketClient.Error += new EventHandler<SuperSocket.ClientEngine.ErrorEventArgs>(WebSocketClientError);
@@ -504,8 +507,7 @@ namespace EmotivDrivers.CortexClient {
         
         // setupProfile
         // Required params: cortexToken, profile, status
-        public void SetupProfile(string cortexToken, string profile, string status, string headsetId = null, string newProfileName = null)
-        {
+        public void SetupProfile(string cortexToken, string profile, string status, string headsetId = null, string newProfileName = null) {
             JObject param = new JObject();
             param.Add("profile", profile);
             param.Add("cortexToken", cortexToken);

@@ -17,6 +17,10 @@ namespace EmotivDrivers.CortexClient {
     ///     Check if a user has accepted EULA
     /// </summary>
     public class Authorizer {
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private CortexClient cortexClient;
         
         private string cortexToken;
@@ -28,9 +32,15 @@ namespace EmotivDrivers.CortexClient {
         
         //Default value
         private ushort debitNo = 5; 
-
+        
+        /// <summary>
+        /// --------------------------- EVENTS ---------------------------
+        /// </summary>
         public event EventHandler<string> OnAuthorized;
-
+        
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
         public Authorizer() {
             cortexClient = CortexClient.Instance;
             cortexToken = "";
@@ -41,6 +51,14 @@ namespace EmotivDrivers.CortexClient {
             SubscribeToEvents();
         }
         
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
+        
+        /// <summary>
+        /// Starts the authorization process for a new connection between
+        /// the cortex client and the cortex API. 
+        /// </summary>
         public void Start(string licenseID) {
             licenseID = "";
             this.licenseId = licenseID;

@@ -3,7 +3,14 @@ using System.Collections;
 using System;
 
 namespace EmotivDrivers.CortexClient {
+    
+    /// <summary>
+    /// Used to store all information about a connected emotiv headset
+    /// </summary>
     public class Headset {
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private string headsetId;
         private string status;
         private string serialId;
@@ -15,9 +22,10 @@ namespace EmotivDrivers.CortexClient {
         private string connectedBy;
         private string mode;
 
-        // Contructor
-        public Headset() {
-        }
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
+        public Headset() {}
         public Headset (JObject jHeadset) {
             HeadsetId = (string)jHeadset["id"];
             Status = (string)jHeadset["status"];
@@ -37,7 +45,9 @@ namespace EmotivDrivers.CortexClient {
             Settings = (JObject)jHeadset["settings"];
         }
 
-        // Properties
+        /// <summary>
+        /// --------------------------- PROPERTIES ---------------------------
+        /// </summary>
         public string HeadsetId {
             get { return this.headsetId; }
             set { this.headsetId = value; }

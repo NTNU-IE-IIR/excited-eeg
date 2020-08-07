@@ -5,17 +5,32 @@ using Newtonsoft.Json.Linq;
 using System.Timers;
 
 namespace EmotivDrivers.CortexClient {
+    /// <summary>
+    /// Used to locate a emotiv headset which is connected to the Emotive software
+    /// </summary>
     public class HeadsetFinder {
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private CortexClient ctxClient;
-        private string headsetId; // headset id of connected device
+        private string headsetId;
+        public string HeadsetId {
+            get { return this.headsetId; }
+        }
         private Timer aTimer;
 
         private bool isFoundHeadset;
 
-        // Event
+        /// <summary>
+        /// --------------------------- EVENTS ---------------------------
+        /// </summary>
         public event EventHandler<string> OnHeadsetConnected;
         public event EventHandler<bool> OnHeadsetDisConnected;
-
+        
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
         public HeadsetFinder() {
             this.ctxClient = CortexClient.Instance;
             this.headsetId = "";
@@ -24,7 +39,10 @@ namespace EmotivDrivers.CortexClient {
             this.ctxClient.OnHeadsetConnected += HeadsetConnectedOK;
             this.ctxClient.OnHeadsetDisConnected += HeadsetDisconnectedOK;
         }
-
+        
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
         private void HeadsetDisconnectedOK(object sender, bool e) {
             this.headsetId = "";
             OnHeadsetDisConnected(this, true);
@@ -66,12 +84,10 @@ namespace EmotivDrivers.CortexClient {
                 Console.WriteLine(" No headset available. Please connect headset to the machine");
             }
         }
-
-        // Property
-        public string HeadsetId {
-            get { return this.headsetId; }
-        }
-
+        
+        /// <summary>
+        /// Finds all the available headsets connected to the emotiv software
+        /// </summary>
         public void FindHeadset() {
             Console.WriteLine("FindHeadset");
             if (!this.isFoundHeadset) {
