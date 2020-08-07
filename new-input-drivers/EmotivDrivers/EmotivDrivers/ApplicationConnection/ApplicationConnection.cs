@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Linq;
 using System.Windows.Forms;
 using System.Xml.Serialization;
 using EmotivDrivers.GUI;
@@ -64,8 +65,28 @@ namespace EmotivDrivers.ApplicationConnection {
         }
         
         private static void UpdateKeyboardAddress(object sender, SetIPEventArgs eventArgs) {
-            keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input";
-            Console.WriteLine("Keyboard server IP set to: " + keyboardServerURL);
+            if (ValidateIPv4(eventArgs.Ip)) {
+                keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input";
+                Console.WriteLine("Keyboard server IP set to: " + keyboardServerURL);
+            }
+            else {
+                Console.WriteLine("Ip address not valid");
+            }
+        }
+
+        private static bool ValidateIPv4(string ipString) {
+            if (String.IsNullOrWhiteSpace(ipString)) {
+                return false;
+            }
+
+            string[] splitValues = ipString.Split('.');
+            if (splitValues.Length != 4) {
+                return false;
+            }
+
+            byte tempForParsing;
+
+            return splitValues.All(r => byte.TryParse(r, out tempForParsing));
         }
     }
 }
