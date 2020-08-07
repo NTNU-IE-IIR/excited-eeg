@@ -18,6 +18,7 @@ namespace EmotivDrivers.CortexClient
         private HeadsetFinder headsetFinder;
         private Authorizer authorizer;
         private SessionCreator sessionCreator;
+        private ProfileHandler profileHandler;
 
         public List<string> Streams {
             get { return this.streams; }
@@ -43,6 +44,7 @@ namespace EmotivDrivers.CortexClient
             authorizer = new Authorizer();
             headsetFinder = new HeadsetFinder();
             sessionCreator = new SessionCreator();
+            profileHandler = new ProfileHandler();
             cortexToken = "";
             sessionId = "";
             isActiveSession = false;
@@ -60,8 +62,10 @@ namespace EmotivDrivers.CortexClient
             this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
             this.sessionCreator.OnSessionCreated += SessionCreatedOk;
             this.sessionCreator.OnSessionClosed += SessionClosedOK;
-            this.sessionCreator.OnProfileQuery += ProfileQueryOK;
-            this.sessionCreator.OnProfileLoaded += ProfileLoadedOK;
+            //this.sessionCreator.OnProfileQuery += ProfileQueryOK;
+            //this.sessionCreator.OnProfileLoaded += ProfileLoadedOK;
+            this.profileHandler.OnProfileQuery += ProfileQueryOK;
+            this.profileHandler.OnProfileLoaded += ProfileLoadedOK;
         }
 
         private void SessionClosedOK(object sender, string sessionId) {
@@ -128,7 +132,7 @@ namespace EmotivDrivers.CortexClient
             // Wait a moment before creating session
             //System.Threading.Thread.Sleep(1500);
             // CreateSession
-            this.sessionCreator.LoadProfile(this.profileName, this.cortexToken, this.headsetId);
+            this.profileHandler.LoadProfile(this.profileName, this.cortexToken, this.headsetId);
         }
         
         private void ProfileLoadedOK(object sender, string headsetId) {

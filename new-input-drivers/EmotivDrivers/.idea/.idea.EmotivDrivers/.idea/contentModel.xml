@@ -17,6 +17,7 @@
           <e p="DataStream.cs" t="Include" />
           <e p="Headset.cs" t="Include" />
           <e p="HeadsetFinder.cs" t="Include" />
+          <e p="ProfileHandler.cs" t="Include" />
           <e p="Record.cs" t="Include" />
           <e p="SessionCreator.cs" t="Include" />
           <e p="Utils.cs" t="Include" />
