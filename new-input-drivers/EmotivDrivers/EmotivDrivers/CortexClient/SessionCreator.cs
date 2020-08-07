@@ -10,34 +10,20 @@ namespace EmotivDrivers.CortexClient {
         private SessionStatus status;
         private CortexClient ctxClient;
         private string cortexToken;
-        private string profileName;
-        private string headsetId;
-        private List<string> profileList;
 
         //event
         public event EventHandler<string> OnSessionCreated;
         public event EventHandler<string> OnSessionClosed;
-        public event EventHandler<string> OnProfileLoaded;
-        public event EventHandler<String> OnProfileQuery;
 
         //Constructor
         public SessionCreator() {
             this.sessionId = "";
             this.applicationId = "";
-            //this.cortexToken = "";
-            //this.profileName = "Arild";
-            //this.headsetId = "";
-            //this.profileList = new List<string>();
-            
+
             this.ctxClient = CortexClient.Instance;
 
             this.ctxClient.OnCreateSession += CreateSessionOk;
             this.ctxClient.OnUpdateSession += UpdateSessionOk;
-            //this.ctxClient.OnHeadsetConnected += HeadsetConnectedOK;
-            //this.ctxClient.OnQueryProfile += QueryProfileOK;
-            //this.ctxClient.OnLoadProfile += ProfileLoadedOK;
-
-            //this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
         }
 
         private void CreateSessionOk(object sender, SessionEventArgs e) {
@@ -88,7 +74,6 @@ namespace EmotivDrivers.CortexClient {
             else {
                 Console.WriteLine("CreateSession: Invalid parameters");
             }
-            
         }
 
         // Close Session
@@ -97,42 +82,5 @@ namespace EmotivDrivers.CortexClient {
                 this.ctxClient.UpdateSession(this.cortexToken, this.sessionId, "close");
             }
         }
-        
-        // Query profile
-        //private void HeadsetConnectedOK(object sender, string headsetId) {
-        //    if (!String.IsNullOrEmpty(headsetId)) {
-        //        this.headsetId = headsetId;
-        //        ctxClient.QueryProfile(cortexToken);
-        //    }
-        //}
-        
-        //private void QueryProfileOK(object sender, JArray profiles) {
-        //    Console.WriteLine("Query profile OK: " + profiles);
-
-        //    foreach (JObject element in profiles) {
-        //        string name = (string) element["name"];
-        //        profileList.Add(name);
-        //    }
-
-        //    OnProfileQuery(this, profileName);
-        //}
-        
-        // Load profile
-        //public void LoadProfile(string profileName, string cortexToken, string headsetId) {
-        //    this.profileName = profileName;
-        //    this.cortexToken = cortexToken;
-        //    this.headsetId = headsetId;
-        //    if (this.profileList.Contains(profileName))
-        //       this.ctxClient.SetupProfile(cortexToken, profileName, "load", this.headsetId);
-        //    else
-        //        Console.WriteLine("The profile can not be loaded. The name " + profileName + " has not existed.");
-        //}
-
-        //private void ProfileLoadedOK(object sender, string loadedProfile) {
-        //    if (this.profileName.Equals(loadedProfile)) {
-        //        Console.WriteLine("Profile " + loadedProfile + " loaded.");
-        //        OnProfileLoaded(this, headsetId);
-        //    }
-        //}
     }
 }
