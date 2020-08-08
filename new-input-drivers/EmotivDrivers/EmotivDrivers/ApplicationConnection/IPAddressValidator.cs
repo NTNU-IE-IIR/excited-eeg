@@ -1,5 +1,7 @@
 ﻿using System;
 using System.Linq;
+using System.Net;
+using System.Net.Sockets;
 
 namespace EmotivDrivers.ApplicationConnection {
     public class IPAddressValidator {
@@ -8,19 +10,33 @@ namespace EmotivDrivers.ApplicationConnection {
             
         }
         
-        public static bool ValidateIPv4(string ipString) {
-            if (String.IsNullOrWhiteSpace(ipString)) {
-                return false;
+        /// <summary>
+        /// Checks if a given string is either a valid IP-address
+        /// The IP-address can be either IPv4 or IPv6
+        /// </summary>
+        /// <param name="ipString"></param>
+        /// <returns></returns>
+        public static bool ValidateIPAddress(string ipString) {
+            IPAddress address;
+            bool validAddress = false;
+            
+            if (IPAddress.TryParse(ipString, out address)) {
+                switch (address.AddressFamily) {
+                    case AddressFamily.InterNetwork:
+                        validAddress = true;
+                        break;
+                    
+                    case AddressFamily.InterNetworkV6:
+                        validAddress = true;
+                        break;
+                    
+                    default:
+                        validAddress = false;
+                        break;
+                }
             }
 
-            string[] splitValues = ipString.Split('.');
-            if (splitValues.Length != 4) {
-                return false;
-            }
-
-            byte tempForParsing;
-
-            return splitValues.All(r => byte.TryParse(r, out tempForParsing));
+            return validAddress;
         }
     }
 }

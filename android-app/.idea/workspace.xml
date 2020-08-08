@@ -10,6 +10,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="414b883d-49d6-41d2-9095-cdbdc7df022c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -173,9 +174,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="781" y="342" key="SettingsEditor/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594018148716" />
-    <state x="2963" y="459" key="com.intellij.ide.util.TipDialog" timestamp="1594632578655">
-      <screen x="2560" y="-245" width="1080" height="1880" />
+    <state x="955" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1596803974963">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
+    <state x="955" y="524" key="com.intellij.ide.util.TipDialog/-2560.0.2560.1400/2560.-245.1080.1880/0.0.2560.1400@0.0.2560.1400" timestamp="1596803974963" />
     <state x="-1604" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594020054544" />
     <state x="956" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594018188887" />
     <state x="2963" y="459" key="com.intellij.ide.util.TipDialog/2560.-245.1080.1880/0.0.2560.1400/-2560.0.2560.1400@2560.-245.1080.1880" timestamp="1594632578655" />
