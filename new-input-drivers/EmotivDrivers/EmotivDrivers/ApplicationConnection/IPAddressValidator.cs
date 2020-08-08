@@ -17,19 +17,23 @@ namespace EmotivDrivers.ApplicationConnection {
         public bool ValidateIPAddress(string ipString) {
             IPAddress address;
             bool validAddress = false;
-            
+
             if (IPAddress.TryParse(ipString, out address)) {
                 switch (address.AddressFamily) {
                     case AddressFamily.InterNetwork:
-                        validAddress = true;
+                        if (ipString.Length > 6 && ipString.Contains(".")) {
+                            string[] split = ipString.Split('.');
+                            if (split.Length == 4 && split[0].Length > 0 && split[1].Length > 0 &&
+                                split[2].Length > 0 && split[3].Length > 0) {
+                                validAddress = true;
+                            }
+                        }
                         break;
                     
                     case AddressFamily.InterNetworkV6:
-                        validAddress = true;
-                        break;
-                    
-                    default:
-                        validAddress = false;
+                        if (ipString.Contains(":") && ipString.Length > 15) {
+                            validAddress = true;
+                        }
                         break;
                 }
             }
