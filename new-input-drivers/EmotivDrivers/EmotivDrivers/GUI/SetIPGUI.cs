@@ -3,6 +3,7 @@ using System.Drawing;
 using System.IO;
 using System.Threading;
 using System.Windows.Forms;
+using EmotivDrivers.ApplicationConnection;
 using EmotivDrivers.HeadsetComm;
 
 namespace EmotivDrivers.GUI {
@@ -33,6 +34,8 @@ namespace EmotivDrivers.GUI {
         private HeadsetComm.HeadsetComm headsetComm;
 
         private Thread headsetCommThread;
+
+        private IPAddressValidator ipAddressValidator;
         
         /// <summary>
         /// --------------------------- EVENTS ---------------------------
@@ -44,6 +47,8 @@ namespace EmotivDrivers.GUI {
         /// </summary>
         public SetIPGUI() {
             headsetComm = new HeadsetComm.HeadsetComm();
+            
+            ipAddressValidator = new IPAddressValidator();
             
             InitComponents();
             
@@ -115,9 +120,12 @@ namespace EmotivDrivers.GUI {
         
         private void OnSetIPButtonClick(object sender, EventArgs e) {
             var eventArgs = new SetIPEventArgs();
-            eventArgs.Ip = ipInputTextBox.Text;
-            SetIPEvent?.Invoke(this, eventArgs);
-            ipInputTextBox.Text = "";
+
+            if (ipAddressValidator.ValidateIPAddress(ipInputTextBox.Text)) {
+                eventArgs.Ip = ipInputTextBox.Text;
+                SetIPEvent?.Invoke(this, eventArgs);
+                ipInputTextBox.Text = "";
+            }
         }
         
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {

@@ -1,7 +1,5 @@
 ﻿using System;
-using System.Linq;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 using EmotivDrivers.GUI;
 using EmotivDrivers.HeadsetComm;
 using WebSocketSharp;
@@ -23,9 +21,7 @@ namespace EmotivDrivers.ApplicationConnection {
         
         //You need to change the IP address to the device the keyboard application is running on
         private static string keyboardServerURL = "ws://192.168.0.47:43879/input";
-
-        private static IPAddressValidator ipAddressValidator;
-
+        
         /// <summary>
         /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
@@ -34,8 +30,6 @@ namespace EmotivDrivers.ApplicationConnection {
         }
 
         private ApplicationConnection() {
-            ipAddressValidator = new IPAddressValidator();
-            
             SubscribeToEvents();
         }
         
@@ -69,15 +63,8 @@ namespace EmotivDrivers.ApplicationConnection {
         }
         
         private static void UpdateKeyboardAddress(object sender, SetIPEventArgs eventArgs) {
-            if (IPAddressValidator.ValidateIPAddress(eventArgs.Ip)) {
-                keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input";
-                Console.WriteLine("Keyboard server IP set to: " + keyboardServerURL);
-            }
-            else {
-                Console.WriteLine("Ip address not valid");
-            }
+            keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input"; 
+            Console.WriteLine("Keyboard server IP set to: " + keyboardServerURL);
         }
-
-        
     }
 }
