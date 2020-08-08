@@ -36,6 +36,7 @@ namespace EmotivDrivers.GUI {
         private Thread headsetCommThread;
 
         private IPAddressValidator ipAddressValidator;
+        private Label ipValidationLabel;
         
         /// <summary>
         /// --------------------------- EVENTS ---------------------------
@@ -68,6 +69,7 @@ namespace EmotivDrivers.GUI {
             this.ipLabel = new Label();
             this.setIpButton = new Button();
             this.startDriverButton = new Button();
+            this.ipValidationLabel = new Label();
             
             SetupIpInputTextBox();
             SetupIpLabel();
@@ -80,6 +82,7 @@ namespace EmotivDrivers.GUI {
             this.Controls.Add(this.ipLabel);
             this.Controls.Add(this.setIpButton);
             this.Controls.Add(this.startDriverButton);
+            this.Controls.Add(this.ipValidationLabel);
         }
 
         private void SetupIpInputTextBox() {
@@ -95,9 +98,10 @@ namespace EmotivDrivers.GUI {
 
         private void SetupIpLabel() {
             this.ipLabel.Text = "Input IP-address of device running Keyboard App";
-            this.ipLabel.AutoSize = true;
             this.ipLabel.Font = new Font("Verdana", 14);
-            this.ipLabel.Location = new Point((guiWidth / 2) - (ipLabel.Size.Width + 135), (guiHeight / 2) - (ipLabel.Size.Height / 2) - 30);
+            this.ipLabel.AutoSize = true;
+            this.ipLabel.Left = (guiWidth / 2) - 235;
+            this.ipLabel.Top = (guiHeight / 2) - (ipLabel.Top / 2) - 40;
         }
 
         private void SetupSetIpButton() {
@@ -106,7 +110,7 @@ namespace EmotivDrivers.GUI {
             this.setIpButton.TextAlign = ContentAlignment.MiddleCenter;
             this.setIpButton.BackColor = Color.DodgerBlue;
             this.setIpButton.Font = new Font("Verdana", 14);
-            this.setIpButton.Location = new Point((guiWidth / 2) + (setIpButton.Size.Width), (guiHeight / 2) + 20);
+            this.setIpButton.Location = new Point((guiWidth / 2) + (setIpButton.Size.Width), (guiHeight / 2) + 60);
         }
 
         private void SetupStartDriverButton() {
@@ -115,7 +119,7 @@ namespace EmotivDrivers.GUI {
             this.startDriverButton.TextAlign = ContentAlignment.MiddleCenter;
             this.startDriverButton.BackColor = Color.DodgerBlue;
             this.startDriverButton.Font = new Font("Verdana", 14);
-            this.startDriverButton.Location = new Point((guiWidth / 2) + (setIpButton.Size.Width), (guiHeight / 2) + 60);
+            this.startDriverButton.Location = new Point((guiWidth / 2) + (setIpButton.Size.Width), (guiHeight / 2) + 100);
         }
         
         private void OnSetIPButtonClick(object sender, EventArgs e) {
@@ -125,6 +129,10 @@ namespace EmotivDrivers.GUI {
                 eventArgs.Ip = ipInputTextBox.Text;
                 SetIPEvent?.Invoke(this, eventArgs);
                 ipInputTextBox.Text = "";
+                SetupIpValidationLabelOK();
+            }
+            else {
+                SetupIpValidationLabelError();
             }
         }
         
@@ -138,6 +146,24 @@ namespace EmotivDrivers.GUI {
             headsetCommThread = new Thread(headsetComm.StartHeadsetCommunications);
             headsetCommThread.IsBackground = true;
             headsetCommThread.Start();
+        }
+
+        private void SetupIpValidationLabelOK() {
+            this.ipValidationLabel.Text = "IP-Address was successfully set";
+            this.ipValidationLabel.Font = new Font("Verdana", 14);
+            this.ipValidationLabel.ForeColor = Color.FromArgb(255, 40, 156, 71);
+            this.ipValidationLabel.AutoSize = true;
+            this.ipValidationLabel.Left = (guiWidth / 2) - (ipValidationLabel.Width / 2);
+            this.ipValidationLabel.Top = (guiHeight / 2) - (ipValidationLabel.Height / 2) + 40;
+        }
+
+        private void SetupIpValidationLabelError() {
+            this.ipValidationLabel.Text = "IP-Address is not a valid IP-Address";
+            this.ipValidationLabel.Font = new Font("Verdana", 14);
+            this.ipValidationLabel.ForeColor = Color.FromArgb(255, 235, 26, 26);
+            this.ipValidationLabel.AutoSize = true;
+            this.ipValidationLabel.Left = (guiWidth / 2) - (ipValidationLabel.Width / 2);
+            this.ipValidationLabel.Top = (guiHeight / 2) - (ipValidationLabel.Height / 2) + 40;
         }
     }
 }
