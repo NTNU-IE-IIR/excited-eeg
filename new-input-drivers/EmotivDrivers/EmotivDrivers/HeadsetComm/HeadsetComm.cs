@@ -46,10 +46,12 @@ namespace EmotivDrivers.HeadsetComm {
         private static void ComDataReceived(object sender, ArrayList comData) {
             string command = comData[1].ToString();
             string power = comData[2].ToString();
-            Console.WriteLine(command);
-            Console.WriteLine(power);
 
             switch (command) {
+                case "neutral":
+                    Console.WriteLine("Neutral");
+                    break;
+                
                 case "left":
                     Console.WriteLine("Left");
                     break;
@@ -59,11 +61,11 @@ namespace EmotivDrivers.HeadsetComm {
                     break;
                 
                 case "push":
-
+                    Console.WriteLine("Push");
                     break;
                 
                 case "pull":
-
+                    Console.WriteLine("Pull");
                     break;
             }
         }

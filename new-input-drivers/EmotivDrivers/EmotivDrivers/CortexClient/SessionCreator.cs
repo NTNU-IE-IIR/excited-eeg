@@ -1,5 +1,7 @@
 ﻿using System;
+using System.Collections.Generic;
 using EmotivDrivers.CortexClient;
+using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.CortexClient {
     
@@ -48,7 +50,6 @@ namespace EmotivDrivers.CortexClient {
         public SessionCreator() {
             this.sessionId = "";
             this.applicationId = "";
-            this.cortexToken = "";
 
             this.ctxClient = CortexClient.Instance;
 

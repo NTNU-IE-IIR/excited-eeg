@@ -18,10 +18,14 @@ namespace EmotivDrivers.CortexClient {
         private string cortexToken;
         private string sessionId;
         private bool isActiveSession;
+        private string profileName;
+
+        private string headsetId;
 
         private HeadsetFinder headsetFinder;
         private Authorizer authorizer;
         private SessionCreator sessionCreator;
+        private ProfileHandler profileHandler;
 
         public List<string> Streams {
             get { return this.streams; }
@@ -51,9 +55,11 @@ namespace EmotivDrivers.CortexClient {
             authorizer = new Authorizer();
             headsetFinder = new HeadsetFinder();
             sessionCreator = new SessionCreator();
+            profileHandler = new ProfileHandler();
             cortexToken = "";
             sessionId = "";
             isActiveSession = false;
+            this.profileName = "Arild";
 
             streams = new List<string>();
             // Event register
@@ -75,6 +81,8 @@ namespace EmotivDrivers.CortexClient {
             this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
             this.sessionCreator.OnSessionCreated += SessionCreatedOk;
             this.sessionCreator.OnSessionClosed += SessionClosedOK;
+            this.profileHandler.OnProfileQuery += ProfileQueryOK;
+            this.profileHandler.OnProfileLoaded += ProfileLoadedOK;
         }
         
         private void SessionClosedOK(object sender, string sessionId) {
@@ -127,10 +135,16 @@ namespace EmotivDrivers.CortexClient {
         }
 
         private void HeadsetConnectedOK(object sender, string headsetId) {
-            //Console.WriteLine("HeadsetConnectedOK " + headsetId);
-            // Wait a moment before creating session
-            System.Threading.Thread.Sleep(1500);
-            // CreateSession
+            Console.WriteLine("HeadsetConnectedOK " + headsetId);
+            this.headsetId = headsetId;
+            this.ctxClient.QueryProfile(this.cortexToken);
+        }
+        
+        private void ProfileQueryOK(object sender, string profileName) {
+            this.profileHandler.LoadProfile(this.profileName, this.cortexToken, this.headsetId);
+        }
+        
+        private void ProfileLoadedOK(object sender, string loadedProfile) {
             this.sessionCreator.Create(this.cortexToken, headsetId, this.isActiveSession);
         }
 
