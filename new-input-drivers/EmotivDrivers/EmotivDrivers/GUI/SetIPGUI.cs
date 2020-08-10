@@ -108,18 +108,18 @@ namespace EmotivDrivers.GUI {
             this.setIpButton.Text = "Set IP";
             this.setIpButton.AutoSize = true;
             this.setIpButton.TextAlign = ContentAlignment.MiddleCenter;
-            this.setIpButton.BackColor = Color.DodgerBlue;
+            this.setIpButton.BackColor = Color.FromArgb(255, 30, 168, 232);
             this.setIpButton.Font = new Font("Verdana", 14);
-            this.setIpButton.Location = new Point((guiWidth / 2) + (setIpButton.Size.Width), (guiHeight / 2) + 60);
+            this.setIpButton.Location = new Point((guiWidth / 2) - (this.setIpButton.Width / 2), (guiHeight / 2) + 60);
         }
 
         private void SetupStartDriverButton() {
             this.startDriverButton.Text = "Start Emotiv drivers";
             this.startDriverButton.AutoSize = true;
             this.startDriverButton.TextAlign = ContentAlignment.MiddleCenter;
-            this.startDriverButton.BackColor = Color.DodgerBlue;
+            this.startDriverButton.BackColor = Color.FromArgb(255, 30, 168, 232);
             this.startDriverButton.Font = new Font("Verdana", 14);
-            this.startDriverButton.Location = new Point((guiWidth / 2) + (setIpButton.Size.Width), (guiHeight / 2) + 100);
+            this.startDriverButton.Location = new Point((guiWidth / 2) - (this.startDriverButton.Width) - 20, (guiHeight / 2) + 100);
         }
         
         private void OnSetIPButtonClick(object sender, EventArgs e) {
