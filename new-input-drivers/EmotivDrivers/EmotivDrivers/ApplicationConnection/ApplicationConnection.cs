@@ -1,6 +1,6 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Windows.Forms;
-using System.Xml.Serialization;
 using EmotivDrivers.GUI;
 using EmotivDrivers.HeadsetComm;
 using WebSocketSharp;
@@ -22,7 +22,7 @@ namespace EmotivDrivers.ApplicationConnection {
         
         //You need to change the IP address to the device the keyboard application is running on
         private static string keyboardServerURL = "ws://192.168.0.47:43879/input";
-
+        
         /// <summary>
         /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
@@ -43,12 +43,18 @@ namespace EmotivDrivers.ApplicationConnection {
         /// --------------------------- METHODS ---------------------------
         /// </summary>
         public void SendMessageToKeyboardServer(string message) {
-            using (var webSocket = new WebSocket(keyboardServerURL)) {
-                webSocket.OnMessage += (sender, e) => Console.WriteLine("Keyboard server says: " + e.Data);
-                
-                webSocket.Connect();
-                webSocket.Send(message);
-                webSocket.Close();
+            try {
+                using (var webSocket = new WebSocket(keyboardServerURL)) {
+                    webSocket.OnMessage += (sender, e) => Console.WriteLine("Keyboard server says: " + e.Data);
+
+                    webSocket.Connect();
+                    webSocket.Send(message);
+                    webSocket.Close();
+                }
+            }
+            catch (SocketException e) {
+                Console.WriteLine("Could not connect to the EEG-keyboard");
+                throw;
             }
         }
 
@@ -64,8 +70,8 @@ namespace EmotivDrivers.ApplicationConnection {
         }
         
         private static void UpdateKeyboardAddress(object sender, SetIPEventArgs eventArgs) {
-            keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input";
-            Console.WriteLine("Keyboard server IP set to: " + keyboardServerURL);
+            keyboardServerURL = "ws://" + eventArgs.Ip + ":43879/input"; 
+            Console.WriteLine("Keyboard server address set to: " + keyboardServerURL);
         }
     }
 }
