@@ -1,10 +1,10 @@
 ﻿{
   "version": "1.0.0",
   "restore": {
-    "projectUniqueName": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
+    "projectUniqueName": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
     "projectName": "EmotivDrivers",
-    "projectPath": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
-    "outputPath": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\obj\\",
+    "projectPath": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
+    "outputPath": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\obj\\",
     "projectStyle": "PackageReference",
     "originalTargetFrameworks": [
       "net48"
