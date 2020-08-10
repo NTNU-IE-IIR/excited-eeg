@@ -62,8 +62,6 @@ namespace EmotivDrivers.CortexClient
             this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
             this.sessionCreator.OnSessionCreated += SessionCreatedOk;
             this.sessionCreator.OnSessionClosed += SessionClosedOK;
-            //this.sessionCreator.OnProfileQuery += ProfileQueryOK;
-            //this.sessionCreator.OnProfileLoaded += ProfileLoadedOK;
             this.profileHandler.OnProfileQuery += ProfileQueryOK;
             this.profileHandler.OnProfileLoaded += ProfileLoadedOK;
         }
@@ -118,28 +116,16 @@ namespace EmotivDrivers.CortexClient
         }
 
         private void HeadsetConnectedOK(object sender, string headsetId) {
-            //Console.WriteLine("HeadsetConnectedOK " + headsetId);
-            // Wait a moment before creating session
-            //System.Threading.Thread.Sleep(1500);
-            // CreateSession
-            //this.sessionCreator.Create(this.cortexToken, headsetId, this.isActiveSession);
+            Console.WriteLine("HeadsetConnectedOK " + headsetId);
             this.headsetId = headsetId;
             this.ctxClient.QueryProfile(this.cortexToken);
         }
         
         private void ProfileQueryOK(object sender, string profileName) {
-            //Console.WriteLine("HeadsetConnectedOK " + headsetId);
-            // Wait a moment before creating session
-            //System.Threading.Thread.Sleep(1500);
-            // CreateSession
             this.profileHandler.LoadProfile(this.profileName, this.cortexToken, this.headsetId);
         }
         
-        private void ProfileLoadedOK(object sender, string headsetId) {
-            //Console.WriteLine("HeadsetConnectedOK " + headsetId);
-            // Wait a moment before creating session
-            System.Threading.Thread.Sleep(1500);
-            // CreateSession
+        private void ProfileLoadedOK(object sender, string loadedProfile) {
             this.sessionCreator.Create(this.cortexToken, headsetId, this.isActiveSession);
         }
 

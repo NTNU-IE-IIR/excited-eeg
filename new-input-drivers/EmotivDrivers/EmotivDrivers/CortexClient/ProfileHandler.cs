@@ -2,10 +2,8 @@
 using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
-namespace EmotivDrivers.CortexClient
-{
-    public class ProfileHandler
-    {
+namespace EmotivDrivers.CortexClient {
+    public class ProfileHandler {
         private CortexClient ctxClient;
         private string cortexToken;
         private string profileName;
@@ -28,8 +26,9 @@ namespace EmotivDrivers.CortexClient
             this.ctxClient.OnQueryProfile += QueryProfileOK;
             this.ctxClient.OnLoadProfile += ProfileLoadedOK;
         }
+        
         private void QueryProfileOK(object sender, JArray profiles) {
-            Console.WriteLine("Query profile OK: " + profiles);
+            Console.WriteLine("Query profile OK.");
 
             foreach (JObject element in profiles) {
                 string name = (string) element["name"];
@@ -38,20 +37,24 @@ namespace EmotivDrivers.CortexClient
 
             OnProfileQuery(this, profileName);
         }
+        
         public void LoadProfile(string profileName, string cortexToken, string headsetId) {
             this.profileName = profileName;
             this.cortexToken = cortexToken;
             this.headsetId = headsetId;
-            if (this.profileList.Contains(profileName))
+            
+            if (this.profileList.Contains(profileName)){
                 this.ctxClient.SetupProfile(cortexToken, profileName, "load", this.headsetId);
-            else
+            }
+            else {
                 Console.WriteLine("The profile can not be loaded. The name " + profileName + " has not existed.");
+            }
         }
 
         private void ProfileLoadedOK(object sender, string loadedProfile) {
             if (this.profileName.Equals(loadedProfile)) {
-                Console.WriteLine("Profile " + loadedProfile + " loaded.");
-                OnProfileLoaded(this, headsetId);
+                Console.WriteLine("Profile loaded: " + loadedProfile);
+                OnProfileLoaded(this, loadedProfile);
             }
         }
     }
