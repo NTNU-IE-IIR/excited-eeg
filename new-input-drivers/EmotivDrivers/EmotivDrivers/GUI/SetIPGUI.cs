@@ -133,7 +133,7 @@ namespace EmotivDrivers.GUI {
             this.loadProfileButton.TextAlign = ContentAlignment.MiddleCenter;
             this.loadProfileButton.BackColor = Color.FromArgb(255, 30, 168, 232);
             this.loadProfileButton.Font = new Font("Verdana", 14);
-            this.loadProfileButton.Location = new Point((guiWidth / 2) - this.loadProfileButton.Width - 25, (guiHeight / 2) + 140);
+            this.loadProfileButton.Location = new Point((guiWidth / 2) - this.loadProfileButton.Width - 26, (guiHeight / 2) + 140);
         }
         
         private void OnSetIPButtonClick(object sender, EventArgs e) {
