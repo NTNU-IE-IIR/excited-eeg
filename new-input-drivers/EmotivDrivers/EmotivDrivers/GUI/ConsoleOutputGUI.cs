@@ -91,7 +91,6 @@ namespace EmotivDrivers.GUI {
             }
             catch (ObjectDisposedException e) {
                 Console.WriteLine(e);
-                throw;
             }
         }
 

@@ -3,6 +3,7 @@ using System.Threading;
 using WebSocket4Net;
 using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
+using System.Net.Sockets;
 
 namespace EmotivDrivers.CortexClient {
     
@@ -170,8 +171,13 @@ namespace EmotivDrivers.CortexClient {
             }
             
             Console.WriteLine("Send " + method);
+            try {
+                webSocketClient.Send(request.ToString());
+            }
+            catch (SocketException e) {
+                Console.WriteLine("Could not connect to the Emotiv services");
+            }
             
-            webSocketClient.Send(request.ToString());
             methodForRequestID.Add(nextRequestId, method);
             nextRequestId++;
         }

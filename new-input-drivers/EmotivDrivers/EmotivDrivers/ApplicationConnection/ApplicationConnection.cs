@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Net.Sockets;
 using System.Windows.Forms;
 using EmotivDrivers.GUI;
 using EmotivDrivers.HeadsetComm;
@@ -42,12 +43,18 @@ namespace EmotivDrivers.ApplicationConnection {
         /// --------------------------- METHODS ---------------------------
         /// </summary>
         public void SendMessageToKeyboardServer(string message) {
-            using (var webSocket = new WebSocket(keyboardServerURL)) {
-                webSocket.OnMessage += (sender, e) => Console.WriteLine("Keyboard server says: " + e.Data);
-                
-                webSocket.Connect();
-                webSocket.Send(message);
-                webSocket.Close();
+            try {
+                using (var webSocket = new WebSocket(keyboardServerURL)) {
+                    webSocket.OnMessage += (sender, e) => Console.WriteLine("Keyboard server says: " + e.Data);
+
+                    webSocket.Connect();
+                    webSocket.Send(message);
+                    webSocket.Close();
+                }
+            }
+            catch (SocketException e) {
+                Console.WriteLine("Could not connect to the EEG-keyboard");
+                throw;
             }
         }
 

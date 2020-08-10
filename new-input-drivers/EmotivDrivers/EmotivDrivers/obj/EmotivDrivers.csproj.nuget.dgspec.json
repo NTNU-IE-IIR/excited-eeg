@@ -14,18 +14,16 @@
         "outputPath": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\Emil\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+          "C:\\Users\\Emil\\AppData\\Roaming\\NuGet\\NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net452"
+          "net48"
         ],
         "sources": {
-          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net452": {
+          "net48": {
             "projectReferences": {}
           }
         },
@@ -36,7 +34,7 @@
         }
       },
       "frameworks": {
-        "net452": {
+        "net48": {
           "dependencies": {
             "Newtonsoft.Json": {
               "target": "Package",
@@ -51,7 +49,7 @@
               "version": "[1.0.3-rc11, )"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
         }
       },
       "runtimes": {

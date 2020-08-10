@@ -10,8 +10,38 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="414b883d-49d6-41d2-9095-cdbdc7df022c" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_animated_vector_drawable_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_appcompat_v7_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_1_0_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_constraint_constraint_layout_solver_1_0_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_design_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_percent_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_recyclerview_v7_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_annotations_25_2_0_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_compat_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_ui_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_core_utils_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_fragment_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_media_compat_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_v4_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_support_vector_drawable_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_core_2_2_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_espresso_espresso_idling_resource_2_2_2_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_exposed_instrumentation_api_publish_0_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_rules_0_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_test_runner_0_5_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_android_support_transition_25_2_0_aar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_emotiv_sdk_community_3_3_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_emotiv_sdk_community_3_3_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__com_intuit_sdp_sdp_android_1_0_4_aar.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Gradle__com_intuit_sdp_sdp_android_1_0_4_aar.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__javax_annotation_javax_annotation_api_1_2_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__no_ntnu_stud_avikeyb_backend_1_0_SNAPSHOT_jar.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Gradle__org_java_websocket_Java_WebSocket_1_3_0_jar.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,7 +52,6 @@
     <option name="testRunner" value="GRADLE" />
     <option name="delegatedBuild" value="true" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_2_API_29" />
   <component name="ExternalProjectsData">
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
@@ -48,15 +77,17 @@
   <component name="PropertiesComponent">
     <property name="DeviceAndSnapshotComboBoxAction.selectedDevice" value="UBV7N18627000022" />
     <property name="DeviceAndSnapshotComboBoxAction.selectionTime" value="2020-07-08T06:56:33.293Z" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
-    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.last.edited" value="Suggestions" />
     <property name="project.structure.proportion" value="0.17" />
     <property name="project.structure.side.proportion" value="0.2" />
     <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
   </component>
   <component name="PsdUISettings">
+    <option name="MODULE_TAB" value="Default Config" />
     <option name="LAST_EDITED_BUILD_TYPE" value="release" />
   </component>
   <component name="RunManager">
@@ -133,51 +164,59 @@
     <servers />
   </component>
   <component name="WindowStateProjectService">
-    <state x="-1763" y="432" key="#PSD" timestamp="1594210172889">
-      <screen x="-2560" y="0" width="2560" height="1400" />
+    <state x="598" y="321" key="#PSD" timestamp="1596999757056">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="598" y="321" key="#PSD/0.0.1920.1040@0.0.1920.1040" timestamp="1596999757056" />
     <state x="-1763" y="432" key="#PSD/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594210172889" />
     <state x="797" y="432" key="#PSD/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594196875147" />
-    <state x="-1566" y="336" key="#android-app" timestamp="1594020063549">
-      <screen x="-2560" y="0" width="2560" height="1400" />
+    <state x="746" y="250" key="#android-app" timestamp="1596999059945">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="746" y="250" key="#android-app/0.0.1920.1040@0.0.1920.1040" timestamp="1596999059945" />
     <state x="-1566" y="336" key="#android-app/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594020063549" />
     <state x="-1475" y="403" key="#com.intellij.ide.util.MemberChooser" timestamp="1594025549128">
       <screen x="-2560" y="0" width="2560" height="1400" />
     </state>
     <state x="-1475" y="403" key="#com.intellij.ide.util.MemberChooser/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025549128" />
-    <state width="1034" height="302" key="GridCell.Tab.0.bottom" timestamp="1594296943098">
-      <screen x="2560" y="-245" width="1080" height="1880" />
+    <state width="1340" height="224" key="GridCell.Tab.0.bottom" timestamp="1596999759868">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1340" height="224" key="GridCell.Tab.0.bottom/0.0.1920.1040@0.0.1920.1040" timestamp="1596999759868" />
     <state width="2517" height="380" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025674448" />
     <state width="1234" height="302" key="GridCell.Tab.0.bottom/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594201443498" />
     <state width="1034" height="302" key="GridCell.Tab.0.bottom/2560.-245.1080.1880/-2560.0.2560.1400/0.0.2560.1400@2560.-245.1080.1880" timestamp="1594296943098" />
-    <state width="1034" height="302" key="GridCell.Tab.0.center" timestamp="1594296943097">
-      <screen x="2560" y="-245" width="1080" height="1880" />
+    <state width="1340" height="224" key="GridCell.Tab.0.center" timestamp="1596999759868">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1340" height="224" key="GridCell.Tab.0.center/0.0.1920.1040@0.0.1920.1040" timestamp="1596999759868" />
     <state width="2517" height="380" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025674448" />
     <state width="1234" height="302" key="GridCell.Tab.0.center/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594201443498" />
     <state width="1034" height="302" key="GridCell.Tab.0.center/2560.-245.1080.1880/-2560.0.2560.1400/0.0.2560.1400@2560.-245.1080.1880" timestamp="1594296943097" />
-    <state width="1034" height="302" key="GridCell.Tab.0.left" timestamp="1594296943097">
-      <screen x="2560" y="-245" width="1080" height="1880" />
+    <state width="1340" height="224" key="GridCell.Tab.0.left" timestamp="1596999759868">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1340" height="224" key="GridCell.Tab.0.left/0.0.1920.1040@0.0.1920.1040" timestamp="1596999759868" />
     <state width="2517" height="380" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025674448" />
     <state width="1234" height="302" key="GridCell.Tab.0.left/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594201443498" />
     <state width="1034" height="302" key="GridCell.Tab.0.left/2560.-245.1080.1880/-2560.0.2560.1400/0.0.2560.1400@2560.-245.1080.1880" timestamp="1594296943097" />
-    <state width="1034" height="302" key="GridCell.Tab.0.right" timestamp="1594296943097">
-      <screen x="2560" y="-245" width="1080" height="1880" />
+    <state width="1340" height="224" key="GridCell.Tab.0.right" timestamp="1596999759868">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state width="1340" height="224" key="GridCell.Tab.0.right/0.0.1920.1040@0.0.1920.1040" timestamp="1596999759868" />
     <state width="2517" height="380" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594025674448" />
     <state width="1234" height="302" key="GridCell.Tab.0.right/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594201443498" />
     <state width="1034" height="302" key="GridCell.Tab.0.right/2560.-245.1080.1880/-2560.0.2560.1400/0.0.2560.1400@2560.-245.1080.1880" timestamp="1594296943097" />
-    <state x="781" y="342" key="SettingsEditor" timestamp="1594018148716">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="586" y="254" key="SettingsEditor" timestamp="1596999109674">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
+    <state x="586" y="254" key="SettingsEditor/0.0.1920.1040@0.0.1920.1040" timestamp="1596999109674" />
     <state x="781" y="342" key="SettingsEditor/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594018148716" />
-    <state x="955" y="524" key="com.intellij.ide.util.TipDialog" timestamp="1596803974963">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="716" y="389" key="com.intellij.ide.util.TipDialog" timestamp="1596999131512">
+      <screen x="0" y="0" width="1920" height="1040" />
     </state>
     <state x="955" y="524" key="com.intellij.ide.util.TipDialog/-2560.0.2560.1400/2560.-245.1080.1880/0.0.2560.1400@0.0.2560.1400" timestamp="1596803974963" />
+    <state x="716" y="389" key="com.intellij.ide.util.TipDialog/0.0.1920.1040@0.0.1920.1040" timestamp="1596999131512" />
     <state x="-1604" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@-2560.0.2560.1400" timestamp="1594020054544" />
     <state x="956" y="524" key="com.intellij.ide.util.TipDialog/0.0.2560.1400/2560.-245.1080.1880/-2560.0.2560.1400@0.0.2560.1400" timestamp="1594018188887" />
     <state x="2963" y="459" key="com.intellij.ide.util.TipDialog/2560.-245.1080.1880/0.0.2560.1400/-2560.0.2560.1400@2560.-245.1080.1880" timestamp="1594632578655" />
