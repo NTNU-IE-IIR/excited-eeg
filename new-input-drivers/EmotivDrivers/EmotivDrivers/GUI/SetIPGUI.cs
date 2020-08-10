@@ -30,6 +30,7 @@ namespace EmotivDrivers.GUI {
 
         private Button setIpButton;
         private Button startDriverButton;
+        private Button loadProfileButton;
         
         private HeadsetComm.HeadsetComm headsetComm;
 
@@ -70,11 +71,13 @@ namespace EmotivDrivers.GUI {
             this.setIpButton = new Button();
             this.startDriverButton = new Button();
             this.ipValidationLabel = new Label();
+            this.loadProfileButton = new Button();
             
             SetupIpInputTextBox();
             SetupIpLabel();
             SetupSetIpButton();
             SetupStartDriverButton();
+            SetupLoadProfileButton();
             
             Text = "Emotiv drivers";
             
@@ -83,6 +86,7 @@ namespace EmotivDrivers.GUI {
             this.Controls.Add(this.setIpButton);
             this.Controls.Add(this.startDriverButton);
             this.Controls.Add(this.ipValidationLabel);
+            this.Controls.Add(this.loadProfileButton);
         }
 
         private void SetupIpInputTextBox() {
@@ -120,6 +124,15 @@ namespace EmotivDrivers.GUI {
             this.startDriverButton.BackColor = Color.FromArgb(255, 30, 168, 232);
             this.startDriverButton.Font = new Font("Verdana", 14);
             this.startDriverButton.Location = new Point((guiWidth / 2) - (this.startDriverButton.Width) - 20, (guiHeight / 2) + 100);
+        }
+
+        private void SetupLoadProfileButton() {
+            this.loadProfileButton.Text = "Load training profiles";
+            this.loadProfileButton.AutoSize = true;
+            this.loadProfileButton.TextAlign = ContentAlignment.MiddleCenter;
+            this.loadProfileButton.BackColor = Color.FromArgb(255, 30, 168, 232);
+            this.loadProfileButton.Font = new Font("Verdana", 14);
+            this.loadProfileButton.Location = new Point((guiWidth / 2) - this.loadProfileButton.Width - 25, (guiHeight / 2) + 140);
         }
         
         private void OnSetIPButtonClick(object sender, EventArgs e) {

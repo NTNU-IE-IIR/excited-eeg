@@ -4,6 +4,7 @@ using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.CortexClient {
     public class ProfileHandler {
+        
         private CortexClient ctxClient;
         private string cortexToken;
         private string profileName;
