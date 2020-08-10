@@ -29,7 +29,7 @@
           <e p="ConsoleWriter.cs" t="Include" />
           <e p="GUI.cs" t="Include" />
           <e p="GUIUtils.cs" t="Include" />
-          <e p="ProfileHandlingGUI.cs" t="Include" />
+          <e p="LoadProfileGUI.cs" t="Include" />
           <e p="SetIPGUI.cs" t="Include" />
         </e>
         <e p="HeadsetComm" t="Include">

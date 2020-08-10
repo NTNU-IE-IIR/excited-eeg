@@ -63,6 +63,7 @@ namespace EmotivDrivers.GUI {
         private void SubscribeToEvents() {
             setIpButton.Click += new EventHandler(OnSetIPButtonClick);
             startDriverButton.Click += new EventHandler(OnConnectionButtonClick);
+            loadProfileButton.Click += new EventHandler(OnLoadProfilesButtonClick);
         }
         
         private void InitComponents() {
@@ -159,6 +160,12 @@ namespace EmotivDrivers.GUI {
             headsetCommThread = new Thread(headsetComm.StartHeadsetCommunications);
             headsetCommThread.IsBackground = true;
             headsetCommThread.Start();
+        }
+
+        private void OnLoadProfilesButtonClick(object sender, EventArgs eventArgs) {
+            LoadProfileGUI loadProfileGui = new LoadProfileGUI();
+            loadProfileGui.Show();
+            this.Hide();
         }
 
         private void SetupIpValidationLabelOK() {
