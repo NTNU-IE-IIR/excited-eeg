@@ -51,7 +51,21 @@ namespace EmotivDrivers.CortexClient {
 
             OnProfileQuery(this, profileName);
         }
-        
+
+        private void ProfileLoadedOK(object sender, string loadedProfile) {
+            if (this.profileName.Equals(loadedProfile))
+            {
+                Console.WriteLine("Profile loaded: " + loadedProfile);
+                OnProfileLoaded(this, loadedProfile);
+            }
+        }
+
+        /// <summary>
+        /// Loads a user profile to a given headset
+        /// </summary>
+        /// <param name="profileName">The profile to be loaded</param>
+        /// <param name="cortexToken">The currently valid cortex token</param>
+        /// <param name="headsetId">The id of the given headset</param>
         public void LoadProfile(string profileName, string cortexToken, string headsetId) {
             this.profileName = profileName;
             this.cortexToken = cortexToken;
@@ -64,12 +78,17 @@ namespace EmotivDrivers.CortexClient {
                 Console.WriteLine("The profile can not be loaded. The name " + profileName + " has not existed.");
             }
         }
-
-        private void ProfileLoadedOK(object sender, string loadedProfile) {
-            if (this.profileName.Equals(loadedProfile)) {
-                Console.WriteLine("Profile loaded: " + loadedProfile);
-                OnProfileLoaded(this, loadedProfile);
-            }
+        
+        /// <summary>
+        /// Unloads a user profile from the currently active headset
+        /// </summary>
+        /// <param name="profileName">The profile to be unloaded</param>
+        public void UnLoadProfile(string profileName)
+        {
+            if (this.profileList.Contains(profileName))
+                this.ctxClient.SetupProfile(this.cortexToken, profileName, "unload", this.headsetId);
+            else
+                Console.WriteLine("The profile can not be unloaded. The name " + profileName + " has not existed.");
         }
     }
 }
