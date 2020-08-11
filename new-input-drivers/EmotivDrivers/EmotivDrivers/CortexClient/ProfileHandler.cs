@@ -3,18 +3,29 @@ using System.Collections.Generic;
 using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.CortexClient {
+    /// <summary>
+    /// Used to for handling user profile selection, loading, and unloading
+    /// </summary>
     public class ProfileHandler {
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private CortexClient ctxClient;
         private string cortexToken;
         private string profileName;
         private string headsetId;
         private List<string> profileList;
         
-        //events
+        /// <summary>
+        /// --------------------------- EVENTS ---------------------------
+        /// </summary>
         public event EventHandler<string> OnProfileLoaded;
         public event EventHandler<String> OnProfileQuery;
         
-        //constructor
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
         public ProfileHandler() {
             this.cortexToken = "";
             this.profileName = "";
@@ -27,6 +38,9 @@ namespace EmotivDrivers.CortexClient {
             this.ctxClient.OnLoadProfile += ProfileLoadedOK;
         }
         
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
         private void QueryProfileOK(object sender, JArray profiles) {
             Console.WriteLine("Query profile OK.");
 

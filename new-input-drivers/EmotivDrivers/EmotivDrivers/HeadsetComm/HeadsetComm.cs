@@ -71,7 +71,6 @@ namespace EmotivDrivers.HeadsetComm {
                         {
                             previousTriggerTime[neutral] = currentTimeStamp;
                             Console.WriteLine("Sending command: Neutral.");
-
                         }
 
                         break;
