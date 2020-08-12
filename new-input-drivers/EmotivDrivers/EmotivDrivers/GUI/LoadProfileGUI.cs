@@ -14,7 +14,8 @@ namespace EmotivDrivers.GUI {
         }
 
         private void InitComponents() {
-            int i;
+            SetupProfileButtons();
+        }
 
         private void SetupProfileButtons() {
             buttonContainer = new Panel();
