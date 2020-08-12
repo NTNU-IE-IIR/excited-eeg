@@ -73,6 +73,7 @@ namespace EmotivDrivers.GUI {
         }
 
         private void LoadProfilesList() {
+            cortexClient.Open();
             cortexClient.Authorize("", 5);
             cortexClient.QueryProfile(cortexToken);
             profiles = profileHandler.ProfileList;
