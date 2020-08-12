@@ -10,7 +10,11 @@ namespace EmotivDrivers.CortexClient {
         private string profileName;
         private string headsetId;
         private List<string> profileList;
-        
+        public List<string> ProfileList {
+            get => profileList;
+            set => profileList = value;
+        }
+
         //events
         public event EventHandler<string> OnProfileLoaded;
         public event EventHandler<String> OnProfileQuery;

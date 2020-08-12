@@ -128,7 +128,7 @@ namespace EmotivDrivers.GUI {
         }
 
         private void SetupLoadProfileButton() {
-            this.loadProfileButton.Text = "Load training profiles";
+            this.loadProfileButton.Text = "Load Emotiv profiles";
             this.loadProfileButton.AutoSize = true;
             this.loadProfileButton.TextAlign = ContentAlignment.MiddleCenter;
             this.loadProfileButton.BackColor = Color.FromArgb(255, 30, 168, 232);
