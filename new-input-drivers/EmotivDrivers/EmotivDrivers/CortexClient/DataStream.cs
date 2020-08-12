@@ -140,7 +140,7 @@ namespace EmotivDrivers.CortexClient {
             this.ctxClient.QueryProfile(this.cortexToken);
         }
         
-        private void ProfileQueryOK(object sender, string profileName) {
+        private void ProfileQueryOK(object sender, List<string> profileList) {
             this.profileHandler.LoadProfile(this.profileName, this.cortexToken, this.headsetId);
         }
         

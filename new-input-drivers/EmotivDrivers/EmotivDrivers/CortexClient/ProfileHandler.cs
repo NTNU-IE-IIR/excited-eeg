@@ -17,7 +17,7 @@ namespace EmotivDrivers.CortexClient {
 
         //events
         public event EventHandler<string> OnProfileLoaded;
-        public event EventHandler<String> OnProfileQuery;
+        public event EventHandler<List<string>> OnProfileQuery;
         
         //constructor
         public ProfileHandler() {
@@ -40,7 +40,7 @@ namespace EmotivDrivers.CortexClient {
                 profileList.Add(name);
             }
 
-            OnProfileQuery(this, profileName);
+            OnProfileQuery(this, profileList);
         }
         
         public void LoadProfile(string profileName, string cortexToken, string headsetId) {

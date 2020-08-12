@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using EmotivDrivers.CortexClient;
 
@@ -14,6 +15,7 @@ namespace EmotivDrivers.GUI {
         private CortexClient.CortexClient cortexClient;
         private string cortexToken;
         private string sessionId;
+        private string licenseId;
         private bool isActiveSession;
 
         private Authorizer authorizer;
@@ -25,19 +27,24 @@ namespace EmotivDrivers.GUI {
             authorizer = new Authorizer();
             sessionCreator = new SessionCreator();
             profileHandler = new ProfileHandler();
+            licenseId = "";
             cortexToken = "";
             sessionId = "";
             isActiveSession = false;
 
             cortexClient = CortexClient.CortexClient.Instance;
-            
-            LoadProfilesList();
-            
-            InitComponents();
+            SubscribeToEvents();
+            this.authorizer.Start(licenseId);
+            //LoadProfilesList();
+
+            //InitComponents();
         }
+        
+
 
         private void SubscribeToEvents() {
-
+            this.profileHandler.OnProfileQuery += ProfileQueryOk;
+            this.authorizer.OnAuthorized += AuthorizedOK;
         }
 
         private void InitComponents() {
@@ -78,6 +85,20 @@ namespace EmotivDrivers.GUI {
             cortexClient.QueryProfile(cortexToken);
             profiles = profileHandler.ProfileList;
             Console.WriteLine(profiles.Count);
+        }
+
+        private void ProfileQueryOk(object sender, List<string> profileList) {
+            this.profiles = profileList;
+            Console.WriteLine(profiles.Count);
+            InitComponents();
+        }
+        
+        private void AuthorizedOK(object sender, string cortexToken) {
+            if (!String.IsNullOrEmpty(cortexToken)) {
+                this.cortexToken = cortexToken;
+                
+            }
+            this.cortexClient.QueryProfile(cortexToken);
         }
     }
 }
