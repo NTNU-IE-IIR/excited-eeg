@@ -57,8 +57,7 @@ namespace EmotivDrivers.HeadsetComm {
 
         private static void ComDataReceived(object sender, ArrayList comData) {
             string command = comData[1].ToString();
-            //float power = float.Parse(comData[2].ToString());
-            float power = (float) comData[2];
+            float power = float.Parse(comData[2].ToString());
 
             if (power >= triggerThreshold) {
 
