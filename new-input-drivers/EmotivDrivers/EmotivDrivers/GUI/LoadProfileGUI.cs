@@ -5,6 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using EmotivDrivers.CortexClient;
+using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.GUI {
     public class LoadProfileGUI : GUI {
@@ -54,7 +55,6 @@ namespace EmotivDrivers.GUI {
             this.authorizer.OnAuthorized += AuthorizedOK;
             this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
             this.profileHandler.OnProfileLoaded += ProfileLoadedOK;
-            this.sessionCreator.OnSessionCreated += SessionCreatedOK;
         }
 
         private void InitComponents() {
@@ -111,6 +111,7 @@ namespace EmotivDrivers.GUI {
             switch (profileName) {
                 case "0" :
                     profileHandler.LoadProfile(profileList.ElementAt(0), cortexToken, headsetId);
+                    StartConsoleOutputGUI();
                     break;
                 
                 case "1":
@@ -142,6 +143,13 @@ namespace EmotivDrivers.GUI {
                     break;
             }
         }
+
+        private void StartConsoleOutputGUI() {
+            ConsoleOutputGUI consoleOutputGui = new ConsoleOutputGUI();
+            consoleOutputGui.Owner = this;
+            consoleOutputGui.Show();
+            this.Hide();
+        }
         
         private void ProfileQueryOk(object sender, List<string> profileList) {
             this.profileList = profileList;
@@ -172,10 +180,9 @@ namespace EmotivDrivers.GUI {
             this.sessionCreator.Create(this.cortexToken, headsetId, this.isActiveSession);
         }
         
-        private void SessionCreatedOK(object sender, string sessionId) {
-            // subscribe
-            this.sessionId = sessionId;
-            this.cortexClient.Subscribe(this.cortexToken, this.sessionId, Streams);
+        protected override void OnFormClosing(FormClosingEventArgs e) {
+            base.OnFormClosing(e);
+            Application.Exit();
         }
     }
 }
