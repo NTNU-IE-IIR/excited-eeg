@@ -20,16 +20,25 @@ namespace EmotivDrivers.GUI {
         private string sessionId;
         private string licenseId;
         private bool isActiveSession;
+        private string headsetId;
 
         private Authorizer authorizer;
         private SessionCreator sessionCreator;
         private ProfileHandler profileHandler;
-
+        private HeadsetFinder headsetFinder;
+        
+        private List<string> streams;
+        public List<string> Streams {
+            get { return this.streams; }
+            set { this.streams = value; }
+        }
 
         public LoadProfileGUI() {
             authorizer = new Authorizer();
             sessionCreator = new SessionCreator();
             profileHandler = new ProfileHandler();
+            headsetFinder = new HeadsetFinder();
+            
             licenseId = "";
             cortexToken = "";
             sessionId = "";
@@ -43,6 +52,9 @@ namespace EmotivDrivers.GUI {
         private void SubscribeToEvents() {
             this.profileHandler.OnProfileQuery += ProfileQueryOk;
             this.authorizer.OnAuthorized += AuthorizedOK;
+            this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
+            this.profileHandler.OnProfileLoaded += ProfileLoadedOK;
+            this.sessionCreator.OnSessionCreated += SessionCreatedOK;
         }
 
         private void InitComponents() {
@@ -98,7 +110,7 @@ namespace EmotivDrivers.GUI {
 
             switch (profileName) {
                 case "0" :
-                    MessageBox.Show(cb.AccessibleName);
+                    profileHandler.LoadProfile(profileList.ElementAt(0), cortexToken, headsetId);
                     break;
                 
                 case "1":
@@ -146,7 +158,24 @@ namespace EmotivDrivers.GUI {
                 this.cortexToken = cortexToken;
                 
             }
+            this.headsetFinder.FindHeadset();
             this.cortexClient.QueryProfile(cortexToken);
+            
+        }
+
+        private void HeadsetConnectedOK(object sender, string headsetId) {
+            this.headsetId = headsetId;
+            Console.WriteLine("Headset with id: " + headsetId + " connected");
+        }
+        
+        private void ProfileLoadedOK(object sender, string loadedProfile) {
+            this.sessionCreator.Create(this.cortexToken, headsetId, this.isActiveSession);
+        }
+        
+        private void SessionCreatedOK(object sender, string sessionId) {
+            // subscribe
+            this.sessionId = sessionId;
+            this.cortexClient.Subscribe(this.cortexToken, this.sessionId, Streams);
         }
     }
 }
