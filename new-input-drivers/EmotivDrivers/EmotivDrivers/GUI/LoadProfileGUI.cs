@@ -11,6 +11,8 @@ namespace EmotivDrivers.GUI {
 
         private Panel buttonContainer;
 
+        private Label profileLoadingLabel;
+
         private List<string> profileList;
 
         private CortexClient.CortexClient cortexClient;
@@ -44,6 +46,7 @@ namespace EmotivDrivers.GUI {
         }
 
         private void InitComponents() {
+            SetupProfileLoadingLabel();
             SetupProfileButtons();
         }
 
@@ -60,7 +63,10 @@ namespace EmotivDrivers.GUI {
                 profileButton.BackColor = Color.FromArgb(255, 30, 168, 232);
                 profileButton.Font = new Font("Verdana", 14);
                 profileButton.Text = profileList.ElementAt(i);
-
+                profileButton.AccessibleName = i.ToString();
+                
+                profileButton.Click += new EventHandler(OnProfileButtonClick);
+                
                 profileButton.Location = newLocation;
                 newLocation.Offset(0, profileButton.Height + 10);
                 buttonContainer.Controls.Add(profileButton);
@@ -68,11 +74,61 @@ namespace EmotivDrivers.GUI {
 
             buttonContainer.AutoSize = true;
 
-            buttonContainer.Location = new Point(guiWidth / 2 - buttonContainer.Size.Width / 2, 10);
+            buttonContainer.Location = new Point(guiWidth / 2 - buttonContainer.Size.Width / 2, 40);
 
             this.AutoScroll = true;
 
             this.Controls.Add(buttonContainer);
+        }
+
+        private void SetupProfileLoadingLabel() {
+            profileLoadingLabel = new Label();
+
+            this.profileLoadingLabel.Text = "Select profile to load";
+            this.profileLoadingLabel.Font = new Font("Verdana", 14);
+            this.profileLoadingLabel.AutoSize = true;
+            this.profileLoadingLabel.Location = new Point((guiWidth / 2) - this.profileLoadingLabel.Width - 4, 10);
+            
+            this.Controls.Add(profileLoadingLabel);
+        }
+
+        private void OnProfileButtonClick(object sender, EventArgs eventArgs) {
+            Button cb = (Button) sender;
+            string profileName = cb.AccessibleName;
+
+            switch (profileName) {
+                case "0" :
+                    MessageBox.Show(cb.AccessibleName);
+                    break;
+                
+                case "1":
+                    MessageBox.Show(cb.AccessibleName);
+                    break;
+                
+                case "2":
+                    break;
+                
+                case "3":
+                    break;
+                
+                case "4":
+                    break;
+                
+                case "5":
+                    break;
+                
+                case "6":
+                    break;
+                
+                case "7":
+                    break;
+                
+                case "8":
+                    break;
+                
+                case "9":
+                    break;
+            }
         }
         
         private void ProfileQueryOk(object sender, List<string> profileList) {
