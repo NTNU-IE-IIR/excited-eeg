@@ -157,7 +157,7 @@ namespace EmotivDrivers.CortexClient {
         }
 
         private void StreamDataReceived(object sender, StreamDataEventArgs e) {
-            Console.WriteLine(e.StreamName + " data received.");
+            //Console.WriteLine(e.StreamName + " data received.");
             ArrayList data = e.Data.ToObject<ArrayList>();
             // insert timestamp to datastream
             data.Insert(0, e.Time);

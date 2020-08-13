@@ -9,10 +9,10 @@ using EmotivDrivers.CortexClient;
 using EmotivDrivers.GUI;
 
 namespace EmotivDrivers.HeadsetComm {
-    public class HeadsetComm {
-
-        private static float[] previousTriggerTime = {0,0,0,0,0};
+    public class HeadsetComm
+    {
         private static float currentTimeStamp = 0;
+        private static float[] previousTriggerTime = {0,0,0,0,0};
         private static int neutral = 0;
         private static int left = 1;
         private static int right = 2;
@@ -21,7 +21,10 @@ namespace EmotivDrivers.HeadsetComm {
         private static float commandInterval = 1.5f;
         private static float triggerThreshold = 0.30f;
 
+        private static Stopwatch stopwatch = new Stopwatch();
+
         public HeadsetComm() {
+            
         }
         
         public void StartHeadsetCommunications() {
@@ -31,12 +34,14 @@ namespace EmotivDrivers.HeadsetComm {
             dataStream.OnComDataReceived += ComDataReceived;
                     
             // Need a valid license key and activeSession when subscribe com data
+            stopwatch.Start();
             dataStream.Start("", true);
                         
             while (Console.ReadKey().Key != ConsoleKey.Escape) {}
                         
             // Unsubcribe stream
             dataStream.UnSubscribe();
+            stopwatch.Stop();
             Thread.Sleep(5000);
                     
             // Close Session
@@ -61,7 +66,7 @@ namespace EmotivDrivers.HeadsetComm {
 
             if (power >= triggerThreshold) {
 
-                currentTimeStamp = (float) (DateTime.Now - DateTime.MinValue).TotalMilliseconds;
+                currentTimeStamp = (float) stopwatch.Elapsed.TotalSeconds;
 
                 switch (command)
                 {
