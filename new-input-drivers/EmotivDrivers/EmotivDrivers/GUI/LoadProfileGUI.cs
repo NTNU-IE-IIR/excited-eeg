@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Drawing;
+using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows.Forms;
 using EmotivDrivers.CortexClient;
@@ -10,7 +11,7 @@ namespace EmotivDrivers.GUI {
 
         private Panel buttonContainer;
 
-        private List<string> profiles;
+        private List<string> profileList;
 
         private CortexClient.CortexClient cortexClient;
         private string cortexToken;
@@ -35,13 +36,8 @@ namespace EmotivDrivers.GUI {
             cortexClient = CortexClient.CortexClient.Instance;
             SubscribeToEvents();
             this.authorizer.Start(licenseId);
-            //LoadProfilesList();
-
-            
         }
         
-
-
         private void SubscribeToEvents() {
             this.profileHandler.OnProfileQuery += ProfileQueryOk;
             this.authorizer.OnAuthorized += AuthorizedOK;
@@ -57,13 +53,13 @@ namespace EmotivDrivers.GUI {
             buttonContainer = new Panel();
 
             Point newLocation = new Point(0, 0);
-            for (int i = 0; i < 5; i++) {
+            for (int i = 0; i < profileList.Count; i++) {
                 Button profileButton = new Button();
 
                 profileButton.Size = new Size(200, 100);
                 profileButton.BackColor = Color.FromArgb(255, 30, 168, 232);
                 profileButton.Font = new Font("Verdana", 14);
-                profileButton.Text = "I am a button " + i;
+                profileButton.Text = profileList.ElementAt(i);
 
                 profileButton.Location = newLocation;
                 newLocation.Offset(0, profileButton.Height + 10);
@@ -80,8 +76,8 @@ namespace EmotivDrivers.GUI {
         }
         
         private void ProfileQueryOk(object sender, List<string> profileList) {
-            this.profiles = profileList;
-            Console.WriteLine(profiles.Count);
+            this.profileList = profileList;
+            Console.WriteLine(this.profileList.Count);
             
             // Threading so that the GUI wil load after the profile list has been filled
             if (this.InvokeRequired) {
