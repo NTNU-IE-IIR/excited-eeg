@@ -9,8 +9,7 @@ using EmotivDrivers.CortexClient;
 using EmotivDrivers.GUI;
 
 namespace EmotivDrivers.HeadsetComm {
-    public class HeadsetComm
-    {
+    public class HeadsetComm {
         private static float currentTimeStamp = 0;
         private static float[] previousTriggerTime = {0,0,0,0,0};
         private static int neutral = 0;
@@ -68,15 +67,12 @@ namespace EmotivDrivers.HeadsetComm {
 
                 currentTimeStamp = (float) stopwatch.Elapsed.TotalSeconds;
 
-                switch (command)
-                {
+                switch (command) {
                     case "neutral":
-                        if (currentTimeStamp - previousTriggerTime[neutral] >= commandInterval)
-                        {
+                        if (currentTimeStamp - previousTriggerTime[neutral] >= commandInterval) {
                             previousTriggerTime[neutral] = currentTimeStamp;
                             Console.WriteLine("Sending command: Neutral.");
                         }
-
                         break;
 
                     case "left":
