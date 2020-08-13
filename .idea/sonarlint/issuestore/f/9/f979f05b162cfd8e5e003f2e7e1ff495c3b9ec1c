@@ -1,28 +1,26 @@
 
-@squid:S1148‚"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ
-T
-squid:S106"9Replace this use of System.out or System.err by a logger.(·µ‚΅ψÿÿÿÿ
->squid:S2189v""Add an end condition to this loop.(οÿÿÿÿÿ
-;squid:S1148¤"#Use a logger to log this exception.(Η’Ηκ
-®%squid:RedundantThrowsDeclarationCheck‰"wRemove the declaration of thrown exception 'java.lang.InterruptedException', as it cannot be thrown from method's body.(…λΑϊÿÿÿÿ
-P
-squid:S106"9Replace this use of System.out or System.err by a logger.(ύ¦σ
->squid:S2189J""Add an end condition to this loop.(οÿÿÿÿÿ
-]squid:S2142q"FEither re-interrupt this method or rethrow the "InterruptedException".(δ Ή€
-O
-squid:S106~"9Replace this use of System.out or System.err by a logger.(ηΏΚ
-^squid:S2142“"FEither re-interrupt this method or rethrow the "InterruptedException".(δ Ή€
-?squid:S1148N"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ
-?squid:S1148F"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ
-jsquid:ModifiersOrderCheck$"EReorder the modifiers to comply with the Java Language Specification.(λ‘
-¤%squid:RedundantThrowsDeclarationCheck("sRemove the declaration of thrown exception 'java.awt.AWTException', as it cannot be thrown from constructor's body.(π”ΟΡ
-]squid:S2142M"FEither re-interrupt this method or rethrow the "InterruptedException".(δ Ή€
-^squid:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(δ Ή€
-P
-squid:S106‹"9Replace this use of System.out or System.err by a logger.(α ¶
-bsquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.( ·„¥
-P
-squid:S106"9Replace this use of System.out or System.err by a logger.(ΖΖΊ΄
-P
-squid:S106"9Replace this use of System.out or System.err by a logger.(»¦Α
-?squid:S1148r"#Use a logger to log this exception.(€ΙΤ…ύÿÿÿÿ
+D
+java:S2189v""Add an end condition to this loop.(οÿÿÿÿÿ8ποΊΔ½.
+D
+java:S2189J""Add an end condition to this loop.(οÿÿÿÿÿ8ποΊΔ½.
+Z	java:S106"9Replace this use of System.out or System.err by a logger.(·µ‚΅ψÿÿÿÿ8ποΊΔ½.
+b
+java:S1124$"EReorder the modifiers to comply with the Java Language Specification.(λ‘8ποΊΔ½.
+
+java:S1130("sRemove the declaration of thrown exception 'java.awt.AWTException', as it cannot be thrown from constructor's body.(π”ΟΡ8ποΊΔ½.
+c
+java:S2142M"FEither re-interrupt this method or rethrow the "InterruptedException".(δ Ή€8ποΊΔ½.
+c
+java:S2142q"FEither re-interrupt this method or rethrow the "InterruptedException".(δ Ή€8ποΊΔ½.
+d
+java:S2142"FEither re-interrupt this method or rethrow the "InterruptedException".(δ Ή€8ποΊΔ½.
+U	java:S106~"9Replace this use of System.out or System.err by a logger.(ηΏΚ8ποΊΔ½.
+
+java:S1130‰"wRemove the declaration of thrown exception 'java.lang.InterruptedException', as it cannot be thrown from method's body.(…λΑϊÿÿÿÿ8ποΊΔ½.
+V	java:S106‹"9Replace this use of System.out or System.err by a logger.(α ¶8ποΊΔ½.
+V	java:S106"9Replace this use of System.out or System.err by a logger.(»¦Α8ποΊΔ½.
+d
+java:S2142“"FEither re-interrupt this method or rethrow the "InterruptedException".(δ Ή€8ποΊΔ½.
+V	java:S106"9Replace this use of System.out or System.err by a logger.(ύ¦σ8ποΊΔ½.
+V	java:S106"9Replace this use of System.out or System.err by a logger.(ΖΖΊ΄8ποΊΔ½.
+X	java:S125"<This block of commented-out lines of code should be removed.( ·„¥8ποΊΔ½.

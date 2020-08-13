@@ -503,7 +503,7 @@ namespace EmotivDrivers.CortexClient {
         }
         
         // getCurrentProfile
-        // Required params: cortexToken, headset
+        // Required params: cortexToken, headsetId
         public void GetCurrentProfile(string cortexToken, string headsetId) {
             JObject param = new JObject();
             param.Add("cortexToken", cortexToken);
