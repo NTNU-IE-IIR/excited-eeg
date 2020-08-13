@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
@@ -13,6 +14,13 @@ namespace EmotivDrivers.GUI {
         private Panel buttonContainer;
 
         private Label profileLoadingLabel;
+
+        private TextBox consoleOutputTextBox;
+        
+        private int consoleOutputTextBoxWidth = 750;
+        private int consoleOutputTextBoxHeight = 400;
+
+        private Button stopDriverButton;
 
         private List<string> profileList;
 
@@ -33,7 +41,15 @@ namespace EmotivDrivers.GUI {
             get { return this.streams; }
             set { this.streams = value; }
         }
-
+        
+        public event EventHandler<ArrayList> OnComDataReceived; // command word data
+        public event EventHandler<ArrayList> OnMotionDataReceived; // motion data
+        public event EventHandler<ArrayList> OnEEGDataReceived; // eeg data
+        public event EventHandler<ArrayList> OnDevDataReceived; // contact quality data
+        public event EventHandler<ArrayList> OnPerfDataReceived; // performance metric
+        public event EventHandler<ArrayList> OnBandPowerDataReceived; // band power
+        public event EventHandler<Dictionary<string, JArray>> OnSubscribed;
+        
         public LoadProfileGUI() {
             authorizer = new Authorizer();
             sessionCreator = new SessionCreator();
@@ -45,16 +61,27 @@ namespace EmotivDrivers.GUI {
             sessionId = "";
             isActiveSession = false;
 
+            streams = new List<string>();
+            
             cortexClient = CortexClient.CortexClient.Instance;
             SubscribeToEvents();
             this.authorizer.Start(licenseId);
         }
-        
+
         private void SubscribeToEvents() {
+            //stopDriverButton.Click += new EventHandler(OnStopDriverButtonClick);
+
             this.profileHandler.OnProfileQuery += ProfileQueryOk;
             this.authorizer.OnAuthorized += AuthorizedOK;
             this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
             this.profileHandler.OnProfileLoaded += ProfileLoadedOK;
+            this.sessionCreator.OnSessionCreated += SessionCreatedOk;
+
+            this.cortexClient.OnSubscribeData += SubscribeDataOK;
+            this.cortexClient.OnStreamDataReceived += StreamDataReceived;
+
+            this.OnSubscribed += SubscribedOK;
+            this.OnComDataReceived += ComDataReceived;
         }
 
         private void InitComponents() {
@@ -104,14 +131,51 @@ namespace EmotivDrivers.GUI {
             this.Controls.Add(profileLoadingLabel);
         }
 
+        private void SetupConsoleOutput() {
+            this.consoleOutputTextBox = new TextBox();
+            this.stopDriverButton = new Button();
+            
+            this.Location = this.Location;
+            this.StartPosition = FormStartPosition.Manual;
+            this.FormClosing += delegate { this.Show(); };
+            this.ClientSize = new Size(guiWidth, guiHeight);
+            
+            using (var consoleWriter = new ConsoleWriter()) {
+                consoleWriter.WriteEvent += ConsoleWriterWriteEvent;
+                consoleWriter.WriteLineEvent += ConsoleWriterWriteLineEvent;
+                Console.SetOut(consoleWriter);
+            }
+            
+            this.Controls.Add(consoleOutputTextBox);
+            this.Controls.Add(stopDriverButton);
+            
+            this.consoleOutputTextBox.ReadOnly = true;
+            this.consoleOutputTextBox.Location = new Point((guiWidth / 2) - (consoleOutputTextBoxWidth / 2), (guiHeight / 2) - consoleOutputTextBoxHeight / 2 - 20);
+            this.consoleOutputTextBox.MinimumSize = new Size(consoleOutputTextBoxWidth, consoleOutputTextBoxHeight);
+            this.consoleOutputTextBox.Font = new Font("", 12);
+            this.consoleOutputTextBox.Multiline = true;
+            this.consoleOutputTextBox.ScrollBars = ScrollBars.Both;
+            
+            this.stopDriverButton.Text = "Stop Drivers";
+            this.stopDriverButton.ForeColor = Color.White;
+            this.stopDriverButton.AutoSize = true;
+            this.stopDriverButton.TextAlign = ContentAlignment.MiddleCenter;
+            this.stopDriverButton.BackColor = Color.FromArgb(255, 235, 26, 26);
+            this.stopDriverButton.Font = new Font("Verdana", 14);
+            this.stopDriverButton.Location = new Point((guiWidth / 2) - stopDriverButton.Size.Width, (guiHeight / 2) + 185);
+        }
+        
         private void OnProfileButtonClick(object sender, EventArgs eventArgs) {
             Button cb = (Button) sender;
             string profileName = cb.AccessibleName;
 
             switch (profileName) {
                 case "0" :
+                    AddStreams("com");
                     profileHandler.LoadProfile(profileList.ElementAt(0), cortexToken, headsetId);
-                    StartConsoleOutputGUI();
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
                 
                 case "1":
@@ -143,13 +207,6 @@ namespace EmotivDrivers.GUI {
                     break;
             }
         }
-
-        private void StartConsoleOutputGUI() {
-            ConsoleOutputGUI consoleOutputGui = new ConsoleOutputGUI();
-            consoleOutputGui.Owner = this;
-            consoleOutputGui.Show();
-            this.Hide();
-        }
         
         private void ProfileQueryOk(object sender, List<string> profileList) {
             this.profileList = profileList;
@@ -178,6 +235,127 @@ namespace EmotivDrivers.GUI {
         
         private void ProfileLoadedOK(object sender, string loadedProfile) {
             this.sessionCreator.Create(this.cortexToken, headsetId, this.isActiveSession);
+        }
+        
+        private void SessionCreatedOk(object sender, string sessionId) {
+            // subscribe
+            this.sessionId = sessionId;
+            this.cortexClient.Subscribe(this.cortexToken, this.sessionId, Streams);
+        }
+        
+        private void SubscribeDataOK(object sender, MultipleResultEventArgs e) {
+            foreach (JObject ele in e.FailList) {
+                string streamName = (string)ele["streamName"];
+                int code = (int)ele["code"];
+                string errorMessage = (string)ele["message"];
+                Console.WriteLine("Subscribe stream " + streamName + " unsuccessfully." + " code: " + code + " message: " + errorMessage);
+                if (this.streams.Contains(streamName)) {
+                    this.streams.Remove(streamName);
+                }
+            }
+            Dictionary<string, JArray> header = new Dictionary<string, JArray>();
+            foreach (JObject ele in e.SuccessList) {
+                string streamName = (string)ele["streamName"];
+                JArray cols = (JArray)ele["cols"];
+                header.Add(streamName, cols);
+            }
+            if (header.Count > 0) {
+                OnSubscribed(this, header);
+            }
+            else {
+                Console.WriteLine("No Subscribe Stream Available");
+            }
+        }
+        
+        private void StreamDataReceived(object sender, StreamDataEventArgs e) {
+            Console.WriteLine(e.StreamName + " data received.");
+            ArrayList data = e.Data.ToObject<ArrayList>();
+            // insert timestamp to datastream
+            data.Insert(0, e.Time);
+            if (e.StreamName == "com") {
+                OnComDataReceived(this, data);
+            }
+            else if (e.StreamName == "eeg") {
+                OnEEGDataReceived(this, data); 
+            }
+            else if (e.StreamName == "mot") {
+                OnMotionDataReceived(this, data);
+            }
+            else if (e.StreamName == "met") {
+                OnPerfDataReceived(this, data);
+            }
+            else if (e.StreamName == "pow") {
+                OnBandPowerDataReceived(this, data);
+            }
+        }
+        
+        private static void SubscribedOK(object sender, Dictionary<string, JArray> e) {
+            foreach (string key in e.Keys) {
+                if (key == "com") {
+                    // print header
+                    ArrayList header = e[key].ToObject<ArrayList>();
+                    //add timeStamp to header
+                    header.Insert(0, "Timestamp");
+                }
+            }
+        }
+        
+        private static void ComDataReceived(object sender, ArrayList comData) {
+            string command = comData[1].ToString();
+            string power = comData[2].ToString();
+
+            switch (command) {
+                case "neutral":
+                    Console.WriteLine("Neutral");
+                    break;
+                
+                case "left":
+                    Console.WriteLine("Left");
+                    break;
+                
+                case "right":
+                    Console.WriteLine("Right");
+                    break;
+                
+                case "push":
+                    Console.WriteLine("Push");
+                    break;
+                
+                case "pull":
+                    Console.WriteLine("Pull");
+                    break;
+            }
+        }
+        
+        public void AddStreams(string stream) {
+            if (!this.streams.Contains(stream)) {
+                this.streams.Add(stream);
+            }
+        }
+        
+        private void ConsoleWriterWriteEvent(object sender, ConsoleWriterEventArgs eventArgs) {
+            this.consoleOutputTextBox.Text += eventArgs.Value;
+            try {
+                GUIUtils.ScrollToBottom(consoleOutputTextBox);
+            }
+            catch (ObjectDisposedException e) {
+                Console.WriteLine(e);
+            }
+        }
+        
+        private void ConsoleWriterWriteLineEvent(object sender, ConsoleWriterEventArgs eventArgs) {
+            this.consoleOutputTextBox.Text += eventArgs.Value + Environment.NewLine;
+            try {
+                GUIUtils.ScrollToBottom(consoleOutputTextBox);
+            }
+            catch (ObjectDisposedException e) {
+                Console.WriteLine(e);
+                throw;
+            }
+        }
+        
+        private void OnStopDriverButtonClick(object sender, EventArgs eventArgs) {
+            Application.Exit();
         }
         
         protected override void OnFormClosing(FormClosingEventArgs e) {

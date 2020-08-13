@@ -151,7 +151,7 @@ namespace EmotivDrivers.GUI {
         }
         
         private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
-            ConsoleOutputGUI consoleOutputGui = new ConsoleOutputGUI();
+            /*ConsoleOutputGUI consoleOutputGui = new ConsoleOutputGUI();
             consoleOutputGui.Owner = this;
             consoleOutputGui.Show();
             this.Hide();
@@ -159,7 +159,7 @@ namespace EmotivDrivers.GUI {
             //Start headset communication in new thread to not freeze up GUI
             headsetCommThread = new Thread(headsetComm.StartHeadsetCommunications);
             headsetCommThread.IsBackground = true;
-            headsetCommThread.Start();
+            headsetCommThread.Start();*/
         }
 
         private void OnLoadProfilesButtonClick(object sender, EventArgs eventArgs) {

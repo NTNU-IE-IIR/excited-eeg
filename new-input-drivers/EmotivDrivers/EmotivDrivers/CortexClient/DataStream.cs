@@ -177,6 +177,7 @@ namespace EmotivDrivers.CortexClient {
                 OnBandPowerDataReceived(this, data);
             }
         }
+        
         private void MessageErrorRecieved(object sender, ErrorMsgEventArgs e) {
             Console.WriteLine("MessageErrorRecieved :code " + e.Code + " message " + e.MessageError);
         }
