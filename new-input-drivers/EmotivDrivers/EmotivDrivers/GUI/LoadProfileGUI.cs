@@ -56,6 +56,7 @@ namespace EmotivDrivers.GUI {
             profileHandler = new ProfileHandler();
             headsetFinder = new HeadsetFinder();
             
+            
             licenseId = "";
             cortexToken = "";
             sessionId = "";
@@ -69,7 +70,7 @@ namespace EmotivDrivers.GUI {
         }
 
         private void SubscribeToEvents() {
-            //stopDriverButton.Click += new EventHandler(OnStopDriverButtonClick);
+            stopDriverButton.Click += new EventHandler(OnStopDriverButtonClick);
 
             this.profileHandler.OnProfileQuery += ProfileQueryOk;
             this.authorizer.OnAuthorized += AuthorizedOK;
@@ -155,14 +156,6 @@ namespace EmotivDrivers.GUI {
             this.consoleOutputTextBox.Font = new Font("", 12);
             this.consoleOutputTextBox.Multiline = true;
             this.consoleOutputTextBox.ScrollBars = ScrollBars.Both;
-            
-            this.stopDriverButton.Text = "Stop Drivers";
-            this.stopDriverButton.ForeColor = Color.White;
-            this.stopDriverButton.AutoSize = true;
-            this.stopDriverButton.TextAlign = ContentAlignment.MiddleCenter;
-            this.stopDriverButton.BackColor = Color.FromArgb(255, 235, 26, 26);
-            this.stopDriverButton.Font = new Font("Verdana", 14);
-            this.stopDriverButton.Location = new Point((guiWidth / 2) - stopDriverButton.Size.Width, (guiHeight / 2) + 185);
         }
         
         private void OnProfileButtonClick(object sender, EventArgs eventArgs) {
