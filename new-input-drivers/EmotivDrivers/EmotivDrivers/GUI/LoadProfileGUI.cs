@@ -37,7 +37,7 @@ namespace EmotivDrivers.GUI {
             this.authorizer.Start(licenseId);
             //LoadProfilesList();
 
-            //InitComponents();
+            
         }
         
 
@@ -78,19 +78,15 @@ namespace EmotivDrivers.GUI {
 
             this.Controls.Add(buttonContainer);
         }
-
-        private void LoadProfilesList() {
-            cortexClient.Open();
-            cortexClient.Authorize("", 5);
-            cortexClient.QueryProfile(cortexToken);
-            profiles = profileHandler.ProfileList;
-            Console.WriteLine(profiles.Count);
-        }
-
+        
         private void ProfileQueryOk(object sender, List<string> profileList) {
             this.profiles = profileList;
             Console.WriteLine(profiles.Count);
-            InitComponents();
+            
+            // Threading so that the GUI wil load after the profile list has been filled
+            if (this.InvokeRequired) {
+                this.BeginInvoke((MethodInvoker) delegate { InitComponents(); });
+            }
         }
         
         private void AuthorizedOK(object sender, string cortexToken) {

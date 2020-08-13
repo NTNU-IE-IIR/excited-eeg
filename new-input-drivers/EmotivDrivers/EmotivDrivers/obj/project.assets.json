@@ -1660,24 +1660,26 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\robin\\.nuget\\packages\\": {}
+    "C:\\Users\\Emil\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
+      "projectUniqueName": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
       "projectName": "EmotivDrivers",
-      "projectPath": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
-      "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\obj\\",
+      "projectPath": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
+      "packagesPath": "C:\\Users\\Emil\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Emil\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net48"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
