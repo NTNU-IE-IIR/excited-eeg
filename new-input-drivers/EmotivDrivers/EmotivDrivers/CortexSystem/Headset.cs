@@ -2,7 +2,7 @@
 using System.Collections;
 using System;
 
-namespace EmotivDrivers.CortexClient {
+namespace EmotivDrivers.CortexSystem {
     
     /// <summary>
     /// Used to store all information about a connected emotiv headset

@@ -3,7 +3,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 
-namespace EmotivDrivers.CortexClient {
+namespace EmotivDrivers.CortexSystem {
     
     /// <summary>
     /// Used to subscribe to a data stream from a emotiv device.
@@ -140,7 +140,7 @@ namespace EmotivDrivers.CortexClient {
             this.ctxClient.QueryProfile(this.cortexToken);
         }
         
-        private void ProfileQueryOK(object sender, string profileName) {
+        private void ProfileQueryOK(object sender, List<string> profileList) {
             this.profileHandler.LoadProfile(this.profileName, this.cortexToken, this.headsetId);
         }
         
@@ -177,6 +177,7 @@ namespace EmotivDrivers.CortexClient {
                 OnBandPowerDataReceived(this, data);
             }
         }
+        
         private void MessageErrorRecieved(object sender, ErrorMsgEventArgs e) {
             Console.WriteLine("MessageErrorRecieved :code " + e.Code + " message " + e.MessageError);
         }

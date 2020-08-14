@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EmotivDrivers.CortexClient {
+namespace EmotivDrivers.CortexSystem {
     
     /// <summary>
     /// Different utilises used for the cortex client

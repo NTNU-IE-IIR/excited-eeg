@@ -13,11 +13,21 @@ namespace EmotivDrivers.GUI {
     }
     
     public class ConsoleWriter : TextWriter{
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         public override Encoding Encoding { get { return Encoding.UTF8; } }
-
+        
+        /// <summary>
+        /// --------------------------- EVENTS ---------------------------
+        /// </summary>
         public EventHandler<ConsoleWriterEventArgs> WriteEvent;
         public EventHandler<ConsoleWriterEventArgs> WriteLineEvent;
         
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
         public override void Write(string value) {
             if (WriteEvent != null) {
                 WriteEvent(this, new ConsoleWriterEventArgs(value));

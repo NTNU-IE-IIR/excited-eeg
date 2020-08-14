@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Net.Sockets;
 
-namespace EmotivDrivers.CortexClient {
+namespace EmotivDrivers.CortexSystem {
     
     public enum SessionStatus {
         Opened = 0,

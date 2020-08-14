@@ -5,7 +5,7 @@ using Newtonsoft.Json.Linq;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Windows.Forms;
-using EmotivDrivers.CortexClient;
+using EmotivDrivers.CortexSystem;
 using EmotivDrivers.GUI;
 
 namespace EmotivDrivers.HeadsetComm {

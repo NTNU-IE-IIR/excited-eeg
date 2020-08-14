@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace EmotivDrivers.CortexClient {
+namespace EmotivDrivers.CortexSystem {
     
     /// <summary>
     /// Class used to handle the authorization of a connection to the Emotiv cortex API.

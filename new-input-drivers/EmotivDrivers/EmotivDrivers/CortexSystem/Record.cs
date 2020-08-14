@@ -2,7 +2,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace EmotivDrivers.CortexClient {
+namespace EmotivDrivers.CortexSystem {
     /// <summary>
     /// Responsible for recording data from the Emotiv devices.
     /// </summary>

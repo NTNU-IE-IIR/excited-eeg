@@ -1,9 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
-using EmotivDrivers.CortexClient;
 using Newtonsoft.Json.Linq;
 
-namespace EmotivDrivers.CortexClient {
+namespace EmotivDrivers.CortexSystem {
     
     /// <summary>
     /// Used to create and handle sessions between the cortex client and the cortex API

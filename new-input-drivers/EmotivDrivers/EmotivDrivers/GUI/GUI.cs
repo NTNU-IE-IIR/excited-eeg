@@ -4,14 +4,23 @@ using System.Windows.Forms;
 
 namespace EmotivDrivers.GUI {
     public class GUI : Form {
-
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         protected int guiWidth = 800;
         protected int guiHeight = 450;
         
-        public GUI() {
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
+        protected GUI() {
             InitComponents();
         }
-
+        
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
         private void InitComponents() {
             this.SuspendLayout();
 

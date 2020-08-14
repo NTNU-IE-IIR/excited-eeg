@@ -1,10 +1,7 @@
 ﻿using System;
 using System.Drawing;
-using System.IO;
-using System.Threading;
 using System.Windows.Forms;
 using EmotivDrivers.ApplicationConnection;
-using EmotivDrivers.HeadsetComm;
 
 namespace EmotivDrivers.GUI {
     public class SetIPEventArgs : EventArgs {
@@ -17,27 +14,17 @@ namespace EmotivDrivers.GUI {
         /// --------------------------- VARIABLES ---------------------------
         /// </summary>
         private TextBox ipInputTextBox;
-        private int ipTextBoxWidth = 300;
-        private int ipTextBoxHeight = 30;
-        
-        private string ipTextBoxValue;
-        public string TextBoxValue {
-            get => ipTextBoxValue;
-            set => ipTextBoxValue = value;
-        }
-        
+
+        private const int IP_TEXT_BOX_WIDTH = 300;
+        private const int IP_TEXT_BOX_HEIGHT = 30;
+
         private Label ipLabel;
-
-        private Button setIpButton;
-        private Button startDriverButton;
-        
-        private HeadsetComm.HeadsetComm headsetComm;
-
-        private Thread headsetCommThread;
-
-        private IPAddressValidator ipAddressValidator;
         private Label ipValidationLabel;
+        private Button setIpButton;
+        private Button loadProfileButton;
         
+        private readonly IPAddressValidator ipAddressValidator;
+
         /// <summary>
         /// --------------------------- EVENTS ---------------------------
         /// </summary>
@@ -47,8 +34,6 @@ namespace EmotivDrivers.GUI {
         /// --------------------------- CONSTRUCTORS ---------------------------
         /// </summary>
         public SetIPGUI() {
-            headsetComm = new HeadsetComm.HeadsetComm();
-            
             ipAddressValidator = new IPAddressValidator();
             
             InitComponents();
@@ -61,35 +46,35 @@ namespace EmotivDrivers.GUI {
         /// </summary>
         private void SubscribeToEvents() {
             setIpButton.Click += new EventHandler(OnSetIPButtonClick);
-            startDriverButton.Click += new EventHandler(OnConnectionButtonClick);
+            loadProfileButton.Click += new EventHandler(OnLoadProfilesButtonClick);
         }
         
         private void InitComponents() {
             this.ipInputTextBox = new TextBox();
             this.ipLabel = new Label();
             this.setIpButton = new Button();
-            this.startDriverButton = new Button();
             this.ipValidationLabel = new Label();
+            this.loadProfileButton = new Button();
             
             SetupIpInputTextBox();
             SetupIpLabel();
             SetupSetIpButton();
-            SetupStartDriverButton();
+            SetupLoadProfileButton();
             
             Text = "Emotiv drivers";
             
             this.Controls.Add(this.ipInputTextBox);
             this.Controls.Add(this.ipLabel);
             this.Controls.Add(this.setIpButton);
-            this.Controls.Add(this.startDriverButton);
             this.Controls.Add(this.ipValidationLabel);
+            this.Controls.Add(this.loadProfileButton);
         }
 
         private void SetupIpInputTextBox() {
             this.ipInputTextBox.AcceptsReturn = true;
             this.ipInputTextBox.AcceptsTab = true;
-            this.ipInputTextBox.Location = new Point((guiWidth / 2) - (ipTextBoxWidth / 2), (guiHeight / 2) - (ipTextBoxHeight / 2));
-            this.ipInputTextBox.MinimumSize = new Size(ipTextBoxWidth, ipTextBoxHeight);
+            this.ipInputTextBox.Location = new Point((guiWidth / 2) - (IP_TEXT_BOX_WIDTH / 2), (guiHeight / 2) - (IP_TEXT_BOX_HEIGHT / 2));
+            this.ipInputTextBox.MinimumSize = new Size(IP_TEXT_BOX_WIDTH, IP_TEXT_BOX_HEIGHT);
             this.ipInputTextBox.Font = new Font("Verdana", 14);
             this.ipInputTextBox.TextAlign = HorizontalAlignment.Center;
             this.ipInputTextBox.Multiline = true;
@@ -113,13 +98,13 @@ namespace EmotivDrivers.GUI {
             this.setIpButton.Location = new Point((guiWidth / 2) - (this.setIpButton.Width / 2), (guiHeight / 2) + 60);
         }
 
-        private void SetupStartDriverButton() {
-            this.startDriverButton.Text = "Start Emotiv drivers";
-            this.startDriverButton.AutoSize = true;
-            this.startDriverButton.TextAlign = ContentAlignment.MiddleCenter;
-            this.startDriverButton.BackColor = Color.FromArgb(255, 30, 168, 232);
-            this.startDriverButton.Font = new Font("Verdana", 14);
-            this.startDriverButton.Location = new Point((guiWidth / 2) - (this.startDriverButton.Width) - 20, (guiHeight / 2) + 100);
+        private void SetupLoadProfileButton() {
+            this.loadProfileButton.Text = "Load Emotiv profiles";
+            this.loadProfileButton.AutoSize = true;
+            this.loadProfileButton.TextAlign = ContentAlignment.MiddleCenter;
+            this.loadProfileButton.BackColor = Color.FromArgb(255, 30, 168, 232);
+            this.loadProfileButton.Font = new Font("Verdana", 14);
+            this.loadProfileButton.Location = new Point((guiWidth / 2) - this.loadProfileButton.Width - 26, (guiHeight / 2) + 100);
         }
         
         private void OnSetIPButtonClick(object sender, EventArgs e) {
@@ -129,26 +114,20 @@ namespace EmotivDrivers.GUI {
                 eventArgs.Ip = ipInputTextBox.Text;
                 SetIPEvent?.Invoke(this, eventArgs);
                 ipInputTextBox.Text = "";
-                SetupIpValidationLabelOK();
+                SetupIpValidationLabel();
             }
             else {
                 SetupIpValidationLabelError();
             }
         }
         
-        private void OnConnectionButtonClick(object sender, EventArgs eventArgs) {
-            ConsoleOutputGUI consoleOutputGui = new ConsoleOutputGUI();
-            consoleOutputGui.Owner = this;
-            consoleOutputGui.Show();
+        private void OnLoadProfilesButtonClick(object sender, EventArgs eventArgs) {
+            LoadProfileGUI loadProfileGui = new LoadProfileGUI();
+            loadProfileGui.Show();
             this.Hide();
-            
-            //Start headset communication in new thread to not freeze up GUI
-            headsetCommThread = new Thread(headsetComm.StartHeadsetCommunications);
-            headsetCommThread.IsBackground = true;
-            headsetCommThread.Start();
         }
 
-        private void SetupIpValidationLabelOK() {
+        private void SetupIpValidationLabel() {
             this.ipValidationLabel.Text = "IP-Address was successfully set";
             this.ipValidationLabel.Font = new Font("Verdana", 14);
             this.ipValidationLabel.ForeColor = Color.FromArgb(255, 40, 156, 71);

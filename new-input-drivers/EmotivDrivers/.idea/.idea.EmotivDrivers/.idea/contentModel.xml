@@ -11,7 +11,7 @@
           <e p="IPAddressValidator.cs" t="Include" />
         </e>
         <e p="bin" t="ExcludeRecursive" />
-        <e p="CortexClient" t="Include">
+        <e p="CortexSystem" t="Include">
           <e p="Authorizer.cs" t="Include" />
           <e p="Config.cs" t="Include" />
           <e p="CortexClient.cs" t="Include" />
@@ -25,10 +25,10 @@
         </e>
         <e p="EmotivDrivers.csproj" t="IncludeRecursive" />
         <e p="GUI" t="Include">
-          <e p="ConsoleOutputGUI.cs" t="Include" />
           <e p="ConsoleWriter.cs" t="Include" />
           <e p="GUI.cs" t="Include" />
           <e p="GUIUtils.cs" t="Include" />
+          <e p="LoadProfileGUI.cs" t="Include" />
           <e p="SetIPGUI.cs" t="Include" />
         </e>
         <e p="HeadsetComm" t="Include">
