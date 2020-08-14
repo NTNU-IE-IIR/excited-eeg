@@ -1,7 +1,7 @@
 ﻿using System.Net;
 using System.Net.Sockets;
 
-namespace EmotivDrivers.ApplicationConnection {
+namespace EmotivDrivers.AppConnection {
     
     /// <summary>
     /// Used as a quick and simple way to validate ip-addresses

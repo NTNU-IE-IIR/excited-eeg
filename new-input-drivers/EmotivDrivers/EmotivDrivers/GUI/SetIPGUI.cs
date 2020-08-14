@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Drawing;
 using System.Windows.Forms;
-using EmotivDrivers.ApplicationConnection;
+using EmotivDrivers.AppConnection;
 
 namespace EmotivDrivers.GUI {
     public class SetIPEventArgs : EventArgs {

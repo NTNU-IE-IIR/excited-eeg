@@ -5,6 +5,7 @@ using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Windows.Forms;
+using EmotivDrivers.AppConnection;
 using EmotivDrivers.CortexSystem;
 using Newtonsoft.Json.Linq;
 
@@ -52,7 +53,9 @@ namespace EmotivDrivers.GUI {
         private static float triggerThreshold = 0.30f;
 
         private static Stopwatch stopwatch = new Stopwatch();
-        
+
+        private ApplicationConnection applicationConnection;
+
         /// <summary>
         /// --------------------------- EVENTS ---------------------------
         /// </summary>
@@ -75,6 +78,10 @@ namespace EmotivDrivers.GUI {
             this.isActiveSession = false;
 
             this.streams = new List<string>();
+            
+            this.applicationConnection = ApplicationConnection.Instance;
+            
+            stopwatch.Start();
             
             this.cortexClient = CortexClient.Instance;
             SubscribeToEvents();
@@ -314,7 +321,6 @@ namespace EmotivDrivers.GUI {
         }
         
         private void StreamDataReceived(object sender, StreamDataEventArgs e) {
-            Console.WriteLine(e.StreamName + " data received.");
             ArrayList data = e.Data.ToObject<ArrayList>();
             // insert timestamp to datastream
             data.Insert(0, e.Time);
@@ -334,18 +340,19 @@ namespace EmotivDrivers.GUI {
             }
         }
         
-        private static void ComDataReceived(object sender, ArrayList comData) {
+        private void ComDataReceived(object sender, ArrayList comData) {
             string command = comData[1].ToString();
             float power = float.Parse(comData[2].ToString());
-
+            
             if (power >= triggerThreshold) {
 
                 currentTimeStamp = (float) stopwatch.Elapsed.TotalSeconds;
-                
+
                 switch (command) {
                     case "neutral":
                         if (currentTimeStamp - previousTriggerTime[neutral] >= commandInterval) {
                             previousTriggerTime[neutral] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("0");
                             Console.WriteLine("Sending command: Neutral.");
                         }
                         break;
@@ -353,13 +360,16 @@ namespace EmotivDrivers.GUI {
                     case "left":
                         if (currentTimeStamp - previousTriggerTime[left] >= commandInterval) {
                             previousTriggerTime[left] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("1");
                             Console.WriteLine("Sending command: Left.");
+                            
                         }
                         break;
 
                     case "right":
                         if (currentTimeStamp - previousTriggerTime[right] >= commandInterval) {
                             previousTriggerTime[right] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("2");
                             Console.WriteLine("Sending command: Right.");
                         }
                         break;
@@ -367,6 +377,7 @@ namespace EmotivDrivers.GUI {
                     case "push":
                         if (currentTimeStamp - previousTriggerTime[push] >= commandInterval) {
                             previousTriggerTime[push] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("3");
                             Console.WriteLine("Sending command: Push.");
                         }
                         break;
@@ -374,6 +385,7 @@ namespace EmotivDrivers.GUI {
                     case "pull":
                         if (currentTimeStamp - previousTriggerTime[pull] >= commandInterval) {
                             previousTriggerTime[pull] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("4");
                             Console.WriteLine("Sending command: Pull.");
                         }
                         break;
