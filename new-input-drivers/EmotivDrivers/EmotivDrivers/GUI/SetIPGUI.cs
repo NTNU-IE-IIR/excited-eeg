@@ -14,21 +14,16 @@ namespace EmotivDrivers.GUI {
         /// --------------------------- VARIABLES ---------------------------
         /// </summary>
         private TextBox ipInputTextBox;
-        private int ipTextBoxWidth = 300;
-        private int ipTextBoxHeight = 30;
-        
-        private string ipIpTextBoxValue;
-        public string IpTextBoxValue {
-            get => ipIpTextBoxValue;
-            set => ipIpTextBoxValue = value;
-        }
-        
+
+        private const int IP_TEXT_BOX_WIDTH = 300;
+        private const int IP_TEXT_BOX_HEIGHT = 30;
+
         private Label ipLabel;
         private Label ipValidationLabel;
         private Button setIpButton;
         private Button loadProfileButton;
         
-        private IPAddressValidator ipAddressValidator;
+        private readonly IPAddressValidator ipAddressValidator;
 
         /// <summary>
         /// --------------------------- EVENTS ---------------------------
@@ -78,8 +73,8 @@ namespace EmotivDrivers.GUI {
         private void SetupIpInputTextBox() {
             this.ipInputTextBox.AcceptsReturn = true;
             this.ipInputTextBox.AcceptsTab = true;
-            this.ipInputTextBox.Location = new Point((guiWidth / 2) - (ipTextBoxWidth / 2), (guiHeight / 2) - (ipTextBoxHeight / 2));
-            this.ipInputTextBox.MinimumSize = new Size(ipTextBoxWidth, ipTextBoxHeight);
+            this.ipInputTextBox.Location = new Point((guiWidth / 2) - (IP_TEXT_BOX_WIDTH / 2), (guiHeight / 2) - (IP_TEXT_BOX_HEIGHT / 2));
+            this.ipInputTextBox.MinimumSize = new Size(IP_TEXT_BOX_WIDTH, IP_TEXT_BOX_HEIGHT);
             this.ipInputTextBox.Font = new Font("Verdana", 14);
             this.ipInputTextBox.TextAlign = HorizontalAlignment.Center;
             this.ipInputTextBox.Multiline = true;
@@ -119,7 +114,7 @@ namespace EmotivDrivers.GUI {
                 eventArgs.Ip = ipInputTextBox.Text;
                 SetIPEvent?.Invoke(this, eventArgs);
                 ipInputTextBox.Text = "";
-                SetupIpValidationLabelOK();
+                SetupIpValidationLabel();
             }
             else {
                 SetupIpValidationLabelError();
@@ -132,7 +127,7 @@ namespace EmotivDrivers.GUI {
             this.Hide();
         }
 
-        private void SetupIpValidationLabelOK() {
+        private void SetupIpValidationLabel() {
             this.ipValidationLabel.Text = "IP-Address was successfully set";
             this.ipValidationLabel.Font = new Font("Verdana", 14);
             this.ipValidationLabel.ForeColor = Color.FromArgb(255, 40, 156, 71);

@@ -9,7 +9,10 @@ using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.GUI {
     public class LoadProfileGUI : GUI {
-
+        
+        /// <summary>
+        /// --------------------------- VARIABLES ---------------------------
+        /// </summary>
         private Panel buttonContainer;
         private Label profileLoadingLabel;
         private TextBox consoleOutputTextBox;
@@ -19,17 +22,17 @@ namespace EmotivDrivers.GUI {
         
         private List<string> profileList;
 
-        private CortexClient cortexClient;
+        private readonly CortexClient cortexClient;
         private string cortexToken;
         private string sessionId;
         private string licenseId;
-        private bool isActiveSession;
+        private readonly bool isActiveSession;
         private string headsetId;
 
-        private Authorizer authorizer;
-        private SessionCreator sessionCreator;
-        private ProfileHandler profileHandler;
-        private HeadsetFinder headsetFinder;
+        private readonly Authorizer authorizer;
+        private readonly SessionCreator sessionCreator;
+        private readonly ProfileHandler profileHandler;
+        private readonly HeadsetFinder headsetFinder;
         
         private List<string> streams;
         public List<string> Streams {
@@ -37,9 +40,15 @@ namespace EmotivDrivers.GUI {
             set { this.streams = value; }
         }
         
+        /// <summary>
+        /// --------------------------- EVENTS ---------------------------
+        /// </summary>
         public event EventHandler<ArrayList> OnComDataReceived; // command word data
         public event EventHandler<Dictionary<string, JArray>> OnSubscribed;
         
+        /// <summary>
+        /// --------------------------- CONSTRUCTORS ---------------------------
+        /// </summary>
         public LoadProfileGUI() {
             this.authorizer = new Authorizer();
             this.sessionCreator = new SessionCreator();
@@ -58,7 +67,10 @@ namespace EmotivDrivers.GUI {
             SubscribeToEvents();
             this.authorizer.Start(licenseId);
         }
-
+        
+        /// <summary>
+        /// --------------------------- METHODS ---------------------------
+        /// </summary>
         private void SubscribeToEvents() {
             this.profileHandler.OnProfileQuery += ProfileQueryOk;
             this.profileHandler.OnProfileLoaded += ProfileLoadedOK;
@@ -99,7 +111,7 @@ namespace EmotivDrivers.GUI {
                 profileButton.Text = profileList.ElementAt(i);
                 profileButton.AccessibleName = i.ToString();
                 
-                profileButton.Click += new EventHandler(OnProfileButtonClick);
+                profileButton.Click += OnProfileButtonClick;
                 
                 profileButton.Location = newLocation;
                 newLocation.Offset(0, profileButton.Height + 10);
@@ -148,7 +160,7 @@ namespace EmotivDrivers.GUI {
 
             switch (profileName) {
                 case "0" :
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(0), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -156,7 +168,7 @@ namespace EmotivDrivers.GUI {
                     break;
                 
                 case "1":
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(1), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -164,7 +176,7 @@ namespace EmotivDrivers.GUI {
                     break;
                 
                 case "2":
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(2), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -172,7 +184,7 @@ namespace EmotivDrivers.GUI {
                     break;
                 
                 case "3":
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(3), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -180,7 +192,7 @@ namespace EmotivDrivers.GUI {
                     break;
                 
                 case "4":
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(4), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -188,7 +200,7 @@ namespace EmotivDrivers.GUI {
                     break;
                 
                 case "5":
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(5), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -196,7 +208,7 @@ namespace EmotivDrivers.GUI {
                     break;
                 
                 case "6":
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(6), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -204,7 +216,7 @@ namespace EmotivDrivers.GUI {
                     break;
                 
                 case "7":
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(7), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -212,7 +224,7 @@ namespace EmotivDrivers.GUI {
                     break;
                 
                 case "8":
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(8), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -220,7 +232,7 @@ namespace EmotivDrivers.GUI {
                     break;
                 
                 case "9":
-                    AddStreams("com");
+                    AddStream("com");
                     this.profileHandler.LoadProfile(profileList.ElementAt(9), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
@@ -336,7 +348,7 @@ namespace EmotivDrivers.GUI {
             }
         }
         
-        public void AddStreams(string stream) {
+        private void AddStream(string stream) {
             if (!this.streams.Contains(stream)) {
                 this.streams.Add(stream);
             }
