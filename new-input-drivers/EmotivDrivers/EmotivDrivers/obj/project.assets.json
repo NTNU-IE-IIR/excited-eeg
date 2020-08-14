@@ -1660,19 +1660,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\robin\\.nuget\\packages\\": {}
+    "C:\\Users\\Emil\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
+      "projectUniqueName": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
       "projectName": "EmotivDrivers",
-      "projectPath": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
-      "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\obj\\",
+      "projectPath": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
+      "packagesPath": "C:\\Users\\Emil\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Emil\\Documents\\GitHub\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\Emil\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net48"
@@ -1707,7 +1707,7 @@
             "version": "[1.0.3-rc11, )"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.302\\RuntimeIdentifierGraph.json"
       }
     },
     "runtimes": {
