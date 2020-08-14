@@ -4,7 +4,7 @@ using System.Linq;
 using Newtonsoft.Json.Linq;
 using System.Timers;
 
-namespace EmotivDrivers.CortexClient {
+namespace EmotivDrivers.CortexSystem {
     /// <summary>
     /// Used to locate a emotiv headset which is connected to the Emotive software
     /// </summary>

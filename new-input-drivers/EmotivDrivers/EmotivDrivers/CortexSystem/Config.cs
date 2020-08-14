@@ -1,4 +1,4 @@
-﻿namespace EmotivDrivers.CortexClient {
+﻿namespace EmotivDrivers.CortexSystem {
     
     /// <summary>
     /// Used to store differed configuration variables for the cortex client.

@@ -3,18 +3,15 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Drawing;
 using System.Linq;
-using System.Runtime.CompilerServices;
 using System.Windows.Forms;
-using EmotivDrivers.CortexClient;
+using EmotivDrivers.CortexSystem;
 using Newtonsoft.Json.Linq;
 
 namespace EmotivDrivers.GUI {
     public class LoadProfileGUI : GUI {
 
         private Panel buttonContainer;
-
         private Label profileLoadingLabel;
-
         private TextBox consoleOutputTextBox;
         
         private int consoleOutputTextBoxWidth = 750;
@@ -22,7 +19,7 @@ namespace EmotivDrivers.GUI {
         
         private List<string> profileList;
 
-        private CortexClient.CortexClient cortexClient;
+        private CortexClient cortexClient;
         private string cortexToken;
         private string sessionId;
         private string licenseId;
@@ -57,16 +54,17 @@ namespace EmotivDrivers.GUI {
 
             this.streams = new List<string>();
             
-            this.cortexClient = CortexClient.CortexClient.Instance;
+            this.cortexClient = CortexClient.Instance;
             SubscribeToEvents();
             this.authorizer.Start(licenseId);
         }
 
         private void SubscribeToEvents() {
             this.profileHandler.OnProfileQuery += ProfileQueryOk;
+            this.profileHandler.OnProfileLoaded += ProfileLoadedOK;
+            
             this.authorizer.OnAuthorized += AuthorizedOK;
             this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
-            this.profileHandler.OnProfileLoaded += ProfileLoadedOK;
             this.sessionCreator.OnSessionCreated += SessionCreatedOk;
 
             this.cortexClient.OnSubscribeData += SubscribeDataOK;
