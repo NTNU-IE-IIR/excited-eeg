@@ -5,7 +5,7 @@ using EmotivDrivers.GUI;
 using EmotivDrivers.HeadsetComm;
 using WebSocketSharp;
 
-namespace EmotivDrivers.ApplicationConnection {
+namespace EmotivDrivers.AppConnection {
     
     /// <summary>
     /// Class used for connecting the cortex client to the android keyboard application.
