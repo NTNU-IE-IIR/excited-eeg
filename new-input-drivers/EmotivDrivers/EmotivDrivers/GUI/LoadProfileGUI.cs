@@ -19,9 +19,7 @@ namespace EmotivDrivers.GUI {
         
         private int consoleOutputTextBoxWidth = 750;
         private int consoleOutputTextBoxHeight = 400;
-
-        private Button stopDriverButton;
-
+        
         private List<string> profileList;
 
         private CortexClient.CortexClient cortexClient;
@@ -43,35 +41,28 @@ namespace EmotivDrivers.GUI {
         }
         
         public event EventHandler<ArrayList> OnComDataReceived; // command word data
-        public event EventHandler<ArrayList> OnMotionDataReceived; // motion data
-        public event EventHandler<ArrayList> OnEEGDataReceived; // eeg data
-        public event EventHandler<ArrayList> OnDevDataReceived; // contact quality data
-        public event EventHandler<ArrayList> OnPerfDataReceived; // performance metric
-        public event EventHandler<ArrayList> OnBandPowerDataReceived; // band power
         public event EventHandler<Dictionary<string, JArray>> OnSubscribed;
         
         public LoadProfileGUI() {
-            authorizer = new Authorizer();
-            sessionCreator = new SessionCreator();
-            profileHandler = new ProfileHandler();
-            headsetFinder = new HeadsetFinder();
+            this.authorizer = new Authorizer();
+            this.sessionCreator = new SessionCreator();
+            this.profileHandler = new ProfileHandler();
+            this.headsetFinder = new HeadsetFinder();
             
             
-            licenseId = "";
-            cortexToken = "";
-            sessionId = "";
-            isActiveSession = false;
+            this.licenseId = "";
+            this.cortexToken = "";
+            this.sessionId = "";
+            this.isActiveSession = false;
 
-            streams = new List<string>();
+            this.streams = new List<string>();
             
-            cortexClient = CortexClient.CortexClient.Instance;
+            this.cortexClient = CortexClient.CortexClient.Instance;
             SubscribeToEvents();
             this.authorizer.Start(licenseId);
         }
 
         private void SubscribeToEvents() {
-            stopDriverButton.Click += new EventHandler(OnStopDriverButtonClick);
-
             this.profileHandler.OnProfileQuery += ProfileQueryOk;
             this.authorizer.OnAuthorized += AuthorizedOK;
             this.headsetFinder.OnHeadsetConnected += HeadsetConnectedOK;
@@ -86,15 +77,20 @@ namespace EmotivDrivers.GUI {
         }
 
         private void InitComponents() {
+            this.buttonContainer = new Panel();
+            this.profileLoadingLabel = new Label();
+            this.consoleOutputTextBox = new TextBox();
+            
             SetupProfileLoadingLabel();
             SetupProfileButtons();
+            
+            this.Controls.Add(buttonContainer);
+            this.Controls.Add(profileLoadingLabel);
         }
 
         private void SetupProfileButtons() {
             this.Text = "Load Emotiv profiles";
-
-            buttonContainer = new Panel();
-
+            
             Point newLocation = new Point(0, 0);
             for (int i = 0; i < profileList.Count; i++) {
                 Button profileButton = new Button();
@@ -109,33 +105,24 @@ namespace EmotivDrivers.GUI {
                 
                 profileButton.Location = newLocation;
                 newLocation.Offset(0, profileButton.Height + 10);
-                buttonContainer.Controls.Add(profileButton);
+                this.buttonContainer.Controls.Add(profileButton);
             }
 
-            buttonContainer.AutoSize = true;
+            this.buttonContainer.AutoSize = true;
 
-            buttonContainer.Location = new Point(guiWidth / 2 - buttonContainer.Size.Width / 2, 40);
+            this.buttonContainer.Location = new Point(guiWidth / 2 - buttonContainer.Size.Width / 2, 40);
 
             this.AutoScroll = true;
-
-            this.Controls.Add(buttonContainer);
         }
 
         private void SetupProfileLoadingLabel() {
-            profileLoadingLabel = new Label();
-
             this.profileLoadingLabel.Text = "Select profile to load";
             this.profileLoadingLabel.Font = new Font("Verdana", 14);
             this.profileLoadingLabel.AutoSize = true;
             this.profileLoadingLabel.Location = new Point((guiWidth / 2) - this.profileLoadingLabel.Width - 4, 10);
-            
-            this.Controls.Add(profileLoadingLabel);
         }
 
         private void SetupConsoleOutput() {
-            this.consoleOutputTextBox = new TextBox();
-            this.stopDriverButton = new Button();
-            
             this.Location = this.Location;
             this.StartPosition = FormStartPosition.Manual;
             this.FormClosing += delegate { this.Show(); };
@@ -148,8 +135,7 @@ namespace EmotivDrivers.GUI {
             }
             
             this.Controls.Add(consoleOutputTextBox);
-            this.Controls.Add(stopDriverButton);
-            
+
             this.consoleOutputTextBox.ReadOnly = true;
             this.consoleOutputTextBox.Location = new Point((guiWidth / 2) - (consoleOutputTextBoxWidth / 2), (guiHeight / 2) - consoleOutputTextBoxHeight / 2 - 20);
             this.consoleOutputTextBox.MinimumSize = new Size(consoleOutputTextBoxWidth, consoleOutputTextBoxHeight);
@@ -159,44 +145,88 @@ namespace EmotivDrivers.GUI {
         }
         
         private void OnProfileButtonClick(object sender, EventArgs eventArgs) {
-            Button cb = (Button) sender;
-            string profileName = cb.AccessibleName;
+            Button senderButton = (Button) sender;
+            string profileName = senderButton.AccessibleName;
 
             switch (profileName) {
                 case "0" :
                     AddStreams("com");
-                    profileHandler.LoadProfile(profileList.ElementAt(0), cortexToken, headsetId);
+                    this.profileHandler.LoadProfile(profileList.ElementAt(0), cortexToken, headsetId);
                     this.buttonContainer.Dispose();
                     this.profileLoadingLabel.Dispose();
                     SetupConsoleOutput();
                     break;
                 
                 case "1":
-                    MessageBox.Show(cb.AccessibleName);
+                    AddStreams("com");
+                    this.profileHandler.LoadProfile(profileList.ElementAt(1), cortexToken, headsetId);
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
                 
                 case "2":
+                    AddStreams("com");
+                    this.profileHandler.LoadProfile(profileList.ElementAt(2), cortexToken, headsetId);
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
                 
                 case "3":
+                    AddStreams("com");
+                    this.profileHandler.LoadProfile(profileList.ElementAt(3), cortexToken, headsetId);
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
                 
                 case "4":
+                    AddStreams("com");
+                    this.profileHandler.LoadProfile(profileList.ElementAt(4), cortexToken, headsetId);
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
                 
                 case "5":
+                    AddStreams("com");
+                    this.profileHandler.LoadProfile(profileList.ElementAt(5), cortexToken, headsetId);
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
                 
                 case "6":
+                    AddStreams("com");
+                    this.profileHandler.LoadProfile(profileList.ElementAt(6), cortexToken, headsetId);
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
                 
                 case "7":
+                    AddStreams("com");
+                    this.profileHandler.LoadProfile(profileList.ElementAt(7), cortexToken, headsetId);
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
                 
                 case "8":
+                    AddStreams("com");
+                    this.profileHandler.LoadProfile(profileList.ElementAt(8), cortexToken, headsetId);
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
                 
                 case "9":
+                    AddStreams("com");
+                    this.profileHandler.LoadProfile(profileList.ElementAt(9), cortexToken, headsetId);
+                    this.buttonContainer.Dispose();
+                    this.profileLoadingLabel.Dispose();
+                    SetupConsoleOutput();
                     break;
             }
         }
@@ -268,18 +298,6 @@ namespace EmotivDrivers.GUI {
             if (e.StreamName == "com") {
                 OnComDataReceived(this, data);
             }
-            else if (e.StreamName == "eeg") {
-                OnEEGDataReceived(this, data); 
-            }
-            else if (e.StreamName == "mot") {
-                OnMotionDataReceived(this, data);
-            }
-            else if (e.StreamName == "met") {
-                OnPerfDataReceived(this, data);
-            }
-            else if (e.StreamName == "pow") {
-                OnBandPowerDataReceived(this, data);
-            }
         }
         
         private static void SubscribedOK(object sender, Dictionary<string, JArray> e) {
@@ -345,10 +363,6 @@ namespace EmotivDrivers.GUI {
                 Console.WriteLine(e);
                 throw;
             }
-        }
-        
-        private void OnStopDriverButtonClick(object sender, EventArgs eventArgs) {
-            Application.Exit();
         }
         
         protected override void OnFormClosing(FormClosingEventArgs e) {
