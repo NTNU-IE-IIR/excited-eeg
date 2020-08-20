@@ -43,12 +43,22 @@ namespace EmotivDrivers.GUI {
         }
         
         private static float currentTimeStamp = 0;
-        private static float[] previousTriggerTime = {0,0,0,0,0};
+        private static float[] previousTriggerTime = new float [14];
         private static int neutral = 0;
         private static int left = 1;
         private static int right = 2;
         private static int push = 3;
         private static int pull = 4;
+        private static int lift = 5;
+        private static int drop = 6;
+        private static int rotateRight = 7;
+        private static int rotateLeft = 8;
+        private static int rotateClockwise = 9;
+        private static int rotateCounterClockwise = 10;
+        private static int rotateReverse = 11;
+        private static int rotateForwards = 12;
+        private static int disappear = 13;
+        
         private static float commandInterval = 1.5f;
         private static float triggerThreshold = 0.30f;
 
@@ -76,6 +86,7 @@ namespace EmotivDrivers.GUI {
             this.cortexToken = "";
             this.sessionId = "";
             this.isActiveSession = false;
+            Array.Clear(previousTriggerTime, 0, previousTriggerTime.Length);
 
             this.streams = new List<string>();
             
@@ -387,6 +398,78 @@ namespace EmotivDrivers.GUI {
                             previousTriggerTime[pull] = currentTimeStamp;
                             applicationConnection.SendMessageToKeyboardServer("4");
                             Console.WriteLine("Sending command: Pull.");
+                        }
+                        break;
+                    
+                    case "lift":
+                        if (currentTimeStamp - previousTriggerTime[lift] >= commandInterval) {
+                            previousTriggerTime[lift] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("5");
+                            Console.WriteLine("Sending command: Lift.");
+                        }
+                        break;
+                        
+                    case "drop":
+                        if (currentTimeStamp - previousTriggerTime[drop] >= commandInterval) {
+                            previousTriggerTime[drop] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("6");
+                            Console.WriteLine("Sending command: Drop.");
+                        }
+                        break;
+                    
+                    case "rotateRight":
+                        if (currentTimeStamp - previousTriggerTime[rotateRight] >= commandInterval) {
+                            previousTriggerTime[rotateRight] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("7");
+                            Console.WriteLine("Sending command: Rotate right.");
+                        }
+                        break;
+                    
+                    case "rotateLeft":
+                        if (currentTimeStamp - previousTriggerTime[rotateLeft] >= commandInterval) {
+                            previousTriggerTime[rotateLeft] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("8");
+                            Console.WriteLine("Sending command: Rotate left.");
+                        }
+                        break;
+                    
+                    case "rotateClockwise":
+                        if (currentTimeStamp - previousTriggerTime[rotateClockwise] >= commandInterval) {
+                            previousTriggerTime[rotateClockwise] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("9");
+                            Console.WriteLine("Sending command: Rotate clockwise.");
+                        }
+                        break;
+                    
+                    case "rotateCounterClockwise":
+                        if (currentTimeStamp - previousTriggerTime[rotateCounterClockwise] >= commandInterval) {
+                            previousTriggerTime[rotateCounterClockwise] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("10");
+                            Console.WriteLine("Sending command: Rotate counterclockwise.");
+                        }
+                        break;
+                    
+                    case "rotateReverse":
+                        if (currentTimeStamp - previousTriggerTime[rotateReverse] >= commandInterval) {
+                            previousTriggerTime[rotateReverse] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("11");
+                            Console.WriteLine("Sending command: Rotate reverse.");
+                        }
+                        break;
+                    
+                    case "rotateForwards":
+                        if (currentTimeStamp - previousTriggerTime[rotateForwards] >= commandInterval) {
+                            previousTriggerTime[rotateForwards] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("12");
+                            Console.WriteLine("Sending command: Rotate forwards.");
+                        }
+                        break;
+                    
+                    case "disappear":
+                        if (currentTimeStamp - previousTriggerTime[disappear] >= commandInterval) {
+                            previousTriggerTime[disappear] = currentTimeStamp;
+                            applicationConnection.SendMessageToKeyboardServer("13");
+                            Console.WriteLine("Sending command: Disappear.");
                         }
                         break;
                 }
