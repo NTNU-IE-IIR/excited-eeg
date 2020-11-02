@@ -1,141 +1,0 @@
-
-wsquid:S00115Z"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ı½‚çıÿÿÿÿ
-lsquid:S00100Í"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ö‹¦ªùÿÿÿÿ
-gsquid:S00100õ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(˜œ’¤
-‡"squid:ClassVariableVisibilityCheckò"XMake usedQuotaDay a static final constant or non-public and provide accessors if needed.(üÃÎï
-lsquid:S00100Í"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(·Øï‹øÿÿÿÿ
-lsquid:S00100Â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŞèË÷şÿÿÿÿ
-gsquid:S00100È"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ç–Ğ±
-lsquid:S00100˜"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤»Ç¬øÿÿÿÿ
-*squid:S2176é"Rename this class.(Ãã…Î
-gsquid:S00100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(îõ„¤
-lsquid:S00100ä"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¬ÍªÉıÿÿÿÿ
-fsquid:S00100®"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°÷òV
-wsquid:S00115^"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ŞúèÑûÿÿÿÿ
-jsquid:S00117Ç"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰€ªª
-wsquid:S00120"ZRename this package name to match the regular expression '^[a-z_]+(\.[a-z_][a-z0-9_]*)*$'.(œ¹‡ıÿÿÿÿ
-rsquid:S00115}"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‘ıÁ¢
-lsquid:S00100Ë"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£ê¶Êúÿÿÿÿ
-gsquid:S00100Â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Øªõ˜
-gsquid:S00100¥"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ŸÀ‡
-lsquid:S00100ƒ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Üë‘ûÿÿÿÿ
-Usquid:S3878ü"8Remove this array creation and simply pass the elements.(·¡™ûıÿÿÿÿ
-jsquid:S00117Ü"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛÑ¬å
-gsquid:S00100¥	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(º¹±©
-lsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(²“…ùÿÿÿÿ
-‰"squid:ClassVariableVisibilityCheckõ"UMake usedQuota a static final constant or non-public and provide accessors if needed.(á—²úÿÿÿÿ
-‰"squid:ClassVariableVisibilityCheckí"UMake date_from a static final constant or non-public and provide accessors if needed.(¹ĞØëÿÿÿÿÿ
-wsquid:S00115n"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(éê­¡şÿÿÿÿ
-xsquid:S00115š"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(“ÿíúÿÿÿÿ
-wsquid:S00115V"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(±ëÄÁùÿÿÿÿ
-gsquid:S00100ª"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¯Øè
-"squid:ClassVariableVisibilityCheckó"[Make quotaMonthLimit a static final constant or non-public and provide accessors if needed.(ıøÚ¸ÿÿÿÿÿ
-lsquid:S00100©"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Âíê¸üÿÿÿÿ
-lsquid:S00100ï"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(„’ÚĞüÿÿÿÿ
-rsquid:S00115X"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Óõ¥³
-gsquid:S00100	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(€ªÑ«
-gsquid:S00100ò"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÈÃúá
-gsquid:S00100¾"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÇÌ
-gsquid:S00100ã"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü×Á
-Csquid:S2160ç"+Override the "equals" method in this class.(™ÒèÁ
-gsquid:S00100¨"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Íª®
-xsquid:S00115ƒ"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Ú—Øªúÿÿÿÿ
-gsquid:S00100‘"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıÔÁŠ
-wsquid:S00115~"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(äµÿğúÿÿÿÿ
-rsquid:S00115|"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(Çôº¿
-rsquid:S00115\"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(‘Ô‰Û
-gsquid:S00100¤"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı¡ŞÏ
-Qsquid:S1191"5Use classes from the Java API instead of Sun classes.(ªìŸ´ûÿÿÿÿ
-Csquid:S1168Ó"+Return an empty collection instead of null.(¥¹ï
-gsquid:S00100æ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¤ §×
-lsquid:S00100¿"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(»Ğ„Êøÿÿÿÿ
-nsquid:S00116ï"URename this field "seat_count" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(°¾Çî
-gsquid:S00100å"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‚˜Ü
-ksquid:S00101Ç"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(ÉºÈúÿÿÿÿ
-wsquid:S00115o"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(çÁ„Ãúÿÿÿÿ
-gsquid:S00100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(æò¡Ù
-Ksquid:EmptyStatementUsageCheck"Remove this empty statement.(ôŸìúÿÿÿÿ
-wsquid:S00115z"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(È¢’ßüÿÿÿÿ
-rsquid:S00115p"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(®ñÍå
-Osquid:S1135û"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
-Hsquid:S2160Ç"+Override the "equals" method in this class.(ÉºÈúÿÿÿÿ
-wsquid:S00115Y"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(­æ©ôüÿÿÿÿ
-lsquid:S00100¬"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôí³´ÿÿÿÿÿ
-gsquid:S00100œ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(£˜®Ù
-wsquid:S00115u"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ö¶õ·üÿÿÿÿ
-gsquid:S00100”"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(µ ³
-gsquid:S00100‘"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê«ì½
-wsquid:S00115["ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ñ»Áğÿÿÿÿÿ
-fsquid:S00101ç"MRename this class name to match the regular expression '^[A-Z][a-zA-Z0-9]*$'.(™ÒèÁ
-wsquid:S00115q"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ùœÿ¶üÿÿÿÿ
-gsquid:S00100¸"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘¡ûõ
-gsquid:S00100ı"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ªüì³
-ssquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(˜Œ—¿
-rsquid:S00115{"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ğ«îÍ
-gsquid:S00100ó"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(š¬€
-"squid:ClassVariableVisibilityCheckì"RMake scopes a static final constant or non-public and provide accessors if needed.(àñÄÑ
-gsquid:S00100Š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ô§
-psquid:S00116î"RRename this field "date_to" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(öùµîøÿÿÿÿ
-gsquid:S00100	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿«¹²
-gsquid:S00100¯"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Œƒ¦
-wsquid:S00115]"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(¢œÄ—ıÿÿÿÿ
-gsquid:S00100À"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‘ƒİ¹
-qsquid:S00115U"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ËÃ¯1
-lsquid:S00100Ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ˆ™†üÿÿÿÿ
-gsquid:S00100Š"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ıÑ ‘
-gsquid:S00100ï"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ôö®ç
-lsquid:S00100‚"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¸±›‘úÿÿÿÿ
-lsquid:S00100´"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(­ÒÏúÿÿÿÿ
-…"squid:ClassVariableVisibilityCheckö"QMake quota a static final constant or non-public and provide accessors if needed.(¸Ïß•şÿÿÿÿ
-osquid:S00117¿"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(—ê°ÿøÿÿÿÿ
-lsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É‘›‰ûÿÿÿÿ
-wsquid:S00115W"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ƒ¯“úşÿÿÿÿ
-csquid:CommentedOutCodeLine"<This block of commented-out lines of code should be removed.(­ƒÚ®
-‰"squid:ClassVariableVisibilityCheckô"ZMake usedQuotaMonth a static final constant or non-public and provide accessors if needed.(ÙÛ¾
-gsquid:S00100£"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(éÖœá
-gsquid:S00100ó"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’Ëé
-gsquid:S00100Ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ğ¦¤ß
-‡"squid:ClassVariableVisibilityCheckî"SMake date_to a static final constant or non-public and provide accessors if needed.(öùµîøÿÿÿÿ
-ssquid:S00115€"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÓÇ¶Õ
-gsquid:S00100³"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı´š°
-gsquid:S00100ù"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¡¥£Ö
->squid:S1214""Move constants to a class or enum.(©©Ù½øÿÿÿÿ
-rsquid:S00116í"TRename this field "date_from" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¹ĞØëÿÿÿÿÿ
-gsquid:S00100Ü"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÛÑ¬å
-wsquid:S00115"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(ÅÖ†‘ıÿÿÿÿ
-lsquid:S00100¾"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ŒïÓûÿÿÿÿ
-lsquid:S00100Ò"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÏêÈıÿÿÿÿ
-lsquid:S00100Ù"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(†û°ûÿÿÿÿ
-lsquid:S00100Ó"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(É»à±ÿÿÿÿÿ
-lsquid:S00100ü"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(œÜ‰Âşÿÿÿÿ
-wsquid:S00115r"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(İÒ«œøÿÿÿÿ
-lsquid:S00100Ñ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’çÏçÿÿÿÿÿ
-lsquid:S00100š	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Èªİ™üÿÿÿÿ
-ˆ"squid:ClassVariableVisibilityCheckñ"YMake quotaDayLimit a static final constant or non-public and provide accessors if needed.(Õ¨×Â
-fsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¼¤ı(
-jsquid:S00117¾"QRename this local variable to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÇÌ
-Osquid:S1135Ò"2Complete the task associated to this TODO comment.(» æÿÿÿÿÿ
-…"squid:ClassVariableVisibilityCheckï"VMake seat_count a static final constant or non-public and provide accessors if needed.(°¾Çî
-ksquid:S00100g"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(âİëõüÿÿÿÿ
-gsquid:S00100—"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(’µá’
-lsquid:S00100æ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ôîÌûÿÿÿÿ
-lsquid:S00100ö"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½Ñ˜İÿÿÿÿÿ
-wsquid:S00115s"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(íæ¶Œûÿÿÿÿ
-ssquid:S00115‚"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(§î·‚
-gsquid:S00100›"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ãâ¼¤
-rsquid:S00115_"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(˜°Âÿ
-gsquid:S00100Ç"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‰€ªª
-lsquid:S00100°	"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ëÓìîøÿÿÿÿ
-lsquid:S00100¸"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ı¦ûşÿÿÿÿ
-gsquid:S00100â"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(Ä…Çû
-lsquid:S00100é"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(™·°ÿÿÿÿÿ
-lsquid:S00100æ"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ü“£¥ùÿÿÿÿ
-lsquid:S00100Ø"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(…ã³Îüÿÿÿÿ
-lsquid:S00100Ù"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ê‰Ã§øÿÿÿÿ
-gsquid:S00100à"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(äÍò
-gsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(½ƒ¶
-wsquid:S00115t"ZRename this constant name to match the regular expression '^[A-Z][A-Z0-9]*(_[A-Z0-9]+)*$'.(à¹Šøûÿÿÿÿ
-lsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(¿«¾áıÿÿÿÿ
-gsquid:S00100Ê"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(ÿ¤ß´
-Lsquid:EmptyStatementUsageCheckÄ"Remove this empty statement.(ôŸìúÿÿÿÿ
-gsquid:S00100"NRename this method name to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(šºø

@@ -1,75 +1,0 @@
-
-P
-squid:S106—"9Replace this use of System.out or System.err by a logger.(”ïÅû
-U
-squid:S106²"9Replace this use of System.out or System.err by a logger.(ŸÖÉøÿÿÿÿ
-O
-squid:S106g"9Replace this use of System.out or System.err by a logger.(Ú¹²§
-P
-squid:S106ô"9Replace this use of System.out or System.err by a logger.(Ä»Í 
-gsquid:CommentedOutCodeLineY"<This block of commented-out lines of code should be removed.(ß®«æøÿÿÿÿ
-O
-squid:S106"9Replace this use of System.out or System.err by a logger.(àÿó
-P
-squid:S106†"9Replace this use of System.out or System.err by a logger.(ø‚‘Ø
-P
-squid:S106’"9Replace this use of System.out or System.err by a logger.(…ÕĞ
-P
-squid:S106"9Replace this use of System.out or System.err by a logger.(¹Œóì
-O
-squid:S106š"9Replace this use of System.out or System.err by a logger.(‹êû%
-O
-squid:S106v"9Replace this use of System.out or System.err by a logger.(©ÄåŠ
-U
-squid:S106Œ"9Replace this use of System.out or System.err by a logger.(‹¡ÂÈşÿÿÿÿ
-P
-squid:S106Ì"9Replace this use of System.out or System.err by a logger.(¦İ«„
-P
-squid:S106Ø"9Replace this use of System.out or System.err by a logger.(¿ùÎ†
-O
-squid:S106Ÿ"9Replace this use of System.out or System.err by a logger.(¥åè"
-gsquid:CommentedOutCodeLineN"<This block of commented-out lines of code should be removed.(‰Äôôÿÿÿÿÿ
-T
-squid:S106]"9Replace this use of System.out or System.err by a logger.(Øö¢õşÿÿÿÿ
-U
-squid:S106å"9Replace this use of System.out or System.err by a logger.(öÉäøÿÿÿÿ
-N
-squid:S106i"9Replace this use of System.out or System.err by a logger.(Éÿûj
-O
-squid:S106x"9Replace this use of System.out or System.err by a logger.(™ıó
-P
-squid:S106§"9Replace this use of System.out or System.err by a logger.(ß³İâ
-vsquid:S1450/"_Remove the "currentTimeStamp" field and declare it as a local variable in the relevant methods.(‡Ø×¡
-P
-squid:S106„"9Replace this use of System.out or System.err by a logger.(ÓÈùØ
-ksquid:S1450!"TRemove the "state" field and declare it as a local variable in the relevant methods.(åçµ
-Qsquid:S1191"5Use classes from the Java API instead of Sun classes.(‚îéÙÿÿÿÿÿ
-U
-squid:S106•"9Replace this use of System.out or System.err by a logger.(¤á¥Êşÿÿÿÿ
-U
-squid:S106õ"9Replace this use of System.out or System.err by a logger.(°£Ö‹üÿÿÿÿ
-T
-squid:S106q"9Replace this use of System.out or System.err by a logger.(ˆŒ˜îûÿÿÿÿ
-O
-squid:S106["9Replace this use of System.out or System.err by a logger.(’ñ€°
-ksquid:S3252‡"GUse static access with "org.java_websocket.WebSocket" for "READYSTATE".(³¾à›ùÿÿÿÿ8©™ß¤±.
-;squid:S1148¨"#Use a logger to log this exception.(Ç’Çê
-€squid:S00116."cRename this field "TIME_OF_PREVIOUS_TRIGGER" to match the regular expression '^[a-z][a-zA-Z0-9]*$'.(‹Ëüÿÿÿÿ
-P
-squid:S106¦"9Replace this use of System.out or System.err by a logger.(ªÛÂ€
-T
-squid:S106n"9Replace this use of System.out or System.err by a logger.(¢›¹şÿÿÿÿ
-osquid:S3776€"RRefactor this method to reduce its Cognitive Complexity from 17 to the 15 allowed.(ëè‡Æıÿÿÿÿ
-P
-squid:S106—"9Replace this use of System.out or System.err by a logger.(¨Ì”
-rsquid:S2068'"V'Password' detected in this expression, review this potentially hard-coded credential.(üÒ»‹ÿÿÿÿÿ
-P
-squid:S106ï"9Replace this use of System.out or System.err by a logger.(ÿÕ†¤
-U
-squid:S106­"9Replace this use of System.out or System.err by a logger.(ŞÒ—üÿÿÿÿ
-V"squid:SwitchLastCaseIsDefaultCheck‹""Add a default case to this switch.(äûŸúøÿÿÿÿ
-P
-squid:S106Ã"9Replace this use of System.out or System.err by a logger.(Œ›×¤
-ksquid:S3252·"GUse static access with "org.java_websocket.WebSocket" for "READYSTATE".(“øüÇüÿÿÿÿ8©™ß¤±.
-P
-squid:S106ø"9Replace this use of System.out or System.err by a logger.(’î»ä
