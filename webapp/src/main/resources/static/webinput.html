@@ -1,0 +1,88 @@
+<!DOCTYPE HTML>
+<html>
+   <head>
+       <title>WebApi Inputs</title>
+       <meta charset="utf-8">
+       <meta name="viewport" content="width=device-width">
+       <link href="/modal.css" rel="stylesheet">
+       <style>
+           body{
+            font-family: sans-serif;
+           }
+           .container{
+            text-align: center;
+           }
+           .input{
+            width: 48%;
+            height: 40vh;
+            box-sizing: border-box;
+            margin-bottom: 0.5em;
+            text-transform: uppercase;
+            font-weight: bold;
+            font-size: 2.5vmin;
+           }
+       </style>
+   </head>
+   <body>
+       <div class="container">
+            <button class="input">Input 1</button>
+            <button class="input">Input 2</button>
+            <button class="input">Input 3</button>
+            <button class="input">Input 4</button>
+        </div>
+       <div id="connection-dialog" class="modal">
+           <div class="modal-content">
+               <p>Connecting to server...</p>
+           </div>
+       </div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript">
+
+function init(){
+
+    var modal = document.getElementById('connection-dialog');
+
+    var reconnectCount = 0;
+    var reconnectLimit = Infinity;
+
+    var ws;
+
+    function reconnect(){
+
+        if(reconnectCount > reconnectLimit){
+            alert("Disconnected. Reload to reconnect");
+            ws = null;
+            return;
+        }
+        reconnectCount++;
+        console.log("Connecting...");
+        ws = new WebSocket("ws://avikeyb.myr1.net/input");
+        ws.onopen = function(){
+            console.log("Conneted");
+            modal.style.display = "none";
+        }
+        ws.onclose = function(){ 
+            console.log("Disconnected");
+            setTimeout(reconnect, 1000);
+            modal.style.display = "block";
+
+        };
+    }
+
+    setTimeout(reconnect, 1000);
+
+
+    $('.input').each(function(i, el){
+        $(el).on('click', function(){
+            ws.send((i + 1).toString()); 
+        });
+    });
+
+
+}
+
+init();
+
+</script>
+</body>
+</html>

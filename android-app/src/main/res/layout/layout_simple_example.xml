@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:stretchColumns="*"
+    >
+
+    <TableRow android:layout_weight="1">
+        <TextView android:id="@+id/sym_send" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_a" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding"  android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_b" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding"  android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_c" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding"  android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_d" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding"  android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_e" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding"  android:minWidth="@dimen/simple_example_min_width"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/sym_f" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding"  android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_g" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_h" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_i" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_j" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_k" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/sym_l" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_m" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_n" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_o" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_p" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_q" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+    </TableRow>
+    <TableRow>
+        <TextView android:id="@+id/sym_r" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_s" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_t" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_u" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_v" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_w" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+    </TableRow>
+    <TableRow android:layout_weight="1">
+        <TextView android:id="@+id/sym_x" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_y" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_z" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_num_0" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_num_1" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_num_2" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+    </TableRow>
+    <TableRow android:layout_weight="1">
+        <TextView android:id="@+id/sym_num_3" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_num_4" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_num_5" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_num_6" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_num_7" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_num_8" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+    </TableRow>
+
+    <TableRow android:layout_weight="1">
+        <TextView android:id="@+id/sym_num_9" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_period" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_comma" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_question_mark" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_exclamation_mark" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+        <TextView android:id="@+id/sym_space" android:layout_margin="@dimen/simple_example_cell_margin" android:gravity="center" android:padding="@dimen/simple_example_cell_padding" android:minWidth="@dimen/simple_example_min_width"/>
+    </TableRow>
+</TableLayout>

@@ -1,0 +1,34 @@
+
+I
+java:S1199‹"-Extract this nested code block into a method.(Î—­Šşÿÿÿÿ
+˜
+java:S1186—"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(¦›Í
+]
+java:S2142¢"FEither re-interrupt this method or rethrow the "InterruptedException".(ä ¹€
+I
+java:S1199‚"-Extract this nested code block into a method.(úÀôãùÿÿÿÿ
+a
+java:S1192†"JDefine a constant instead of duplicating this literal "BROADCAST" 6 times.(ÇÑ¿÷
+`
+java:S4201³"IRemove this unnecessary null check; "instanceof" returns false for nulls.(ÁÃò
+Q
+java:S1141š"5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+=
+java:S1075ú"&Remove this hard-coded path-delimiter.(©×àÄ
+F
+java:S2093‘"*Change this "try" to a try-with-resources.(¡»¢üùÿÿÿÿ
+c
+java:S2095’"LUse try-with-resources or close this "DatagramSocket" in a "finally" clause.(¢Ÿ¦
+R	java:S110<"=This class has 11 parents which is greater than 5 authorized.(²Ú±
+H
+java:S1199{"-Extract this nested code block into a method.(ğÁ–Óûÿÿÿÿ
+W	java:S125û"<This block of commented-out lines of code should be removed.(«ˆôéøÿÿÿÿ
+Q
+java:S1141 "5Extract this nested try block into a separate method.(¡»¢üùÿÿÿÿ
+
+java:S1186“"€Add a nested comment explaining why this method is empty, throw an UnsupportedOperationException or complete the implementation.(½Ä³ïşÿÿÿÿ
+D
+java:S1199†"-Extract this nested code block into a method.(ÎŞèº
+H
+java:S1199w"-Extract this nested code block into a method.(·ÿ½äûÿÿÿÿ
+Q	java:S125]"<This block of commented-out lines of code should be removed.(ÙöˆÀ

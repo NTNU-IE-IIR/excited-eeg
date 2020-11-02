@@ -1,0 +1,62 @@
+{
+  "format": 1,
+  "restore": {
+    "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj": {}
+  },
+  "projects": {
+    "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
+        "projectName": "EmotivDrivers",
+        "projectPath": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\EmotivDrivers.csproj",
+        "packagesPath": "C:\\Users\\robin\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\robin\\Documents\\Sommer 2020\\excited-eeg\\new-input-drivers\\EmotivDrivers\\EmotivDrivers\\obj\\",
+        "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "C:\\Users\\robin\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        ],
+        "originalTargetFrameworks": [
+          "net48"
+        ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net48": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "net48": {
+          "dependencies": {
+            "Newtonsoft.Json": {
+              "target": "Package",
+              "version": "[12.0.3, )"
+            },
+            "WebSocket4Net": {
+              "target": "Package",
+              "version": "[0.15.2, )"
+            },
+            "WebSocketSharp": {
+              "target": "Package",
+              "version": "[1.0.3-rc11, )"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\3.1.301\\RuntimeIdentifierGraph.json"
+        }
+      },
+      "runtimes": {
+        "win7-x86": {
+          "#import": []
+        }
+      }
+    }
+  }
+}

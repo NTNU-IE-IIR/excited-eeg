@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@color/default_background_color"
+    android:padding="5dp"
+    >
+
+    <LinearLayout android:layout_weight="1" android:id="@+id/chessLetters" android:layout_width="match_parent" android:layout_height="0dp">
+            <TextView android:layout_weight="1" android:id="@+id/sym_a" android:text="a" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_b" android:text="b" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_c" android:text="c" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_d" android:text="d" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/chessInitial1" android:text="" style="@style/BinarySearchSymbolView" android:layout_width="3dp"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_e" android:text="e" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_f" android:text="f" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_g" android:text="g" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_h" android:text="h" style="@style/BinarySearchSymbolView"/>
+    </LinearLayout>
+    <LinearLayout android:layout_weight="1" android:id="@+id/chessNumbers" android:layout_width="match_parent" android:layout_height="0dp">
+            <TextView android:layout_weight="1" android:id="@+id/sym_num_1" android:text="1" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_num_2" android:text="2" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_num_3" android:text="3" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_num_4" android:text="4" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/chessInitial2" android:text="" style="@style/BinarySearchSymbolView"  android:layout_width="3dp"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_num_5" android:text="5" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_num_6" android:text="6" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_num_7" android:text="7" style="@style/BinarySearchSymbolView"/>
+            <TextView android:layout_weight="1" android:id="@+id/sym_num_8" android:text="8" style="@style/BinarySearchSymbolView"/>
+    </LinearLayout>
+    <LinearLayout android:layout_weight="1" android:id="@+id/chessConfirm" android:layout_width="match_parent" android:layout_height="0dp">
+        <TextView android:layout_weight="1" android:text="" style="@style/BinarySearchSymbolView" android:background="@color/background"/>
+        <TextView android:layout_weight="1" android:id="@+id/sym_send" android:text="Send" style="@style/BinarySearchSymbolView"/>
+        <TextView android:id="@+id/chessInitial3" android:text="" style="@style/BinarySearchSymbolView"  android:layout_width="3dp"/>
+        <TextView android:layout_weight="1" android:id="@+id/sym_clear_buffer" android:text="Cancel" style="@style/BinarySearchSymbolView"/>
+        <TextView android:layout_weight="1" android:id="@+id/sym_setting" android:text="Settings" style="@style/BinarySearchSymbolView"/>
+    </LinearLayout>
+
+
+</LinearLayout>

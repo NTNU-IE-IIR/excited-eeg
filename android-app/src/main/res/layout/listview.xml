@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<merge xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <ListView
+        android:id="@+id/listview"
+        android:layout_weight="3"
+        android:gravity="end"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_gravity="end"
+        android:layout_marginTop="2.5dp"
+        android:choiceMode="singleChoice"
+        android:divider="#ffffff"
+        android:dividerHeight="2dp" />
+</merge>

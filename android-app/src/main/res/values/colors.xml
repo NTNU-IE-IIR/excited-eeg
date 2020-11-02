@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="black">#040505</color>
+
+    <!-- todo kan disse fjernes?-->
+    <color name="mobileLayoutButtonSelectedBackground">#DDDDC0</color>
+    <color name="mobileLayoutButtonBackground">#B3ACB6</color>
+    <color name="mobileLayoutButtonGroupBackground">#8D8194</color>
+    <color name="mobileLayoutRowBackground">#72627B</color>
+    <color name="mobileLayoutUnusedButtonBackground">#8D8194</color>
+
+    <color name="generic_active_fg">#484848</color>
+    <color name="generic_active_bg">#F5B821</color>
+    <color name="generic_inactive_bg">#eeeeee</color>
+    <color name="generic_inactive_fg">#cccccc</color>
+
+
+    <!--  Used for ETOS, adaptive and mobile --> <!--http://paletton.com/#uid=10m0u0k80gk0cN944oyhKb8Mu9d && http://paletton.com/#uid=21T0u0k4drK0tOm1+ye73nraDjy-->
+    <color name="rowselected">#73637D</color> <!--For adaptive -->
+    <color name="background">#DCDBDE</color> <!--DDDDC0,ADA6B0 -->
+    <color name="selected">#ADA6B0</color>
+    <color name="notselected">#FFFFEF</color> <!-- -->
+    <color name="default_background_color">#8D8194</color>
+
+    <color name="binsearch_inactive_bg">#f7f7f7</color> <!-- for binary not active felt -->
+    <color name="binsearch_inactive_fg">#cccccc</color> <!--for binary not active felt-->
+    <color name="binsearch_active_fg">#484848</color>
+    <!-- The colors is easy to distinguish and seems to work well for color blind people -->
+    <color name="binsearch_active_left_bg">#46A8CD</color>
+    <color name="binsearch_active_right_bg">#F5B821</color>
+</resources>

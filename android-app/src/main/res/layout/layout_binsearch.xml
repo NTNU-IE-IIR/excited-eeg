@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="horizontal"
+    android:weightSum="8">
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:layout_width="0dp"
+        android:layout_weight="3"
+        android:layout_height="match_parent"
+        android:id="@+id/binsearchAlphabet"
+        android:stretchColumns="*"
+        android:layout_marginEnd="4dp"
+        >
+
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_a" android:text="a" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_b" android:text="b" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_c" android:text="c" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_d" android:text="d" style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_e" android:text="e" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_f" android:text="f" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_g" android:text="g" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_h" android:text="h" style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_i" android:text="i" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_j" android:text="j" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_k" android:text="k" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_l" android:text="l" style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_m" android:text="m" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_n" android:text="n" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_o" android:text="o" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_p" android:text="p" style="@style/BinarySearchSymbolView"/>
+
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_q" android:text="q" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_r" android:text="r" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_s" android:text="s" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_t" android:text="t" style="@style/BinarySearchSymbolView"/>
+
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_u" android:text="u" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_v" android:text="v" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_w" android:text="w" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_x" android:text="x" style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_y" android:text="y" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_z" android:text="z" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_space" android:text="_" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_send" android:text="\>" style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+    </TableLayout>
+
+    <TableLayout xmlns:android="http://schemas.android.com/apk/res/android"
+        android:id="@+id/binsearchNumbers"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="3"
+        android:stretchColumns="*"
+        android:layout_marginRight="4dp"
+        >
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_num_0" android:text="0" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_num_1" android:text="1" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_num_2" android:text="2" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_num_3" android:text="3" style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_num_4" android:text="4" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_num_5" android:text="5" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_num_6" android:text="6" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_num_7" android:text="7" style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="center">
+            <TextView android:id="@+id/sym_num_8" android:text="8" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_num_9" android:text="9" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_period" android:text="." style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_comma" android:text="," style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="start">
+            <TextView android:id="@+id/sym_question_mark" android:text="\?" style="@style/BinarySearchSymbolView"/>
+            <TextView android:id="@+id/sym_exclamation_mark" android:text="!" style="@style/BinarySearchSymbolView"/>
+            <TextView  android:id="@+id/sym_setting" android:text="Settings" style="@style/BinarySearchSymbolView" android:textSize="@dimen/_14sdp" />
+            <TextView android:id="@+id/sym_clear_buffer" android:text="Clear" style="@style/BinarySearchSymbolView" android:textSize="@dimen/_6sdp" />
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="start">
+            <TextView android:id="@+id/sym_backspace" android:text="D1" style="@style/BinarySearchSymbolView" android:layout_span="2"/>
+            <TextView android:id="@+id/sym_delete_word" android:text="D2" style="@style/BinarySearchSymbolView" android:layout_span="2" android:textSize="@dimen/_8sdp" />
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="start">
+            <TextView android:text="" style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+        <TableRow android:layout_weight="1" android:gravity="start">
+            <TextView android:text="" style="@style/BinarySearchSymbolView"/>
+        </TableRow>
+    </TableLayout>
+
+
+    <android.support.v7.widget.RecyclerView
+        android:id="@+id/suggestionsList"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        />
+    <TextView android:id="@+id/emptySuggestions"
+        android:visibility="gone"
+        android:layout_width="0dp"
+        android:layout_height="match_parent"
+        android:layout_weight="2"
+        android:padding="4dp"
+        android:textAlignment="center"
+        android:text="No suggestions" />
+
+
+</LinearLayout>

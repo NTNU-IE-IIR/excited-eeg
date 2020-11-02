@@ -1,0 +1,69 @@
+buildscript {
+    repositories {
+        google() // For Gradle 4.0+
+        jcenter()
+        maven { url 'https://maven.google.com' } // For Gradle < 4.0
+    }
+
+    dependencies {
+        classpath 'com.android.tools.build:gradle:3.6.2'
+        classpath "org.jetbrains.kotlin:kotlin-gradle-plugin:1.3.31"
+    }
+}
+
+allprojects {
+    repositories {
+        google()
+        jcenter()
+    }
+}
+
+apply plugin: 'com.android.application'
+
+android {
+    compileSdkVersion 25
+    buildToolsVersion '25.0.0'
+    defaultConfig {
+        applicationId "no.ntnu.stud.avikeyb"
+        minSdkVersion 19
+        targetSdkVersion 25
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    splits {
+        abi {
+            enable true
+            reset()
+            include 'x86', 'armeabi-v7a'
+            universalApk true
+        }
+    }
+}
+
+repositories {
+    mavenLocal()
+}
+
+dependencies {
+    implementation fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestImplementation('com.android.support.test.espresso:espresso-core:3.0.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    implementation 'com.android.support:appcompat-v7:28.0.0'
+    implementation 'com.android.support:design:28.0.0'
+    implementation 'com.emotiv.sdk:community:3.3.4'
+    implementation 'com.intuit.sdp:sdp-android:1.0.4'
+    testImplementation 'junit:junit:4.13'
+    implementation 'no.ntnu.stud.avikeyb:backend:1.0-SNAPSHOT'
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
+    implementation 'com.android.support:percent:28.0.0'
+    implementation 'org.java-websocket:Java-WebSocket:1.5.1'
+
+}
