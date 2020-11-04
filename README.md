@@ -1,4 +1,4 @@
-# ExITed - EEG
+# ExcITed - EEG
 Excited project for developing EEG brainwave solutions for communication by ALS patients and other recipients.
 
 The code and project is based on [Accessible virtual keyboard](https://github.com/accessible-virtual-keyboard), which was made as a
